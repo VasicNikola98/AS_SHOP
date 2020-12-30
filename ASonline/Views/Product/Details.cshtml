@@ -1,0 +1,241 @@
+﻿
+@model ASonline.ViewModels.ProductViewModel
+
+@if (Model != null && Model.Product != null)
+{
+    var defaultImageUrl = "/Content/images/System/noPic.png";
+    var imageUrl = string.IsNullOrEmpty(Model.Product.ImageUrl) ? defaultImageUrl : Model.Product.ImageUrl;
+    var confirmedReviews = Model.Product.Reviews.Where(x => x.isConfirmed).ToList();
+
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-title-heading">
+                            <h1 class="title">@Model.Product.Name</h1>
+                        </div><!-- /.page-title-heading -->
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li><a href="@Url.Action("Index","Home")">Početna</a></li>
+                                <li><a href="@Url.Action("Index","Shop")">Shop</a></li>
+                                <li><a href="@Url.Action("Details","Product", new { Id = Model.Product.Id })">Proizvod</a></li>
+                            </ul>
+                        </div><!-- /.breadcrumbs -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.page-title -->
+
+    <section class="flat-row main-shop shop-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="wrap-flexslider">
+                        <div class="inner">
+                            <div class="flexslider style-1 has-relative">
+                                <ul class="slides">
+                                    <li data-thumb="@imageUrl">
+                                        <img src="@imageUrl" alt="Image">
+                                        <div class="flat-icon style-1">
+                                            <a href="@imageUrl" class="zoom-popup"><span class="fa fa-search-plus"></span></a>
+        
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.flexslider -->
+                        </div>
+                    </div>
+                </div><!-- /.col-md-6 -->
+
+                <div class="col-md-6">
+                    <div class="product-detail">
+                        <div class="inner">
+                            <div class="content-detail">
+                                <h1 class="product-title">@Model.Product.Name</h1>
+                                <div class="price mb-4">
+                                    @if (Model.Product.PriceUnderline != 0)
+                                    {
+                                        <del><span class="regular">@Model.Product.PriceUnderline RSD</span></del>
+                                    }
+                                    <ins><span class="amount">@Model.Product.Price RSD</span></ins>
+                                </div>
+                                <div class="product-description mb-5">
+                                    <p>
+                                        @Model.Product.Description
+                                    </p>
+                                </div>
+
+                                @if (Model.Product.ProductStocks.Count != 0 && Model.Product.ProductStocks != null)
+                                {<div class="size">
+                                        <span>VELIČINE</span>
+                                        <hr />
+                                        <ul>
+                                            @foreach (var size in Model.Product.ProductStocks)
+                                            {
+                                                <li>
+                                                    <input type="radio" name="Size" value="@size.Size" id="@size.Size" aria-label="@size.Size" />
+                                                    <label class="label-size" for="@size.Size">@size.Size</label>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="product-quantity">
+                                        <div class="quantity">
+                                            <input type="text" min="1" id="quantityCounter" value="1" name="quantity-number" class="quantity-number">
+                                            <span class="inc quantity-button">+</span>
+                                            <span class="dec quantity-button">-</span>
+                                        </div>
+                                        <div class="add-to-cart productAddToCart" data-id="@Model.Product.Id">
+                                            <a style="cursor: pointer;"><i class="loading-icon fa fa-spinner fa-spin hide-spinner"></i>  DODAJ U KORPU</a>
+                                        </div>
+                                        <div class="box-like">
+                                            <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="size">
+                                        <span>TRENUTNO NEMAMO NA STANJU OVAJ PROIZVOD.</span>
+                                    </div>
+                                }
+                                <div class="product-categories mb-5">
+                                    <span>КATEGORIJE </span>
+                                    <hr />
+                                    <a href="@Url.Action("Index","Shop", new { categoryId = Model.Product.Category.Id })">@Model.Product.Category.Name</a>
+                                </div>
+                                <div>
+                                    <span>ZAPRATITE NAS</span>
+                                    <hr />
+                                    <ul class="flat-socials">
+                                        <li><a href="https://www.facebook.com/butikasvasic"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://www.instagram.com/ashop_online_/"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.product-detail -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-row -->
+
+    <section class="flat-row shop-detail-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-tabs style-1 has-border">
+                        <div class="inner">
+                            <ul class="menu-tab">
+                                <li class="active">Recenzije (@confirmedReviews.Count)</li>
+                            </ul>
+                             <div class="content-tab">
+                                <div class="content-inner">
+                                    <div class="inner max-width-83 padding-top-33">
+                                        @if (confirmedReviews.Count != 0 && confirmedReviews != null)
+                                        {
+                                            <ol class="review-list">
+                                               @foreach (var item in confirmedReviews)
+                                               {
+
+                                                <li class="review">
+                                                    <div class="thumb">
+                                                        <img src="~/Content/images/default-avatar.png" alt="Image">
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="review-meta">
+                                                            <h5 class="name">@item.Username</h5>
+
+                                                        </div>
+                                                        <div class="review-text">
+                                                            <p>@item.Content</p>
+
+                                                            <p class="active">Ocena (@item.Rating)</p>
+                                                            <br />
+                                                            <p>@item.Created.Date.ToString("dd.MM.yyyy")</p>
+                                                        </div>
+
+                                                    </div>
+                                                </li><!--  /.review    -->
+                                               }
+                                        </ol><!-- /.review-list -->
+                                        }
+                                        else
+                                        {
+                                            <div class="text-center p-3">
+                                                <h4 class="mb-2">Još uvek nema komentara.</h4>
+                                                <h2>Budite prvi koji će napisati komentar za <span  class="active">"@Model.Product.Name"</span></h2>
+                                            </div>
+                                      
+                                        }
+                                        <div class="comment-respond review-respond" id="respond">
+                                            <div class="comment-reply-title margin-bottom-14">
+                                                <h5>Napišite komentar</h5>
+                                                <p>Vaša adresa e-pošte neće biti objavljena. Neophodna polja su označena <span class="active">*</span></p>
+                                            </div>
+                                            <form class="comment-form review-form" id="commentform">
+                                                <p class="flat-star style-2">
+                                                    <label>Vaša ocena*</label>
+                                                    <div class="rating">
+                                                        <input type="radio" name="star" id="star5" value="5"/><label class="bx bxs-star" for="star5"></label>
+                                                        <input type="radio" name="star" id="star4" value="4"/><label class="bx bxs-star" for="star4"></label>
+                                                        <input type="radio" name="star" id="star3" value="3"/><label class="bx bxs-star" for="star3"></label>
+                                                        <input type="radio" name="star" id="star2" value="2"/><label class="bx bxs-star" for="star2"></label>
+                                                        <input type="radio" name="star" id="star1" value="1"/><label class="bx bxs-star" for="star1"></label>                                        
+                                                    </div>
+                                                </p>
+                                                <p class="comment-form-comment">
+                                                    <label>Vaš komentar*</label>
+                                                    <input type="text" aria-required="true" size="30" id="Comment" name="Comment" required /> 
+                                                </p>
+                                                @if (!User.Identity.IsAuthenticated)
+                                                {
+                                                   <p class="comment-name">
+                                                       <label>Ime*</label>
+                                                       <input type="text" aria-required="true" v size="30" value="@Model.Name" name="Name" id="Name" required>
+                                                   </p>
+                                                   <p class="comment-email">
+                                                       <label>Email*</label>
+                                                       <input type="email" size="30" value="@Model.Email" name="Email" id="Email" required>
+                                                   </p>
+                                                }
+                                                else
+                                                {
+                                                    <input type="hidden" value="@Model.Name" name="Name" id="Name"/>
+                                                    <input type="hidden" value="@Model.Email" name="Email" id="Email"/>
+                                                }
+                                                <input type="hidden" id="productId" value="@Model.Product.Id"/>
+                                                <p class="form-submit">
+                                                    <a style="cursor:pointer; color:white;" class="btn btn-danger comment-submit">Pošalji</a>
+                                                </p>
+                                            </form>
+                                        </div><!-- /.comment-respond -->
+                                    </div>
+                                </div><!-- /.content-inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /.shop-detail-content -->
+
+    <section class="flat-row shop-related">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section margin-bottom-55">
+                        <h2 class="title">Povezani proizvodi</h2>
+                    </div>
+
+                    @{Html.RenderAction("Products", "Widgets", new { isLatestProducts = false, CategoryId = Model.Product.Category.Id });}
+
+                </div>
+            </div><!-- /.row -->
+        </div>
+    </section>
+
+}
+
+<script src="~/Content/javascript/Product/ProductDetails.js"></script>

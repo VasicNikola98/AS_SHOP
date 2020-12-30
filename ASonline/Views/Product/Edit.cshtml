@@ -1,0 +1,74 @@
+﻿@model ASonline.ViewModels.EditProductViewModel
+
+@{
+    ViewBag.Title = "Edit";
+
+    var imageUrl = !string.IsNullOrEmpty(Model.ImageUrl) ? Model.ImageUrl : "/Content/images/System/noPic.png";
+
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-section">
+                <h2 class="title">
+                    Izmeni proizvod
+                </h2>
+            </div>
+        </div>
+    </div>
+    <form id="editProduct">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <br />
+                    <input value="@Model.Id" class="form-control" id="Id" name="Id" autocomplete="off" type="hidden" />
+                </div>
+                <div class="form-group">
+                    <label for="Name">Naziv proizvoda <span class="active">*</span></label>
+                    <br />
+                    <input value="@Model.Name" class="form-control" id="Name" name="Name" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="Description">Opis</label>
+                    <br />
+                    <input value="@Model.Description" class="form-control" id="Description" name="Description" rows="12" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="PriceUnderline">Precrtana cena</label>
+                    <br />
+                    <input value="@Model.PriceUnderline" class="form-control" id="PriceUnderline" name="PriceUnderline" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="Price">Cena <span class="active">*</span></label>
+                    <br />
+                    <input value="@Model.Price" class="form-control" id="Price" name="Price" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <select name="CategoryId">
+                        @foreach (var category in Model.AvailableCategories)
+                        {
+            <option value="@category.Id" @(category.Id == Model.CategoryId ? "selected" : "")>@category.Name</option>
+}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Image">Slika</label>
+                    <br />
+                    <input id="ImageUrl" name="ImageUrl" type="hidden" />
+                    <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="thumb">
+                    <img class="img-thumbnail img-fluid" id="productImage" src="@imageUrl" />
+                </div>
+            </div>
+
+        </div>
+        <a id="updateBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Sačuvaj izmene</a>
+        <button id="cancelBtn" type="submit" class="btn mt-2">Nazad</button>
+    </form>
+</div>
+<script src="~/Content/javascript/Product/ProductEdit.js"></script>

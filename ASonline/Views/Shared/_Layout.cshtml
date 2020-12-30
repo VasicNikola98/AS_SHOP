@@ -1,0 +1,307 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>AS shop</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/bootstrap.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/responsive.css">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/colors/color1.css" id="colors">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/animate.css">
+
+
+    <!-- Favicon and touch icons  -->
+    <link href="~/Content/icon/favicon.png" rel="~/shortcut icon">
+
+    <!--BOXICONS-->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <script src="~/Content/javascript/jquery.min.js"></script>
+    <script src="~/Content/javascript/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    <!--[if lt IE 9]>
+        <script src="javascript/html5shiv.js"></script>
+        <script src="javascript/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="header_sticky header-style-2 topbar-style-2 topbar-width-94 topbar-divider has-menu-extra">
+    <!-- Preloader -->
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- Boxed -->
+    <div class="boxed">
+        <div id="site-header-wrap">
+            <!-- Top Bar -->
+            <div id="top-bar">
+                <div id="top-bar-inner" class="container-fluid container-width-94">
+                    <div class="top-bar-inner-wrap ">
+                        <div class="top-bar-left">
+                            <ul class="language style2">
+                                <li class="active">
+                                    <a href="">SRB</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="top-bar-content">
+                            <span class="content">ISPORUKA ŠIROM SRBIJE - 062/153-34-12</span>
+                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+            <div class="top-bar-nav">
+                <div class="inner">
+                    <span class="account"><a href="@Url.Action("Index","Manage")"><i class="fa fa-user"></i> Moj nalog </a></span>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+    <a href="javascript:submitform()" title="Logout">Odjavi se</a>}
+                </div>
+            </div> }
+        else
+        {
+<div class="top-bar-nav">
+    <div class="inner">
+        <span class="account"><a href="@Url.Action("Login","Account")"><i class="fa fa-user"></i> Prijavi se </a></span>
+        <span class="account"><a href="@Url.Action("Register","Account")">Registruj se </a></span>
+    </div>
+</div>}
+                    </div>
+                </div>
+            </div>
+            <!-- End Top Bar -->
+            <!-- Header -->
+            <header id="header" class="header clearfix">
+                <div class="container-fluid clearfix container-width-93" id="site-header-inner">
+                    <div id="logo" class="logo float-left">
+                        <a href="@Url.Action("Index","Home")" title="logo">
+                            <h3>AS SHOP</h3>
+                        </a>
+                    </div><!-- /.logo -->
+                    <div class="mobile-button"><span></span></div>
+                    <ul class="menu-extra">
+                        <li class="box-search">
+                            <a class="icon_search header-search-icon" href="#"></a>
+                            <form role="search" method="get" class="header-search-form" action="@Url.Action("Index", "Shop")">
+                                <input type="text" name="searchTerm" class="header-search-field" placeholder="Pretrazi..." autocomplete="off">
+                                <button type="submit" class="header-search-submit" title="Search">Search</button>
+                            </form>
+                        </li>
+                        <li class="box-cart nav-top-cart-wrapper mr-3">
+                            <a class="icon_cart nav-cart-trigger active" href="@Url.Action("Checkout","Shop")"><span id="cartProductsCount">0</span></a>
+                        </li>
+                    </ul><!-- /.menu-extra -->
+                    <div class="nav-wrap">
+                        <nav id="mainnav" class="mainnav">
+                            <ul class="menu">
+                                <li class="active">
+                                    <a href="@Url.Action("Index","Home")">HOME</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Shop")">SHOP</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Checkout","Shop")">CHECKOUT</a>
+                                </li>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                    <li class="active">
+                        <a href="">ADMIN</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="@Url.Action("Index", "Order")">PORUDŽBINE</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Product")">PROIZVODI</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Category")">KATEGORIJE</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Reviews", "Product")">KOMENTARI </a>
+
+                            </li>
+                        </ul>
+                    </li>
+}
+                            </ul>
+                        </nav><!-- /.mainnav -->
+                    </div><!-- /.nav-wrap -->
+                </div><!-- /.container-fluid -->
+            </header><!-- /header -->
+        </div><!-- /.site-header-wrap -->
+
+        @RenderBody()
+
+        <section class="flat-row mail-chimp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text">
+                            <h3>Newsletter</h3>
+                            <h4>
+                                Budite uvek u toku sa aktuelnim popustima
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="subscribe clearfix">
+                            <form id="subscribe-form">
+                                <div class="subscribe-content">
+                                    <div class="input">
+                                        <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Unesite Vaš email">
+                                    </div>
+                                    <div class="button">
+                                        <button type="button" id="saveNewsletter">
+                                            <i class="loading-icon fa fa-spinner fa-spin hide-spinner"></i>
+                                            PRETPLATITE SE
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <ul class="flat-social">
+                                <li><a href="https://www.facebook.com/butikasvasic"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/ashop_online_/"><i class="fa fa-instagram"></i></a></li>
+                            </ul><!-- /.flat-social -->
+                        </div><!-- /.subscribe -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.mail-chimp -->
+        <footer class="footer section">
+            <div class="footer__container bd-grid">
+                <div class="footer__box">
+                    <h3 class="footer__title">ISTRAŽI</h3>
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")" class="footer__link">Početna</a></li>
+                        <li><a href="@Url.Action("Index","Shop")" class="footer__link">Proizvodi</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+            <li><a href="#" class="footer__link">Moj nalog</a></li>
+ using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+            {
+<li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
+ }
+}
+else
+{
+<li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
+                <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>}
+                    </ul>
+                </div>
+                <div class="footer__box">
+                    <h3 class="footer__title">INFORMACIJE</h3>
+                    <ul>
+                        <li><a href="@Url.Action("About","Home")" class="footer__link">O nama</a></li>
+                        <li><a href="@Url.Action("Contact","Home")" class="footer__link">Kontakt</a></li>
+                        <li><a href="@Url.Action("OtherQuestion","Home")" class="footer__link">Najčešća pitanja</a></li>
+                        <li><a href="@Url.Action("PrivacyPolicy","Home")" class="footer__link">Politika privatnosti</a></li>
+                    </ul>
+                </div>
+                <div class="footer__box">
+                    <h3 class="footer__title">ZAPRATITE NAS</h3>
+                    <a href="https://www.facebook.com/butikasvasic" class="footer__social"><i class='bx bxl-facebook-square'></i></a>
+                    <a href="https://www.instagram.com/ashop_online_/" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
+                </div>
+                <div class="footer__box">
+                    <h3 class="footer__title">AS SHOP</h3>
+                    <ul>
+                        <li><a class="footer__contact"><i class='bx bx-phone'></i> +381 64 154/65-35</a></li>
+                        <li><a class="footer__contact"><i class='bx bxs-edit-location'></i> Knjeginje Milice bb</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer__copy">&#169; 2020 Sva prava zadržana</p>
+        </footer>
+        <!-- Go Top -->
+        <a class="go-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+    <div class="cookie-container p-4">
+        <div class="container">
+           
+            <div class="cookieHeader">
+               
+                <h4 style="color:white;" class="text-center"> <i style="font-size: 26px;"  class='bx bx-cookie mr-2'></i><b>Ova web stranica koristi kolačiće</b></h4>
+            </div>
+            <hr  />
+            <p>
+                Kolačiće upotrebljavamo kako bi ova web stranica radila pravilno i kako bismo bili u stanju da vršimo dalja unapređenja stranice sa svrhom poboljšanja Vašeg korisničkog iskustva, kako bismo personalizovali sadržaj i oglase, omogućili značaj društvenih medija i analizirali promet. Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+            </p>
+            <a style="cursor: pointer;" class="btn btn-danger cookieBtn mt-2">Slažem se</a>
+            <a href="@Url.Action("PrivacyPolicy","Home")" class="btn btn-outline-info mt-2">Saznaj više</a>
+        </div>
+    </div>
+    <!-- Javascript -->
+
+    <script src="~/Content/javascript/tether.min.js"></script>
+    <script src="~/Content/javascript/bootstrap.min.js"></script>
+    <script src="~/Content/javascript/jquery.easing.js"></script>
+    <script src="~/Content/javascript/parallax.js"></script>
+    <script src="~/Content/javascript/jquery-waypoints.js"></script>
+    <script src="~/Content/javascript/jquery-countTo.js"></script>
+    <script src="~/Content/javascript/jquery.countdown.js"></script>
+    <script src="~/Content/javascript/jquery.flexslider-min.js"></script>
+    <script src="~/Content/javascript/images-loaded.js"></script>
+    <script src="~/Content/javascript/jquery.isotope.min.js"></script>
+    <script src="~/Content/javascript/magnific.popup.min.js"></script>
+    <script src="~/Content/javascript/jquery.hoverdir.js"></script>
+    <script src="~/Content/javascript/owl.carousel.min.js"></script>
+    <script src="~/Content/javascript/equalize.min.js"></script>
+    <script src="~/Content/javascript/gmap3.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
+
+
+    <script src="~/Content/javascript/jquery.cookie.js"></script>
+    <script src="~/Content/javascript/main.js"></script>
+
+
+    <!-- Revolution Slider -->
+    <script src="~/Content/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Content/javascript/rev-slider.js"></script>
+
+    <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/Content/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/Content/javascript/jquery-ui.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="~/Scripts/layout.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

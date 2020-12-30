@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "grvflZ6q3FgPZAQYsyd2JLAiirY6cmJPZ3ZwIWbTDQgBN/+eYNxyzg9e2cEbaFJ90wnvP2KARXbUKxi4rml0GQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\ASonline.Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nikola Vasic\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nikola Vasic\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

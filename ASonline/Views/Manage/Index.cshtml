@@ -1,0 +1,40 @@
+﻿@model ASonline.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<section class="flat-row flat-icon-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section">
+                    <h2 class="title">
+                        Moj nalog
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <h4>Promeni postavke naloga</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                 <dl class="dl-horizontal">
+
+                     <dd>
+                         @if (Model.HasPassword)
+                         {
+                             <b>@Html.ActionLink("Lozinka", "ChangePassword") </b>
+                         }
+                         else
+                         {
+                            <b>@Html.ActionLink("Create", "SetPassword")</b> 
+                         }
+                     </dd> 
+                 </dl>
+            </div>
+            <div class="col-md-6">
+                <img src="~/Content/images/accountSetting.svg"/>
+            </div>
+        </div>
+    </div>
+</section>

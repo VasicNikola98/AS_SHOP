@@ -1,0 +1,66 @@
+﻿@model ASonline.ViewModels.NewProductViewModel
+@{
+    ViewBag.Title = "Create";
+    var imageUrl = "/Content/images/System/noPic.png";
+}
+
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <div class="title-section">
+                <h2 class="title">
+                    Novi proizvod
+                </h2>
+            </div>
+        </div>
+    </div>
+        <form id="createProduct">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="Name">Naziv proizvoda <span class="active">*</span></label>
+                        <br />
+                        <input class="form-control" id="Name" name="Name" autocomplete="off" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Opis</label>
+                        <br />
+                        <textarea class="form-control" id="Description" name="Description" rows="12" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label for="PriceUnderline">Precrtana cena</label>
+                        <br />
+                        <input class="form-control" id="PriceUnderline" name="PriceUnderline" autocomplete="off"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Cena<span class="active">*</span></label>
+                        <br />
+                        <input class="form-control" id="Price" name="Price" autocomplete="off" required />
+                    </div>
+                    <div class="form-group">
+                        <select name="CategoryId">
+                            @foreach (var category in Model.AvailableCategories)
+                            {
+                <option value="@category.Id">@category.Name</option>}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Slika</label>
+                        <br />
+                        <input type="hidden" name="ImageUrl" id="ImageUrl" />
+                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumb">
+                        <img class="img-thumbnail img-fluid" id="productImage" src="@imageUrl" />
+                    </div>
+                </div>
+            </div>
+         
+           
+            <a id="saveBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj proizvod</a>
+            <button id="cancelBtn" type="submit" class="btn mt-2">Nazad</button>
+        </form>
+</div>
+<script src="~/Content/javascript/Product/ProductCreate.js"></script>

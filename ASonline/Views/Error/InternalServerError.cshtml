@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "InternalServerError";
+}
+
+<div class="boxed">
+    <section class="flat-row flat-error">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-error text-center">
+                        <div class="header-error">
+                            500
+                        </div>
+                        <div class="content-error">
+                            <h2>Uups, Greška na serveru!</h2>
+                            <p>Došlo je do greške pri obradi zahteva. Kliknite <a href="@Url.Action("Index","Home")" class="btn-error">ovde</a> za povratak na početnu stranicu.</p>
+                        </div>
+                    </div><!-- /.wrap-error -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-row -->
+</div>

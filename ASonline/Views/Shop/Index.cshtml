@@ -1,0 +1,45 @@
+﻿@using ASonline.Code
+@using ASonline.ViewModels
+@model ASonline.ViewModels.ShopViewModel
+
+@{ ViewBag.Title = "Index"; }
+
+
+
+    <div class="boxed">
+        <!-- Page title -->
+        <div class="page-title parallax parallax1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-title-heading">
+                            <h1 class="title">SHOP</h1>
+                        </div><!-- /.page-title-heading -->
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a href="@Url.Action("Index","Shop")">Shop</a></li>
+                            </ul>
+                        </div><!-- /.breadcrumbs -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.page-title -->
+
+        <section class="flat-row main-shop">
+            <div class="container">
+                @{
+                    var filterProductaViewModel = new FilterProductaViewModel();
+                    filterProductaViewModel.Products = Model.Products;
+                    filterProductaViewModel.Pager = Model.Pager;
+                    filterProductaViewModel.CategoryId = Model.CategoryId;
+                    filterProductaViewModel.SortBy = Model.SortBy;
+                    filterProductaViewModel.SearchTerm = Model.SearchTerm;
+                    filterProductaViewModel.FeaturedCategories = Model.FeaturedCategories;
+                   
+
+                    Html.RenderPartial("FilterProducts", filterProductaViewModel);
+                }
+            </div><!-- /.container -->
+        </section><!-- /.flat-row -->
+    </div>

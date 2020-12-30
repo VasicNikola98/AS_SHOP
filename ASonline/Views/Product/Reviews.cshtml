@@ -1,0 +1,103 @@
+﻿@model ASonline.ViewModels.ReviewViewListingModel
+@{
+    ViewBag.Title = "Reviews";
+}
+
+@if (Model.Reviews.Count != 0)
+{
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">KOMENTARI</h1>
+                </div><!-- /.page-title-heading -->
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Home")">Početna</a></li>
+                        <li><a href="">Admin</a></li>
+                        <li><a href="@Url.Action("Reviews", "Product")">Komentari</a></li>
+                    </ul>
+                </div><!-- /.breadcrumbs -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /.page-title -->
+
+   <section class="flat-row shop-detail-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-tabs style-1 has-border">
+                        <div class="inner">
+                             <div class="content-tab">
+                                <div class="content-inner">
+                                    <div class="inner max-width-83 padding-top-33">
+                                        @if (Model.Reviews != null)
+                                        {
+                                            <ol class="review-list">
+                                               @foreach (var item in Model.Reviews)
+                                               {
+
+
+                                                     <li class="review">
+                                                     <p class="mb-1">Komentar za : <a href="@Url.Action("Details", "Product", new { Id = item.Product.Id })"><span class="active">@item.Product.Name</span></a></p>
+                                                         <div class="thumb">
+                                                             <img src="~/Content/images/default-avatar.png" alt="Image">
+                                                         </div>
+                                                         <div class="text-wrap">
+                                                             <div class="review-meta">
+                                                                 <h5 class="name">@item.Username</h5>
+
+                                                             </div>
+                                                             <div class="review-text">
+                                                                 <p>@item.Content</p>
+
+                                                                 <p class="active">Ocena (@item.Rating)</p>
+                                                                 <br />
+                                                                 <p>@item.Created.Date.ToString("dd.MM.yyyy")</p>
+                                                             </div>
+                                                         </div>
+                                                         <div>
+                                                             <span class="acceptReviewBtn" data-id="@item.Id">
+                                                                 <i class='bx bx-check confirm-review-icon confirm-review-icon-accept'></i>
+                                                             </span>
+                                                             <a href="@Url.Action("DeclineReview", "Product", new { Id = item.Id })">
+                                                                 <i class='bx bx-trash confirm-review-icon confirm-review-icon-decline'></i>
+                                                             </a>
+                                                         </div>
+                                                     </li><!--  /.review    -->
+                                               }
+                                        </ol><!-- /.review-list -->
+                                        }
+                                    </div>
+                                </div><!-- /.content-inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /.shop-detail-content -->
+}
+else
+{
+<div class="container">
+    <div class="empty_box d-flex flex-column align-items-center">
+        <div class="row justify-content-center align-items-center p-2">
+            <div class="text-center col-md-6">
+                <p>
+                    Nažalost još uvek nemate ni jedan komentar. <br />
+                    Nezaboravite da pormovišete Vaš biznis na društvenim mrežama!
+                </p>
+            </div>
+            <div class="col-md-5 p-3">
+                <img src="~/Content/images/emptyResult.svg" />
+            </div>
+        </div>
+    </div>
+</div>
+}
+<script src="~/Content/javascript/Product/ProductReviews.js"></script>

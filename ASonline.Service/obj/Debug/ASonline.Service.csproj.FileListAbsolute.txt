@@ -1,0 +1,90 @@
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\ASonline.Service.dll.config
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\obj\Debug\ASonline.Service.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\obj\Debug\ASonline.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\obj\Debug\ASonline.Service.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\obj\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\ASonline.Service\obj\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\ASonline.Service.dll.config
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\obj\Debug\ASonline.Service.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\obj\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\ASonline.Service\obj\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\ASonline.Service.dll.config
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\obj\Debug\ASonline.Service.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\obj\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\obj\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\ASonline.Service\bin\Debug\SendGridMail.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\ASonline.Service.dll.config
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\obj\Debug\ASonline.Service.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\obj\Debug\ASonline.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\obj\Debug\ASonline.Service.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\obj\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\ASonline.Service\obj\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\ASonline.Service.dll.config
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\ASonline.Service.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\obj\Debug\ASonline.Service.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\obj\Debug\ASonline.Service.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\obj\Debug\ASonline.Service.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\ASonline.Service\obj\Debug\ASonline.Service.pdb

@@ -1,0 +1,182 @@
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\ASonline.Database.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\ASonline.Database.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\ASonline.Database.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v10.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\ASonline.Database.csproj.GenerateResource.cache
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.ASonline.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v12.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v13.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v14.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v15.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v110.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v20.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.v21.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.AddedOrderAndOrderItemsTable.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.AddedQuantityInOrderItem.resources
+C:\Users\Nikola Vasic\Desktop\ASonline\AS.Database\obj\Debug\AS.Database.Migrations.AddSizeInProduct.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\ASonline.Database.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v10.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.ASonline.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v12.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v13.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v14.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v15.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v110.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v20.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.v21.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\ASonline.Database.csproj.GenerateResource.cache
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\ASonline.Database.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\ASonline.Database.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.DelOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddNewOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredPrice.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFiledInCategoriesTable.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFieldInOrderDetailsClass.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddProductStock.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItem.resources
+C:\Users\Nikola Vasic\Desktop\New folder\WebShop-master\AS.Database\obj\Debug\AS.Database.Migrations.AddSizeInOrderItem.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\ASonline.Database.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v10.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.ASonline.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v12.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v13.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v14.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v15.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v110.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v20.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.v21.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.DelOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddNewOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredPrice.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFiledInCategoriesTable.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFieldInOrderDetailsClass.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddProductStock.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItem.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddSizeInOrderItem.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\ASonline.Database.csproj.GenerateResource.cache
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\ASonline.Database.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\ASonline.Database.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.NewUpdatev10.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddNewSletters.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\obj\Debug\AS.Database.Migrations.AddPriceUnderline.resources
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\AS-master\AS.Database\bin\Debug\SendGridMail.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\ASonline.Database.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v10.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.ASonline.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v12.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v13.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v14.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v15.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v110.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v20.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.v21.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.DelOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddNewOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredPrice.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFiledInCategoriesTable.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFieldInOrderDetailsClass.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddProductStock.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItem.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddSizeInOrderItem.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.NewUpdatev10.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddNewSletters.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddPriceUnderline.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\ASonline.Database.csproj.GenerateResource.cache
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\ASonline.Database.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\ASonline.Database.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewEntity.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewIntEntity.resources
+C:\Users\Nikola Vasic\Desktop\ASWeb-main\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewConfirmed.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\AS.Database.dll.config
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\ASonline.Entities.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\EntityFramework.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\ASonline.Entities.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\EntityFramework.xml
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\ASonline.Database.csprojAssemblyReference.cache
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v10.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.ASonline.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v12.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v13.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v14.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v15.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v110.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v20.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.v21.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.DelOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddNewOrderItems.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredPrice.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFiledInCategoriesTable.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddRequiredFieldInOrderDetailsClass.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddProductStock.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItem.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddSizeInOrderItem.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.NewUpdatev10.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddNewSletters.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddPriceUnderline.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewEntity.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewIntEntity.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddReviewConfirmed.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\ASonline.Database.csproj.GenerateResource.cache
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\ASonline.Database.csproj.CoreCompileInputs.cache
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\ASonline.Database.csproj.CopyComplete
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.dll
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.pdb
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.ASHOPV10.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.RemoveRangForPriceUnderline.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddListOfCartItemInProductEntity.resources

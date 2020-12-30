@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{662F02DA-0424-4471-BE77-9570AB7D63A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AS.Database</RootNamespace>
+    <AssemblyName>AS.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.1.3.0, Culture=neutral, PublicKeyToken=55aa52d3c3c0d2b2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.1.3\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASDbContext.cs" />
+    <Compile Include="Migrations\202008211611480_v1.0.cs" />
+    <Compile Include="Migrations\202008211611480_v1.0.designer.cs">
+      <DependentUpon>202008211611480_v1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008211708539_ASonline.cs" />
+    <Compile Include="Migrations\202008211708539_ASonline.designer.cs">
+      <DependentUpon>202008211708539_ASonline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231136170_v1.2.cs" />
+    <Compile Include="Migrations\202008231136170_v1.2.designer.cs">
+      <DependentUpon>202008231136170_v1.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231448065_v1.3.cs" />
+    <Compile Include="Migrations\202008231448065_v1.3.designer.cs">
+      <DependentUpon>202008231448065_v1.3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008292110065_v1.4.cs" />
+    <Compile Include="Migrations\202008292110065_v1.4.Designer.cs">
+      <DependentUpon>202008292110065_v1.4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009301126230_v1.5.cs" />
+    <Compile Include="Migrations\202009301126230_v1.5.Designer.cs">
+      <DependentUpon>202009301126230_v1.5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201959450_v1.10.cs" />
+    <Compile Include="Migrations\202010201959450_v1.10.Designer.cs">
+      <DependentUpon>202010201959450_v1.10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010211459539_v2.0.cs" />
+    <Compile Include="Migrations\202010211459539_v2.0.Designer.cs">
+      <DependentUpon>202010211459539_v2.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010211513556_v2.1.cs" />
+    <Compile Include="Migrations\202010211513556_v2.1.Designer.cs">
+      <DependentUpon>202010211513556_v2.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091647527_AddOrderItems.cs" />
+    <Compile Include="Migrations\202011091647527_AddOrderItems.Designer.cs">
+      <DependentUpon>202011091647527_AddOrderItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091649533_DelOrderItems.cs" />
+    <Compile Include="Migrations\202011091649533_DelOrderItems.Designer.cs">
+      <DependentUpon>202011091649533_DelOrderItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091650361_AddNewOrderItems.cs" />
+    <Compile Include="Migrations\202011091650361_AddNewOrderItems.Designer.cs">
+      <DependentUpon>202011091650361_AddNewOrderItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011102018099_AddRequiredPrice.cs" />
+    <Compile Include="Migrations\202011102018099_AddRequiredPrice.Designer.cs">
+      <DependentUpon>202011102018099_AddRequiredPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011111935161_AddRequiredFiledInCategoriesTable.cs" />
+    <Compile Include="Migrations\202011111935161_AddRequiredFiledInCategoriesTable.Designer.cs">
+      <DependentUpon>202011111935161_AddRequiredFiledInCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011121941255_AddRequiredFieldInOrderDetailsClass.cs" />
+    <Compile Include="Migrations\202011121941255_AddRequiredFieldInOrderDetailsClass.Designer.cs">
+      <DependentUpon>202011121941255_AddRequiredFieldInOrderDetailsClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131507085_AddProductStock.cs" />
+    <Compile Include="Migrations\202011131507085_AddProductStock.Designer.cs">
+      <DependentUpon>202011131507085_AddProductStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171157456_AddCartItem.cs" />
+    <Compile Include="Migrations\202011171157456_AddCartItem.Designer.cs">
+      <DependentUpon>202011171157456_AddCartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011181119448_AddSizeInOrderItem.cs" />
+    <Compile Include="Migrations\202011181119448_AddSizeInOrderItem.Designer.cs">
+      <DependentUpon>202011181119448_AddSizeInOrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011221920160_NewUpdatev1.0.cs" />
+    <Compile Include="Migrations\202011221920160_NewUpdatev1.0.Designer.cs">
+      <DependentUpon>202011221920160_NewUpdatev1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011291227490_AddNewSletters.cs" />
+    <Compile Include="Migrations\202011291227490_AddNewSletters.Designer.cs">
+      <DependentUpon>202011291227490_AddNewSletters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012051913279_AddPriceUnderline.cs" />
+    <Compile Include="Migrations\202012051913279_AddPriceUnderline.Designer.cs">
+      <DependentUpon>202012051913279_AddPriceUnderline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012191337158_AddReviewEntity.cs" />
+    <Compile Include="Migrations\202012191337158_AddReviewEntity.Designer.cs">
+      <DependentUpon>202012191337158_AddReviewEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012191638515_AddReviewIntEntity.cs" />
+    <Compile Include="Migrations\202012191638515_AddReviewIntEntity.Designer.cs">
+      <DependentUpon>202012191638515_AddReviewIntEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012192228089_AddReviewConfirmed.cs" />
+    <Compile Include="Migrations\202012192228089_AddReviewConfirmed.Designer.cs">
+      <DependentUpon>202012192228089_AddReviewConfirmed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012222123515_ASHOPV1.0.cs" />
+    <Compile Include="Migrations\202012222123515_ASHOPV1.0.Designer.cs">
+      <DependentUpon>202012222123515_ASHOPV1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012301732597_RemoveRangForPriceUnderline.cs" />
+    <Compile Include="Migrations\202012301732597_RemoveRangForPriceUnderline.Designer.cs">
+      <DependentUpon>202012301732597_RemoveRangForPriceUnderline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012301820200_AddListOfCartItemInProductEntity.cs" />
+    <Compile Include="Migrations\202012301820200_AddListOfCartItemInProductEntity.Designer.cs">
+      <DependentUpon>202012301820200_AddListOfCartItemInProductEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASonline.Entities\ASonline.Entities.csproj">
+      <Project>{ba70fbc4-48cc-4063-b360-4e22462d0266}</Project>
+      <Name>ASonline.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202008211611480_v1.0.resx">
+      <DependentUpon>202008211611480_v1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008211708539_ASonline.resx">
+      <DependentUpon>202008211708539_ASonline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231136170_v1.2.resx">
+      <DependentUpon>202008231136170_v1.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231448065_v1.3.resx">
+      <DependentUpon>202008231448065_v1.3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008292110065_v1.4.resx">
+      <DependentUpon>202008292110065_v1.4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009301126230_v1.5.resx">
+      <DependentUpon>202009301126230_v1.5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201959450_v1.10.resx">
+      <DependentUpon>202010201959450_v1.10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010211459539_v2.0.resx">
+      <DependentUpon>202010211459539_v2.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010211513556_v2.1.resx">
+      <DependentUpon>202010211513556_v2.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091647527_AddOrderItems.resx">
+      <DependentUpon>202011091647527_AddOrderItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091649533_DelOrderItems.resx">
+      <DependentUpon>202011091649533_DelOrderItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091650361_AddNewOrderItems.resx">
+      <DependentUpon>202011091650361_AddNewOrderItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011102018099_AddRequiredPrice.resx">
+      <DependentUpon>202011102018099_AddRequiredPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011111935161_AddRequiredFiledInCategoriesTable.resx">
+      <DependentUpon>202011111935161_AddRequiredFiledInCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011121941255_AddRequiredFieldInOrderDetailsClass.resx">
+      <DependentUpon>202011121941255_AddRequiredFieldInOrderDetailsClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131507085_AddProductStock.resx">
+      <DependentUpon>202011131507085_AddProductStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171157456_AddCartItem.resx">
+      <DependentUpon>202011171157456_AddCartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011181119448_AddSizeInOrderItem.resx">
+      <DependentUpon>202011181119448_AddSizeInOrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011221920160_NewUpdatev1.0.resx">
+      <DependentUpon>202011221920160_NewUpdatev1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011291227490_AddNewSletters.resx">
+      <DependentUpon>202011291227490_AddNewSletters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012051913279_AddPriceUnderline.resx">
+      <DependentUpon>202012051913279_AddPriceUnderline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012191337158_AddReviewEntity.resx">
+      <DependentUpon>202012191337158_AddReviewEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012191638515_AddReviewIntEntity.resx">
+      <DependentUpon>202012191638515_AddReviewIntEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012192228089_AddReviewConfirmed.resx">
+      <DependentUpon>202012192228089_AddReviewConfirmed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012222123515_ASHOPV1.0.resx">
+      <DependentUpon>202012222123515_ASHOPV1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012301732597_RemoveRangForPriceUnderline.resx">
+      <DependentUpon>202012301732597_RemoveRangForPriceUnderline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012301820200_AddListOfCartItemInProductEntity.resx">
+      <DependentUpon>202012301820200_AddListOfCartItemInProductEntity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

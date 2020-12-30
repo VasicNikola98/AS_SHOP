@@ -1,0 +1,29 @@
+﻿@model ASonline.ViewModels.SizeProductViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-section">
+                <h2 class="title">
+                    Dodaj veličinu
+                </h2>
+            </div>
+            <form id="stockProduct">
+                <input type="hidden" value="@Model.ProductId" name="ProductId" id="ProductId"/>
+                <div class="form-group">
+                    <label for="Size">Veličina <span class="active">*</span></label>
+                    <br />
+                    <input class="form-control" id="Size" name="Size" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label for="Quantity">Količina <span class="active">*</span></label>
+                    <br />
+                    <input class="form-control" id="Quantity" name="Quantity" autocomplete="off" required />
+                </div>
+                <a id="saveSizeBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj</a>
+                <button id="cancelBtn" type="submit" class="btn mt-2">Nazad</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/Content/javascript/Product/ProductSize.js"></script>

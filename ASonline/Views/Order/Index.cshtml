@@ -1,0 +1,132 @@
+﻿@model ASonline.ViewModels.OrdersViewModel
+@{ ViewBag.Title = "Orders";
+}
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">PORUDŽBINE</h1>
+                </div><!-- /.page-title-heading -->
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="">Admin</a></li>
+                        <li><a href="@Url.Action("Index","Order")">Porudžbine</a></li>
+                    </ul>
+                </div><!-- /.breadcrumbs -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /.page-title -->
+
+<div class="container">
+    <div class="row p-2">
+        <div class="col-md-12">
+            <div class="filter-shop clearfix d-flex justify-content-end">
+                <ul class="flat-filter-search">
+                    <li class="search-product"><a>Pretraži</a></li>
+                </ul>
+            </div><!-- /.filte-shop -->
+            <div class="shop-search clearfix">
+                <form role="search" method="get" class="search-form" action="@Url.Action("Index","Order")">
+                    <label>
+                        <input type="search" class="search-field" placeholder="Pretraži …" value="@Model.SearchTerm" name="searchTerm">
+                    </label>
+                </form>
+            </div><!-- /.top-serach -->
+        </div>
+    </div>
+    <div class="mb-2">
+         <a href="@Url.Action("Index","Order",new { status = "Isporučena"})"><span class="badge badge-success p-2 mr-2">Isporučene (@Model.DeliveredCount)</span></a>
+         <a href="@Url.Action("Index","Order",new { status = "U procesu"})"><span class="badge badge-warning p-2 mr-2">U procesu (@Model.InProgressCount)</span></a>
+         <a href="@Url.Action("Index","Order",new { status = "Nerešena"})"><span class="badge badge-danger p-2 mr-2">Nerešene (@Model.UnresolvedCount)</span></a>
+         <a href="@Url.Action("Index","Order")"><span class="btn btn-sm btn-outline-danger float-right">Ukloni filter</span></a>
+    </div>
+ @if (Model.Orders != null && Model.Orders.Count > 0)
+    {
+           <div class="table-responsive">
+               <table id="OrdersTable" class="table  table-hover">
+                   <thead class="thead-inverse">
+                       <tr>
+                           <th class="font-weight-bold text-center">UserId</th>
+                           <th class="font-weight-bold text-center">Ukupna cena</th>
+                           <th class="font-weight-bold text-center">Dan poručivanja</th>
+                           <th class="font-weight-bold text-center">Status</th>
+                           <th class="font-weight-bold text-center">Akcija</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                     
+                           @foreach (var order in Model.Orders.OrderByDescending(x => x.OrderedAt.ToString()))
+                           {
+                               var alertStatus = "";
+                               if (order.Status == "Nerešena")
+                               {
+                                   alertStatus = "alert-danger";
+                               }
+                               else if (order.Status == "U procesu")
+                               {
+                                   alertStatus = "alert-warning";
+                               }
+                               else
+                               {
+                                   alertStatus = "alert-success";
+                               }
+          
+                              <tr class="text-center alert @alertStatus text-gray-dark">
+                                  <td>@order.OrderDetail.Id</td>
+                                  <td>@order.TotalAmount</td>
+                                  <td>@order.OrderedAt.ToShortDateString()</td>
+                                  <td>@order.Status</td>
+                                  <td class="wrap-td">
+                                      <a class="detailBtn btn btn-primary" style="color: white; cursor: pointer;" data-id="@order.Id" href="@Url.Action("Details", "Order", new { id = order.Id })">Detalji</a>
+                                  </td>
+                              </tr>
+                            }
+                   </tbody>
+               </table>
+           </div>
+                <div class="p-2">
+                    @if (Model.Pager != null && Model.Pager.TotalPages > 1)
+                    {
+                        if (Model.Pager.CurrentPage > 1)
+                        {
+                            <a class="pageButtons btn btn-danger" data-pageno="1" href="@Url.Action("Index", "Order", new { status = Model.Status, pageNo = 1, searchTerm = Model.SearchTerm })">Početna</a>
+                            <a class="pageButtons btn btn-danger" data-pageno="@(Model.Pager.CurrentPage - 1)" href="@Url.Action("Index", "Order", new { status = Model.Status, pageNo = Model.Pager.CurrentPage - 1, searchTerm = Model.SearchTerm })">Prethodna</a> }
+
+                        for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                        {
+                            string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
+
+                            <a class="@activeClass pageButtons btn btn-danger" data-pageno="@page" href="@Url.Action("Index", "Order", new { status = Model.Status, pageNo = page, searchTerm = Model.SearchTerm })">@page</a> }
+
+                        if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                        {
+                            <a class="pageButtons btn btn-danger" data-pageno="@(Model.Pager.CurrentPage + 1)" href="@Url.Action("Index", "Order", new { status = Model.Status, pageNo = Model.Pager.CurrentPage + 1, searchTerm = Model.SearchTerm })">Poslednja</a>
+                            <a class="pageButtons btn btn-danger" data-pageno="@Model.Pager.EndPage" href="@Url.Action("Index", "Order", new { status = Model.Status, pageNo = Model.Pager.EndPage, searchTerm = Model.SearchTerm })">Sledeća</a>}
+                        }
+                </div> 
+                }
+     else
+     {
+        <div class="container">
+            <div class="empty_box d-flex flex-column align-items-center">
+                <div class="row justify-content-center align-items-center p-2">
+                    <div class="text-center col-md-6">
+                        <p>
+                            Nažalost još uvek nemate ni jednu porudzbinu. <br />
+                            Nezaboravite da pormovišete Vaš biznis na društvenim mrežama!
+                        </p>
+                    </div>
+                    <div class="col-md-5 p-3">
+                        <img src="~/Content/images/shop/noOrder.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+     }
+</div>
+<script src="~/Content/javascript/Category/CategoryIndex.js"></script>
