@@ -445,11 +445,17 @@
 
     var quantityNumber = function(){
         $('.quantity-button').on('click', function(){
-            var numberValue= $(this).parent().find('.quantity-number').val();
+            var numberValue = $(this).parent().find('.quantity-number').val();
+            var quantityContainer = document.getElementById("quantityCounter").max;
+            if ($(this).text() == "+" && numberValue < quantityContainer) {
+                var newVal = parseFloat(numberValue) + 1;
+            }
+            else
+            {
+                newVal = quantityContainer;
+            }
 
-            if($(this).text()=="+") {
-                var newVal=parseFloat(numberValue) + 1;
-            }else{
+            if ($(this).text() == "-"){
                 if(numberValue > 1){
                     var newVal = parseFloat(numberValue) -1;
                 }else{

@@ -74,15 +74,19 @@
                                             @foreach (var size in Model.Product.ProductStocks)
                                             {
                                                 <li>
-                                                    <input type="radio" name="Size" value="@size.Size" id="@size.Size" aria-label="@size.Size" />
+                                                    <input type="radio" name="Size" value="@size.Size" aria-label="@size.Size" />
                                                     <label class="label-size" for="@size.Size">@size.Size</label>
+                                                    <input type="hidden" id="@size.Size" value="@size.Quantity"/>
                                                 </li>
                                             }
                                         </ul>
+                                       <div class="success mt-2">
+                                          <span id="qty"></span>
+                                       </div>
                                     </div>
                                     <div class="product-quantity">
                                         <div class="quantity">
-                                            <input type="number" min="1" id="quantityCounter" value="1" name="quantity-number" class="quantity-number">
+                                            <input type="number" min="1" max="1" id="quantityCounter" value="1" name="quantity-number" class="quantity-number">
                                             <span class="inc quantity-button">+</span>
                                             <span class="dec quantity-button">-</span>
                                         </div>

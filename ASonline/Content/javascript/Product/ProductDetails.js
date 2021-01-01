@@ -1,4 +1,14 @@
-﻿$(".productAddToCart").click(function () {
+﻿
+$('input[type="radio"]').on('click change', function (e) {
+    let inputId = $(this).val();
+    var quantity = document.getElementById(inputId).value;
+    $("#qty").html(quantity + " na zalihama");
+    $("#quantityCounter").attr({
+        "max": quantity
+    });
+});
+
+$(".productAddToCart").click(function () {
 
 
     let size = "";
