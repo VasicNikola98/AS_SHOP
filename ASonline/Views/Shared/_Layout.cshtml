@@ -197,26 +197,25 @@
                 <div class="footer__box">
                     <h3 class="footer__title">ISTRAŽI</h3>
                     <ul>
-                        <li><a href="@Url.Action("Index","Home")" class="footer__link">Početna</a></li>
+                        <li><a href="#" class="footer__contact">O nama</a></li>
                         <li><a href="@Url.Action("Index","Shop")" class="footer__link">Proizvodi</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-            <li><a href="#" class="footer__link">Moj nalog</a></li>
- using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
-            {
-<li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
- }
+                    <li><a href="#" class="footer__link">Moj nalog</a></li> using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+                                    {
+                    <li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li> }
+                                }
+                                else
+                                {
+                    <li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
+                                    <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>
 }
-else
-{
-<li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
-                <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>}
                     </ul>
                 </div>
                 <div class="footer__box">
                     <h3 class="footer__title">INFORMACIJE</h3>
                     <ul>
-                        <li><a href="@Url.Action("About","Home")" class="footer__link">O nama</a></li>
+                        <li><a href="@Url.Action("OrderInfo","Home")" class="footer__link">Isporuka</a></li>
                         <li><a href="@Url.Action("Contact","Home")" class="footer__link">Kontakt</a></li>
                         <li><a href="@Url.Action("OtherQuestion","Home")" class="footer__link">Najčešća pitanja</a></li>
                         <li><a href="@Url.Action("PrivacyPolicy","Home")" class="footer__link">Politika privatnosti</a></li>

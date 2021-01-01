@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "OrderInfo";
+}
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">Isporuka</h1>
+                </div><!-- /.page-title-heading -->
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")">Početna</a></li>
+                        <li><a href="@Url.Action("OrderInfo","Home")">Isporuka</a></li>
+                    </ul>
+                </div><!-- /.breadcrumbs -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /.page-title -->
+<div class="container mt-4">
+    <div class="order-info-container">
+        <span class="font-weight-600 active">
+            Isporuka se vrši samo na teroitoriji Republike Srbije.
+        </span>
+        <hr />
+        <h3>Rok isporuke</h3>
+        <br />
+        <p>
+            Nakon što je potvrđena porudžbina na sajtu, neko od zaposlenih će Vas pozvati na broj telefona koji ste naveli tokom kreiranja porudžbine.
+        </p>
+        <br />
+        <p>Od tog trenutka rok isporuke je maksimalno pet radnih dana u slučaju plaćanja robe pouzećem.</p>
+        <br />
+        <p>
+            Za porudžbine čije plaćanje se vrši uplatom u banci ili pošti, rok za uplatu je 3 radna dana od dana prijema e-maila sa potvrdom porudžbine, a rok isporuke je 5 radnih dana od evidentiranja uplate. Uobičajeno vreme za isporuku je 3 dana.
+        </p>
+        <br />
+        <h3>Preuzimanje pošiljke</h3>
+        <br />
+        <p>
+            Kuriri pošiljke donose na adresu za isporuku u periodu od 8-13 h.
+            Molimo Vas da u tom periodu obezbedite da na adresi bude osoba koja može preuzeti pošiljku kada Vas kurir bude kontaktirao.
+            Prilikom preuzimanja pošiljke potrebno je da vizuelno pregledate paket da slučajno ne postoje neka vidna oštećenja.
+            Ukoliko primetite da je transportna kutija značajno oštećenja i posumnjate da je proizvod možda oštećen, odbijte prijem pošiljke i odmah nas obavestite.
+        </p>
+        <br />
+        <p>
+            Ukoliko je pošiljka naizgled bez oštećenja slobodno preuzmite pošiljku i potpišite kuriru adresnicu.
+        </p>
+        <br />
+        <p>
+            Kurir pokušava svaku pošiljku da uruči u dva navrata.
+            Uobičajena praksa je da ukoliko Vas kurir ne pronađe na adresi, da Vas pozove na telefon koji ste ostavili prilikom kreiranja narudžbenice i ugovori novi termin isporuke. Ukoliko Vas i tada ne pronađe na adresi, pošiljka će se vratiti nama.
+            Po prijemu pošiljke, kontkatiraćemo Vas kako bi ustanovili razlog neuručenja i dogovoriti se o ponovnom slanju.
+        </p>
+        <div class="orderInfoImage">
+            <img src="~/Content/images/shop/orderDelivered.svg"/>
+        </div>
+    </div>
+</div>

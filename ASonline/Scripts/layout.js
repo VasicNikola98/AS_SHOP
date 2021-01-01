@@ -15,16 +15,17 @@ $('#subscribe-form').validate({
 $("#saveNewsletter").click(function () {
     if ($("#subscribe-form").valid()) {
         $(".loading-icon").removeClass("hide-spinner");
+        var url = "https://localhost:44333/Shop/AddNewsletter/";
         $.ajax({
             type: 'POST',
-            url: 'Shop/AddNewsletter/',
+            url: url,//'Shop/AddNewsletter/',
             data: {
                 NewsletterEmail: $("#newsletterEmail").val()
             }
         })
             .done(function (response) {
                 $(".loading-icon").addClass("hide-spinner");
-                toastr["success"]("Uspešno ste se pretplatili.");
+                toastr["success"]("Uspešno ste se pretplatili na mailing listu.");
                 $("#newsletterEmail").val('');
             })
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {

@@ -42,6 +42,10 @@ namespace ASonline.Controllers
         {
             return View();
         }
+        public ActionResult OrderInfo()
+        {
+            return View();
+        }
         
     }
 }
