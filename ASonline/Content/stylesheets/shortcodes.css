@@ -1793,9 +1793,15 @@
 	font-weight: 300;
 }
 
-.product-detail .quantity input:focus {
-	border-color: #ebebeb;
+.product-detail .quantity input::-webkit-outer-spin-button,
+.product-detail .quantity input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
+
+	.product-detail .quantity input:focus {
+		border-color: #ebebeb;
+	}
 
 .product-detail .quantity {
 	position: relative;
@@ -2227,7 +2233,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	/*z-index: 2;*/
+	z-index: 2;
 }
 
 /* Style 2 */

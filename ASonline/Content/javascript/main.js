@@ -450,10 +450,10 @@
             if($(this).text()=="+") {
                 var newVal=parseFloat(numberValue) + 1;
             }else{
-                if(numberValue > 0){
+                if(numberValue > 1){
                     var newVal = parseFloat(numberValue) -1;
                 }else{
-                    newVal = 0;
+                    newVal = 1;
                 }
             }
 
