@@ -41,6 +41,7 @@ namespace ASonline.Controllers
         }
 
    
+
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
@@ -129,6 +130,7 @@ namespace ASonline.Controllers
 
             return RedirectToAction("ProductTable");
         }
+
 
         #region Creation
         [HttpGet]

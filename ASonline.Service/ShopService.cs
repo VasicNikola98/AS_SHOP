@@ -53,7 +53,7 @@ namespace ASonline.Service
             }
         }
 
-        public void SaveCartItem(CartItem item)
+        public bool SaveCartItem(CartItem item)
         {
             using (var ctx = new ASDbContext())
             {
@@ -62,11 +62,20 @@ namespace ASonline.Service
                         && x.Size == item.Size)
                         .FirstOrDefault();
 
+                var maxQuantity = item.Product
+                    .ProductStocks.Where(x => x.Size == item.Size)
+                    .FirstOrDefault();
+
                 if (cartItem == null)
                 {
                     ctx.Entry(item.Product).State = System.Data.Entity.EntityState.Unchanged;
                     ctx.CartItems.Add(item);
                     ctx.SaveChanges();
+                    return true;
+                }
+                else if((cartItem.Quantity + item.Quantity) > maxQuantity.Quantity)
+                {
+                    return false;
                 }
                 else
                 {
@@ -74,6 +83,7 @@ namespace ASonline.Service
                     ctx.Entry(cartItem.Product).State = System.Data.Entity.EntityState.Unchanged;
                     ctx.Entry(cartItem).State = System.Data.Entity.EntityState.Modified;
                     ctx.SaveChanges();
+                    return true;
                 }
             }
         }
@@ -129,5 +139,22 @@ namespace ASonline.Service
             }
         }
 
+        //public void UpdateStockProduct(List<CartItem> cartItem)
+        //{
+        //    using (var ctx = new ASDbContext())
+        //    {
+        //        if (cartItem.Count != 0)
+        //        {
+        //            foreach(var item in cartItem)
+        //            {
+        //                var getItem = ctx.ProductStocks.Where(x => x.Id == item.Id).FirstOrDefault();
+        //                getItem.Quantity -= item.Quantity;
+        //                ctx.Entry(getItem.Product).State = System.Data.Entity.EntityState.Unchanged;
+        //                ctx.Entry(getItem).State = System.Data.Entity.EntityState.Modified;
+        //            }
+        //            ctx.SaveChanges();
+        //        }
+        //    }
+        //}
     }
 }

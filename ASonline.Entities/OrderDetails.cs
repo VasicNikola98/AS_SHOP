@@ -25,5 +25,22 @@ namespace ASonline.Entities
         public string City { get; set; }
         [Required]
         public string PostCode { get; set; }
+
+        public OrderDetails()
+        {
+
+        }
+
+        public OrderDetails(string FirstName,string LastName, string Email, string Address, string Nummber,string Country, string City, string PostCode)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Email = Email;
+            this.Address = Address;
+            this.Nummber = Nummber;
+            this.Country = Country;
+            this.City = City;
+            this.PostCode = PostCode;
+        }
     }
 }

@@ -66,9 +66,16 @@ namespace ASonline.Controllers
                 var cartProduct = ProductService.Instance.GetProductById(int.Parse(model.productId));
                 cartItem.Product = cartProduct;
 
-                ShopService.Instance.SaveCartItem(cartItem);
+                var validate = ShopService.Instance.SaveCartItem(cartItem);
 
-                result.Data = new { Success = true };
+                if(validate)
+                {
+                    result.Data = new { Success = true };
+                }
+                else
+                {
+                    result.Data = new { Success = false };
+                }
             }
             else
             {
@@ -102,17 +109,7 @@ namespace ASonline.Controllers
             if (HashedUserId != null && !string.IsNullOrEmpty(HashedUserId.Value))
             {
                 Order newOrder = new Order();
-                OrderDetails orderDetails = new OrderDetails();
-
-                orderDetails.FirstName = model.FirstName;
-                orderDetails.LastName = model.LastName;
-                orderDetails.Email = model.Email;
-                orderDetails.Address = model.Address;
-                orderDetails.Country = model.Country;
-                orderDetails.City = model.City;
-                orderDetails.Nummber = model.Nummber;
-                orderDetails.PostCode = model.PostCode;
-
+                OrderDetails orderDetails = new OrderDetails(model.FirstName,model.LastName,model.Email,model.Address,model.Nummber,model.Country,model.City,model.PostCode);
                 ShopService.Instance.SaveOrderDetails(orderDetails);
 
                 var boughtProducts = ShopService.Instance.GetCartItemsByHashId(HashedUserId.Value);
@@ -127,6 +124,7 @@ namespace ASonline.Controllers
                 ShopService.Instance.DeleteCartItems(HashedUserId.Value);
 
                 var rowsEffected = ShopService.Instance.SaveOrder(newOrder);
+               
                 result.Data = new { Success = true, Rows = rowsEffected };
             }
             else

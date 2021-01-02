@@ -1,11 +1,18 @@
 ﻿
 $('input[type="radio"]').on('click change', function (e) {
+
     let inputId = $(this).val();
     var quantity = document.getElementById(inputId).value;
+
     $("#qty").html(quantity + " na zalihama");
+
     $("#quantityCounter").attr({
         "max": quantity
     });
+
+    let quantityAlert = document.getElementById("quantity-alert");
+
+    quantityAlert.classList.add("alert-success");
 });
 
 $(".productAddToCart").click(function () {
@@ -36,13 +43,19 @@ $(".productAddToCart").click(function () {
         $.ajax({
             method: 'POST',
             dataType: 'json',
-            url: url,//'@Url.Action("PlaceCartItem", "Shop")',
+            url: url, //'@Url.Action("PlaceCartItem", "Shop")',
             data: cartItem
         })
             .done(function (response) {
-                getCartCounter();
-                $(".loading-icon").addClass("hide-spinner");
-                toastr["success"]("Proizvod je dodat u korpu!");
+                if (response.Success) {
+                    getCartCounter();
+                    $(".loading-icon").addClass("hide-spinner");
+                    toastr["success"]("Proizvod je dodat u korpu!");
+                }
+                else {
+                    $(".loading-icon").addClass("hide-spinner");
+                    toastr["warning"]("Ovu količinu nije moguće dodati u korpu!");
+                }
             });
 
     }
