@@ -139,22 +139,23 @@ namespace ASonline.Service
             }
         }
 
-        //public void UpdateStockProduct(List<CartItem> cartItem)
-        //{
-        //    using (var ctx = new ASDbContext())
-        //    {
-        //        if (cartItem.Count != 0)
-        //        {
-        //            foreach(var item in cartItem)
-        //            {
-        //                var getItem = ctx.ProductStocks.Where(x => x.Id == item.Id).FirstOrDefault();
-        //                getItem.Quantity -= item.Quantity;
-        //                ctx.Entry(getItem.Product).State = System.Data.Entity.EntityState.Unchanged;
-        //                ctx.Entry(getItem).State = System.Data.Entity.EntityState.Modified;
-        //            }
-        //            ctx.SaveChanges();
-        //        }
-        //    }
-        //}
+        public void UpdateStockProduct(List<CartItem> cartItem)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                if (cartItem.Count != 0)
+                {
+                    foreach (var item in cartItem)
+                    {
+                        var getItem = ctx.ProductStocks.Where(x => x.Product.Id == item.Product.Id && x.Size == item.Size)
+                            .FirstOrDefault();
+                        getItem.Quantity -= item.Quantity;
+                        ctx.Entry(getItem.Product).State = System.Data.Entity.EntityState.Unchanged;
+                        ctx.Entry(getItem).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    ctx.SaveChanges();
+                }
+            }
+        }
     }
 }

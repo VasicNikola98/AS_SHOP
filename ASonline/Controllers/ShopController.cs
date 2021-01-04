@@ -124,7 +124,7 @@ namespace ASonline.Controllers
                 ShopService.Instance.DeleteCartItems(HashedUserId.Value);
 
                 var rowsEffected = ShopService.Instance.SaveOrder(newOrder);
-               
+                ShopService.Instance.UpdateStockProduct(boughtProducts);
                 result.Data = new { Success = true, Rows = rowsEffected };
             }
             else

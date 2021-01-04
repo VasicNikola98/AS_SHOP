@@ -66,18 +66,21 @@
                                     </p>
                                 </div>
 
-                                @if (Model.Product.ProductStocks.Count != 0 && Model.Product.ProductStocks != null)
+                                @if (Model.Product.ProductStocks.Where(x => x.Quantity > 0).ToList().Count != 0 && Model.Product.ProductStocks != null)
                                 {<div class="size">
-                                        <span>VELIČINE</span>
+                                        <span>DOSTUPNE VELIČINE</span>
                                         <hr />
                                         <ul>
                                             @foreach (var size in Model.Product.ProductStocks)
                                             {
-                                                <li>
-                                                    <input type="radio" name="Size" value="@size.Size" aria-label="@size.Size" />
-                                                    <label class="label-size" for="@size.Size">@size.Size</label>
-                                                    <input type="hidden" id="@size.Size" value="@size.Quantity"/>
-                                                </li>
+                                                if(size.Quantity > 0)
+                                                {
+                                                   <li>
+                                                       <input type="radio" name="Size" value="@size.Size" aria-label="@size.Size"/>
+                                                       <label class="label-size" for="@size.Size">@size.Size</label>
+                                                       <input type="hidden" id="@size.Size" value="@size.Quantity"/>
+                                                   </li>
+                                                }
                                             }
                                         </ul>
                                        <div id="quantity-alert" class="mt-2 p-2">
