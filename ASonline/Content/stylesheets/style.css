@@ -3039,8 +3039,34 @@ article {
     color: red;
 }
 
+.editBtn i {
+    color: #375eed;
+    transition: 0.3s;
+}
+
+.editBtn i:hover {
+    color: #6582f0;
+}
+
+.deleteBtn i {
+    color: #f52222;
+    transition: 0.3s;
+}
+
+.deleteBtn i:hover {
+    color: #f74d4d;
+}
+
+.sizeBtn i {
+    color: #f57b2f;
+    transition: 0.3s;
+}
+.sizeBtn i:hover {
+    color:#f7995e;
+}
+
 .rating {
-  display:inline-block;
+    display: inline-block;
 }
 .rating input {
     display: none;

@@ -1135,15 +1135,15 @@
 	        transform: translate(30px ,0px);
 }
 
-.product .product-item:hover .add-to-cart, .product .product-item:hover .like {
-	opacity: 1;
-	visibility: visible;
-	-webkit-transform: translate(0px,0px);
-	   -moz-transform: translate(0px,0px);
-	    -ms-transform: translate(0px,0px);
-	     -o-transform: translate(0px,0px);
-	        transform: translate(0px,0px);
-}
+	.product .product-item:hover .add-to-cart, .product .product-item:hover .like {
+		opacity: 1;
+		visibility: visible;
+		-webkit-transform: translate(0px,0px);
+		-moz-transform: translate(0px,0px);
+		-ms-transform: translate(0px,0px);
+		-o-transform: translate(0px,0px);
+		transform: translate(0px,0px);
+	}
 
 .product .product-item .add-to-cart:hover {
 	background-color: #333333;
