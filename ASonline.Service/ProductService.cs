@@ -337,9 +337,21 @@ namespace ASonline.Service
         {
             using (var ctx = new ASDbContext())
             {
-                ctx.Entry(stock.Product).State = System.Data.Entity.EntityState.Unchanged;
-                ctx.ProductStocks.Add(stock);
-                ctx.SaveChanges();
+                var myProductStock = ctx.ProductStocks.Where(x => x.Product.Id == stock.Product.Id && x.Size == stock.Size).FirstOrDefault();
+
+                if(myProductStock == null)
+                {
+                    ctx.Entry(stock.Product).State = System.Data.Entity.EntityState.Unchanged;
+                    ctx.ProductStocks.Add(stock);
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    ctx.Entry(myProductStock.Product).State = System.Data.Entity.EntityState.Unchanged;
+                    myProductStock.Quantity += stock.Quantity;
+                    ctx.Entry(myProductStock).State = System.Data.Entity.EntityState.Modified;
+                    ctx.SaveChanges();
+                }
             }
         }
         #endregion

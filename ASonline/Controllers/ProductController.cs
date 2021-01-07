@@ -112,7 +112,8 @@ namespace ASonline.Controllers
             SizeProductViewModel model = new SizeProductViewModel();
 
             var product = ProductService.Instance.GetProductById(Id);
-            model.ProductId = product.Id;
+            model.Product = product;
+            model.ProductId = Id;
             return PartialView(model);
         }
 

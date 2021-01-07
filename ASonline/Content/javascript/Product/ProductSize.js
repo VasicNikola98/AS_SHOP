@@ -1,29 +1,46 @@
-﻿$("#saveSizeBtn").click(function () {
-    // if ($("#stockProduct").valid()) {
+﻿$('#stockProduct').validate({
+    rules: {
+        Size: {
+            required: true,
+        },
+        Quantity: {
+            required: true
+        }
+    },
+    messages: {
+        Size: {
+            required: 'Ovo polje je obavezno!',
+        },
+        Quantity: {
+            required: 'Ovo polje je obavezno!'
+        }
+    }
+});
+
+
+$("#saveSizeBtn").click(function () {
+    if ($("#stockProduct").valid()) {
     $.ajax({
         type: 'POST',
         url: '/Product/Size/',//'@Url.Action("Size","Product")',
         data: $("#stockProduct").serialize()
     })
         .done(function (response) {
-            $("#tableContainer").html(response);
-            $("#actionContainer").html("");
             toastr["success"]("Velicina je uspešno dodata!");
-            focusAction("tableContainer");
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("FAIL");
         });
-    //}
-    //else {
-    //swal({
-    //title: "Ups...",
-    //text: "Popunite sva polja koja su označena * ispravnim podacima!",
-    //icon: "warning",
-    //buttons: true,
-    //dangerMode: true,
-    //})
-    //}
+    }
+    else {
+    swal({
+    title: "Ups...",
+    text: "Popunite sva polja koja su označena * ispravnim podacima!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    })
+    }
 });
 
 $("#cancelBtn").click(function () {
