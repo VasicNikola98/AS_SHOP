@@ -33,7 +33,6 @@ namespace ASonline.ViewModels
         public int Price { get; set; }
         public int CategoryId { get; set; }
         public String ImageUrl { get; set; }
-
         public List<Category> AvailableCategories { get; set; }
     }
 

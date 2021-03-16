@@ -1,7 +1,7 @@
 ﻿@model ASonline.ViewModels.NewProductViewModel
 @{
     ViewBag.Title = "Create";
-    var imageUrl = "/Content/images/System/noPic.png";
+   // var imageUrl = "/Content/images/System/noPic.png";
 }
 
     <div class="container">
@@ -48,13 +48,11 @@
                         <label for="Image">Slika</label>
                         <br />
                         <input type="hidden" name="ImageUrl" id="ImageUrl" />
-                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
+                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" multiple="multiple" autocomplete="off" />
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="thumb">
-                        <img class="img-thumbnail img-fluid" id="productImage" src="@imageUrl" />
-                    </div>
+                <div class="col-md-4" id="thumbId">
+                  
                 </div>
             </div>
          

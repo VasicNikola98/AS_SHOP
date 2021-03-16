@@ -21,12 +21,11 @@ namespace ASonline.Entities
         [Required]
         [Range(1, 1000000000000000)]
         public int Price { get; set; }
-
-        public string ImageUrl { get; set; }
         public List<ProductStock> ProductStocks { get; set; }
         public virtual Category Category { get; set; }
         public virtual List<Review> Reviews { get; set; }
         public virtual List<CartItem> CartItems { get; set; }
+        public virtual List<ProductImages> ProductImages { get; set; }
 
     }
 }

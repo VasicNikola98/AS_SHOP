@@ -43,17 +43,39 @@ $(".productAddToCart").click(function () {
         $.ajax({
             method: 'POST',
             dataType: 'json',
-            url: url, //'@Url.Action("PlaceCartItem", "Shop")',
+            url: url,
             data: cartItem
         })
             .done(function (response) {
                 if (response.Success) {
                     getCartCounter();
                     $(".loading-icon").addClass("hide-spinner");
+
+                    toastr.options = {
+                        "debug": false,
+                        "positionClass": "toast-bottom-right",
+                        "onclick": null,
+                        "fadeIn": 300,
+                        "fadeOut": 1000,
+                        "timeOut": 5000,
+                        "extendedTimeOut": 1000
+                    }
+
                     toastr["success"]("Proizvod je dodat u korpu!");
                 }
                 else {
                     $(".loading-icon").addClass("hide-spinner");
+
+                    toastr.options = {
+                        "debug": false,
+                        "positionClass": "toast-bottom-right",
+                        "onclick": null,
+                        "fadeIn": 300,
+                        "fadeOut": 1000,
+                        "timeOut": 5000,
+                        "extendedTimeOut": 1000
+                    }
+
                     toastr["warning"]("Ovu količinu nije moguće dodati u korpu!");
                 }
             });

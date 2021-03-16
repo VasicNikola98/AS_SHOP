@@ -1,6 +1,6 @@
 ﻿@model ASonline.ViewModels.SizeProductViewModel
 @{ 
-    string[] selectSizeOptions = { "XS", "S", "M", "L", "XL", "XXL", "XXXL" };
+        string[] selectSizeOptions = { "XS", "S", "M", "L", "XL", "XXL", "XXXL" };
 }
 
 <div class="container">
@@ -21,7 +21,7 @@
                          @if (Model.Product.ProductStocks.Count != 0 && Model.Product.ProductStocks != null)
                          {
                              <ul>
-                                 @foreach (var item in Model.Product.ProductStocks)
+                                 @foreach (var item in Model.Product.ProductStocks.OrderBy(x => x.DefaultWeight))
                                  {
                                      <li>@item.Size - @item.Quantity</li>
                                  }
@@ -38,7 +38,7 @@
                     @*<input class="form-control" id="Size" name="Size" autocomplete="off" required />*@
                     <select class="form-control" id="Size" name="Size" required >
                        @foreach(var selectOptions in selectSizeOptions)
-                       {
+                       { 
                            <option>@selectOptions</option>
                        }
                     </select>

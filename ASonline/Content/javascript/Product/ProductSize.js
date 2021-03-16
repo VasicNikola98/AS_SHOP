@@ -22,11 +22,11 @@ $("#saveSizeBtn").click(function () {
     if ($("#stockProduct").valid()) {
     $.ajax({
         type: 'POST',
-        url: '/Product/Size/',//'@Url.Action("Size","Product")',
+        url: '/Product/Size/',
         data: $("#stockProduct").serialize()
     })
         .done(function (response) {
-            toastr["success"]("Velicina je uspešno dodata!");
+            toastr["success"]("Veličina je uspešno dodata!");
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("FAIL");

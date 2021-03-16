@@ -306,3 +306,13 @@
 #logoutForm {
     display: inline-block;
 }
+
+.productImage {
+    display: inline-block;
+}
+
+.thumbPhoto {
+    width: 100px;
+    height: 100px;
+    margin: 5px 5px 5px 0;
+}

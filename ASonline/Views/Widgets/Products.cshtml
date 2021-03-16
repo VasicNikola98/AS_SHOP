@@ -7,6 +7,7 @@
 @{
 
     var defaultImageUrl = "/Content/images/System/noPic.png";
+    
 }
 
 @if (Model != null && Model.Products != null)
@@ -29,7 +30,13 @@
 
             @foreach (var product in Model.Products)
             {
-                var imageUrl = string.IsNullOrEmpty(product.ImageUrl) ? defaultImageUrl : product.ImageUrl;
+
+                string imageUrl = defaultImageUrl;
+                for(var i = 0; i< product.ProductImages.Count; i++)
+                {
+                    imageUrl = string.IsNullOrEmpty(product.ProductImages[0].ImageURL) ? defaultImageUrl : product.ProductImages[0].ImageURL;
+                }
+
 
                 <li class="product-item @product.Category.Name.ToLower()">
                     <div class="product-thumb clearfix">

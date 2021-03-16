@@ -15,19 +15,24 @@ namespace ASonline.Controllers
         {
             JsonResult result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-
+            var list = new List<String>();
             try
             {
-                var file = Request.Files[0];
 
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                for(var i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
 
-                var path = Path.Combine(Server.MapPath("~/content/images/"), fileName);
+                    var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
 
-                file.SaveAs(path);
+                    var path = Path.Combine(Server.MapPath("~/content/images/productImage"), fileName);
 
-                result.Data = new { Success = true, ImageUrl = string.Format("/content/images/{0}", fileName) };
+                    file.SaveAs(path);
 
+                    list.Add(string.Format("/content/images/productImage/{0}", fileName));                   
+                   
+                }
+                result.Data = new { Success = true, ImageUrl = list };
             }
             catch (Exception ex)
             {

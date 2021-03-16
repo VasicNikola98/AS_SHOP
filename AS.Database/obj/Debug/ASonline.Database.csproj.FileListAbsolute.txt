@@ -180,3 +180,5 @@ C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.pdb
 C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.ASHOPV10.resources
 C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.RemoveRangForPriceUnderline.resources
 C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddListOfCartItemInProductEntity.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddClassProductImages.resources
+C:\Users\Nikola Vasic\Desktop\ASHOP-master\AS.Database\obj\Debug\AS.Database.Migrations.AddWeightForSize.resources

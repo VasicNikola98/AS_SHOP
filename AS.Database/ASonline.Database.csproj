@@ -161,6 +161,14 @@
     <Compile Include="Migrations\202012301820200_AddListOfCartItemInProductEntity.Designer.cs">
       <DependentUpon>202012301820200_AddListOfCartItemInProductEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103161453405_AddClassProductImages.cs" />
+    <Compile Include="Migrations\202103161453405_AddClassProductImages.Designer.cs">
+      <DependentUpon>202103161453405_AddClassProductImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103162021031_AddWeightForSize.cs" />
+    <Compile Include="Migrations\202103162021031_AddWeightForSize.Designer.cs">
+      <DependentUpon>202103162021031_AddWeightForSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -255,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012301820200_AddListOfCartItemInProductEntity.resx">
       <DependentUpon>202012301820200_AddListOfCartItemInProductEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103161453405_AddClassProductImages.resx">
+      <DependentUpon>202103161453405_AddClassProductImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103162021031_AddWeightForSize.resx">
+      <DependentUpon>202103162021031_AddWeightForSize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

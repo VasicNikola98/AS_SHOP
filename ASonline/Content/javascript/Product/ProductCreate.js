@@ -48,17 +48,43 @@ $("#imageUpload").change(function () {
 
     $.ajax({
         type: 'POST',
-        url: 'Shared/UploadImage/', //'@Url.Action("UploadImage", "Shared")',
+        url: 'Shared/UploadImage/', 
         dataType: 'json',
         data: formData,
         contentType: false,
         processData: false
     })
         .done(function (response) {
-            console.log(response);
             if (response.Success) {
-                $("#productImage").attr("src", response.ImageUrl);
-                $("#ImageUrl").val(response.ImageUrl);
+                var ImgUrl = [];
+                for (var i = 0; i < response.ImageUrl.length; i++) {
+                    ImgUrl.push(response.ImageUrl[i]);
+                }
+                $("#ImageUrl").val(ImgUrl);
+
+                var thumbDiv = document.getElementById("thumbId");
+               
+                var thumb = document.createElement("div");
+                thumb.className = "thumb";
+                var img = document.createElement("img");
+                img.src = ImgUrl[0];
+                img.alt = "image";
+                thumb.appendChild(img);
+                thumbDiv.appendChild(thumb);
+
+
+                for (var i = 1; i < ImgUrl.length; i++) {
+                    var thumb = document.createElement("div");
+                    thumb.className = "productImage";
+                    var img = document.createElement("img");
+                    img.src = ImgUrl[i];
+                    img.alt = "image";
+                    img.className = "thumbPhoto";
+                    
+                    thumb.appendChild(img);
+                    thumbDiv.appendChild(thumb);
+                }
+
             }
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -70,7 +96,7 @@ $("#saveBtn").click(function () {
     if ($("#createProduct").valid()) {
         $.ajax({
             type: 'POST',
-            url: 'Product/Create/',//'@Url.Action("Create","Product")',
+            url: 'Product/Create/',
             data: $("#createProduct").serialize()
         })
             .done(function (response) {

@@ -58,6 +58,7 @@ namespace ASonline.Service
                     .Take(pageSize)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
+                    .Include(x => x.ProductImages)
                     .OrderByDescending(x => x.Price)
                     .ToList();
 
@@ -85,6 +86,7 @@ namespace ASonline.Service
                     .Skip((pageNo - 1) * pageSize)
                     .Take(pageSize)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .OrderByDescending(x => x.Price)
@@ -100,6 +102,7 @@ namespace ASonline.Service
                     .OrderByDescending(x => x.Id)
                     .Take(pageSize)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .ToList();
@@ -112,6 +115,7 @@ namespace ASonline.Service
                 return ctx.Products
                     .Where(x => x.Category.Id == categoryId)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
                     .OrderByDescending(x => x.Id)
                     .ToList();
@@ -126,6 +130,7 @@ namespace ASonline.Service
                     .OrderByDescending(x => x.Id)
                     .Take(numberOfProducts)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .ToList();
@@ -137,6 +142,7 @@ namespace ASonline.Service
             {
                 var products = ctx.Products
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .OrderByDescending(x => x.Price)
@@ -172,6 +178,7 @@ namespace ASonline.Service
                 var product = ctx.Products
                     .Where(x => x.Id == id)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .FirstOrDefault();
@@ -193,6 +200,7 @@ namespace ASonline.Service
             {
                 var products = ctx.Products
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
                     .OrderByDescending(x => x.Price)
                     .ToList();
@@ -286,7 +294,9 @@ namespace ASonline.Service
                 return ctx.Products
                     .Where(x => ids.Contains(x.Id))
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
+                    .Include(x => x.ProductImages)
                     .ToList();
             }
 
@@ -302,10 +312,11 @@ namespace ASonline.Service
                 productInDb.Price = product.Price;
                 productInDb.Category = product.Category;
 
-                if (!string.IsNullOrEmpty(product.ImageUrl))
+               /* if (!string.IsNullOrEmpty(product.ImageUrl))
                 {
                     productInDb.ImageUrl = product.ImageUrl;
                 }
+               */
 
                 ctx.Entry(productInDb.Category).State = System.Data.Entity.EntityState.Unchanged;
                 ctx.Entry(productInDb).State = System.Data.Entity.EntityState.Modified;
@@ -319,6 +330,7 @@ namespace ASonline.Service
                 var deleteProduct = ctx.Products
                     .Where(x => x.Id == product.Id)
                     .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
                     .Include(x => x.CartItems)
                     .FirstOrDefault();
@@ -326,6 +338,7 @@ namespace ASonline.Service
                 if (deleteProduct != null)
                 {
                     ctx.CartItems.RemoveRange(deleteProduct.CartItems);
+                    ctx.ProductImages.RemoveRange(deleteProduct.ProductImages);
                     ctx.ProductStocks.RemoveRange(deleteProduct.ProductStocks);
                     ctx.Reviews.RemoveRange(deleteProduct.Reviews);
                     ctx.Products.Remove(deleteProduct);

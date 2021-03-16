@@ -63,7 +63,11 @@
 
                 @foreach (var product in Model.Products)
                 {
-                    var imageUrl = string.IsNullOrEmpty(product.ImageUrl) ? defaultImageUrl : product.ImageUrl;
+                    var imageUrl = defaultImageUrl;
+                    for (var i = 0; i< product.ProductImages.Count; i++)
+                    {
+                        imageUrl = string.IsNullOrEmpty(product.ProductImages[0].ImageURL) ? defaultImageUrl : product.ProductImages[0].ImageURL;
+                    }
                      <li class="product-item">
                          <div class="product-thumb clearfix">
                              <a href="@Url.Action("Details", "Product", new { Id = product.Id })">

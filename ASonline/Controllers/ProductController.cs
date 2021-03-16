@@ -125,6 +125,34 @@ namespace ASonline.Controllers
 
             stock.Size = model.Size;
             stock.Quantity = model.Quantity;
+            
+            switch(stock.Size)
+            {
+                case "XS":
+                    stock.DefaultWeight = 0;
+                    break;
+                case "S":
+                    stock.DefaultWeight = 1;
+                    break;
+                case "M":
+                    stock.DefaultWeight = 2;
+                    break;
+                case "L":
+                    stock.DefaultWeight = 3;
+                    break;
+                case "XL":
+                    stock.DefaultWeight = 4;
+                    break;
+                case "XXL":
+                    stock.DefaultWeight = 5;
+                    break;
+                case "XXXL":
+                    stock.DefaultWeight = 6;
+                    break;
+                default:
+                    break;
+            }
+
             stock.Product = ProductService.Instance.GetProductById(model.ProductId);
 
             ProductService.Instance.SaveSize(stock);
@@ -155,8 +183,16 @@ namespace ASonline.Controllers
                 product.PriceUnderline = model.PriceUnderline;
                 product.Price = model.Price;
                 product.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
-                product.ImageUrl = model.ImageUrl;
-    
+
+                var s = model.ImageUrl.Split(',');
+
+                product.ProductImages = new List<ProductImages>();
+                for (var i = 0; i < s.Length; i++) 
+                {
+                    product.ProductImages.Add(new ProductImages { ImageURL = s[i] });
+                }
+            
+
                 ProductService.Instance.SaveProduct(product);
 
                 return RedirectToAction("ProductTable");
@@ -179,7 +215,7 @@ namespace ASonline.Controllers
             model.PriceUnderline = product.PriceUnderline;
             model.Price = product.Price;
             model.CategoryId = product.Category != null ? product.Category.Id : 0;
-            model.ImageUrl = product.ImageUrl;
+            //model.ImageUrl = product.ImageUrl;
             model.AvailableCategories = CategoryService.Instance.GetCategories();
 
             return PartialView(model);
@@ -195,7 +231,7 @@ namespace ASonline.Controllers
             existingProduct.PriceUnderline = model.PriceUnderline;
             existingProduct.Price = model.Price;
             existingProduct.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
-            existingProduct.ImageUrl = model.ImageUrl;
+           // existingProduct.ImageUrl = model.ImageUrl;
 
            
             ProductService.Instance.UpdateProduct(existingProduct);

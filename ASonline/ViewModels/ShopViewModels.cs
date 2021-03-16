@@ -17,7 +17,6 @@ namespace ASonline.ViewModels
     public class CheckoutViewModels
     {
         public List<CartItem> CartProducts { get; set; }
-
     }
 
     public class CartItemViewModel

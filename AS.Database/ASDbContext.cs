@@ -29,5 +29,7 @@ namespace AS.Database
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<ProductImages> ProductImages { get; set; }
+
     }
 }

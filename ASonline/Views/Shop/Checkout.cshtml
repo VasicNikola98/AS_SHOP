@@ -36,9 +36,7 @@
                             
                                  <div>
                                      <h6 class="my-0">Proizvod: @product.Product.Name</h6>
-                                     <a href="@Url.Action("Details","Product", new { Id = product.Product.Id })">
-                                         <img src="@product.Product.ImageUrl" style="width: 150px; height: 150px;" />
-                                     </a>
+                                   
                                      <h6 >Količina: <span id="qty">@product.Quantity</span></h6>
                                      <h6>Veličina: @product.Size</h6>
                                      <span class="text-muted">Cena: @(product.Quantity * product.Product.Price) RSD</span>
