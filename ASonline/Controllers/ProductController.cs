@@ -114,7 +114,7 @@ namespace ASonline.Controllers
             var product = ProductService.Instance.GetProductById(Id);
             model.Product = product;
             model.ProductId = Id;
-            return PartialView(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -170,7 +170,7 @@ namespace ASonline.Controllers
 
             model.AvailableCategories = CategoryService.Instance.GetCategories();
 
-            return PartialView(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -184,13 +184,16 @@ namespace ASonline.Controllers
                 product.Price = model.Price;
                 product.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
 
+               
                 var s = model.ImageUrl.Split(',');
-
+                
                 product.ProductImages = new List<ProductImages>();
-                for (var i = 0; i < s.Length; i++) 
+                for (var i = 0; i < s.Length; i++)
                 {
                     product.ProductImages.Add(new ProductImages { ImageURL = s[i] });
                 }
+                
+                
             
 
                 ProductService.Instance.SaveProduct(product);

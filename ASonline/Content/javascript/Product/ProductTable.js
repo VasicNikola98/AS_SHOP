@@ -1,18 +1,37 @@
-﻿let searchInputField = document.getElementById("searchTxt");
-searchInputField.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        document.getElementById("searchBtn").click();
-    }
-})
+﻿//let searchInputField = document.getElementById("searchTxt");
+//searchInputField.addEventListener('keyup', (e) => {
+//    if (e.keyCode === 13) {
+//        document.getElementById("searchBtn").click();
+//    }
+//})
+
+var URL = "https://localhost:44333";
 
 $("#searchBtn").click(function () {
     var searchValue = $("#searchTxt").val();
 
     $.ajax({
         type: 'POST',
-        url: '/Product/ProductTable/',//'@Url.Action("ProductTable","Product")',
+        url: URL + "/Product/ProductTable/",
         data: {
             search: searchValue
+        }
+    })
+        .done(function (response) {
+            $("#tableContainer").html(response);
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail")
+        });
+});
+
+$(".pageButtons").click(function () {
+
+    $.ajax({
+        url: URL + "/Product/ProductTable/",
+        data: {
+            pageNo: $(this).attr("data-pageNo"),
+            search: $("#searchTerm").val(),
         }
     })
         .done(function (response) {
@@ -28,24 +47,8 @@ $("#newBtn").click(function () {
         url: '/Product/Create/',
     })
         .done(function (response) {
-            $("#actionContainer").html(response);
-            focusAction("actionContainer");
-        })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Fail")
-        });
-});
-
-$(".pageButtons").click(function () {
-    $.ajax({
-        url: '/Product/ProductTable/',//'@Url.Action("ProductTable","Product")',
-        data: {
-            pageNo: $(this).attr("data-pageNo"),
-            search: $("#searchTerm").val(),//'@Model.SearchTerm'
-        }
-    })
-        .done(function (response) {
-            $("#tableContainer").html(response);
+            //$("#actionContainer").html(response);
+            //focusAction("actionContainer");
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Fail")
@@ -53,16 +56,17 @@ $(".pageButtons").click(function () {
 });
 
 $(".editBtn").click(function () {
+
     $.ajax({
-        url: "/Product/Edit/",//'@Url.Action("Edit","Product")',
+        url: URL + "/Product/Edit/",
         data: {
             Id: $(this).attr('data-id'),
         }
     })
         .done(function (response) {
-            $("#actionContainer").html(response);
-
-            focusAction("actionContainer");
+            //$("#actionContainer").html(response);
+            //
+            //focusAction("actionContainer");
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Fail")
@@ -71,14 +75,14 @@ $(".editBtn").click(function () {
 
 $(".sizeBtn").click(function () {
     $.ajax({
-        url: "/Product/Size/",//'@Url.Action("Size","Product")',
+        url: URL + "/Product/Size/",
         data: {
             Id: $(this).attr('data-id'),
         }
     })
         .done(function (response) {
-            $("#actionContainer").html(response);
-            focusAction("actionContainer");
+            //$("#actionContainer").html(response);
+            //focusAction("actionContainer");
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Fail")
@@ -94,10 +98,10 @@ $(".deleteBtn").click(function () {
     })
         .then((willDelete) => {
             if (willDelete) {
-                var url = "https://localhost:44333/Product/Delete/"
+              
                 $.ajax({
                     type: 'POST',
-                    url: url,//"/Product/Delete/",//'@Url.Action("Delete","Product")',
+                    url: URL + "/Product/Delete/",
                     data: {
                         Id: $(this).attr('data-id'),
                     }
@@ -114,3 +118,5 @@ $(".deleteBtn").click(function () {
             }
         });
 });
+
+

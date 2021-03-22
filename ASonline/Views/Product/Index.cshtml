@@ -1,34 +1,7 @@
-﻿
-@{ ViewBag.Title = "Index"; }
+﻿@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-<!-- Page title -->
-<div class="page-title parallax parallax1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-title-heading">
-                    <h1 class="title">PROIZVODI</h1>
-                </div><!-- /.page-title-heading -->
-                <div class="breadcrumbs">
-                    <ul>
-                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                        <li><a href="">Admin</a></li>
-                        <li><a href="@Url.Action("Index","Product")">Poroizvodi</a></li>
-                    </ul>
-                </div><!-- /.breadcrumbs -->
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</div><!-- /.page-title -->
-
-<div class="container">
-    <div id="tableContainer" class="p-3">
-        @{ Html.RenderAction("ProductTable"); }
-    </div>
-
-    <div id="actionContainer" class="container p-3">
-
-    </div>
+<div id="tableContainer" class="p-3">
+    @{ Html.RenderAction("ProductTable"); }
 </div>
-
-<script src="~/Content/javascript/Category/CategoryIndex.js"></script>

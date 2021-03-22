@@ -1,64 +1,72 @@
 ﻿@model ASonline.ViewModels.NewProductViewModel
-@{
-    ViewBag.Title = "Create";
-   // var imageUrl = "/Content/images/System/noPic.png";
+@{ ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    // var imageUrl = "/Content/images/System/noPic.png"; }
 }
 
-    <div class="container">
+<section class="content">
+    <div class="container-fluid">
         <div class="row">
-        <div class="col-md-12">
-            <div class="title-section">
-                <h2 class="title">
-                    Novi proizvod
-                </h2>
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Podaci o novom proizvodu</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form id="createProduct">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Naziv <span style="color:red;">*</span></label>
+                                <input class="form-control" id="Name" name="Name" autocomplete="off" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Opis</label>
+                                <textarea class="form-control" id="Description" name="Description" rows="12" autocomplete="off"> </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="PriceUnderline">Precrtana cena</label>
+                                <input class="form-control" id="PriceUnderline" name="PriceUnderline" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Price">Cena<span style="color:red;">*</span></label>
+                                <input class="form-control" id="Price" name="Price" autocomplete="off" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="CategoryId">Kategorija <span style="color:red;">*</span></label>
+                                <select class="form-control" name="CategoryId">
+                                    @foreach (var category in Model.AvailableCategories)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Image">Slika</label>
+                               
+                                    <input type="hidden" name="ImageUrl" id="ImageUrl" />
+                                    <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" multiple="multiple" autocomplete="off" />
+                            </div>
+                           
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <a id="saveBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj proizvod</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+             
             </div>
+            <!--/.col (left) -->
         </div>
-    </div>
-        <form id="createProduct">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="Name">Naziv proizvoda <span class="active">*</span></label>
-                        <br />
-                        <input class="form-control" id="Name" name="Name" autocomplete="off" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="Description">Opis</label>
-                        <br />
-                        <textarea class="form-control" id="Description" name="Description" rows="12" autocomplete="off" />
-                    </div>
-                    <div class="form-group">
-                        <label for="PriceUnderline">Precrtana cena</label>
-                        <br />
-                        <input class="form-control" id="PriceUnderline" name="PriceUnderline" autocomplete="off"  />
-                    </div>
-                    <div class="form-group">
-                        <label for="Price">Cena<span class="active">*</span></label>
-                        <br />
-                        <input class="form-control" id="Price" name="Price" autocomplete="off" required />
-                    </div>
-                    <div class="form-group">
-                        <select name="CategoryId">
-                            @foreach (var category in Model.AvailableCategories)
-                            {
-                <option value="@category.Id">@category.Name</option>}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="Image">Slika</label>
-                        <br />
-                        <input type="hidden" name="ImageUrl" id="ImageUrl" />
-                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" multiple="multiple" autocomplete="off" />
-                    </div>
-                </div>
-                <div class="col-md-4" id="thumbId">
-                  
-                </div>
-            </div>
-         
-           
-            <a id="saveBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj proizvod</a>
-            <button id="cancelBtn" type="submit" class="btn mt-2">Nazad</button>
-        </form>
-</div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+  
 <script src="~/Content/javascript/Product/ProductCreate.js"></script>

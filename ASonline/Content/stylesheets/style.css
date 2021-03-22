@@ -3039,26 +3039,32 @@ article {
     color: red;
 }
 
-.editBtn i {
-    color: #375eed;
+.editBtn  {
+    color:blue !important;
+    font-weight: bold;
+    cursor:pointer;
     transition: 0.3s;
 }
 
-.editBtn i:hover {
-    color: #6582f0;
+.editBtn :hover {
+    color: #6582f0 !important;
 }
 
-.deleteBtn i {
-    color: #f52222;
+.deleteBtn {
+    color: #f52222 !important;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.deleteBtn i:hover {
-    color: #f74d4d;
+.deleteBtn :hover {
+    color: #f74d4d !important;
 }
 
-.sizeBtn i {
-    color: #f57b2f;
+.sizeBtn {
+    color: #f57b2f !important;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
 }
 .sizeBtn i:hover {

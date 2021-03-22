@@ -1,110 +1,100 @@
 ﻿@model ASonline.ViewModels.ProductSearchViewModels
 
-@{ ViewBag.Title = "ProductTable"; }
+@{ ViewBag.Title = "ProductTable";
+}
 
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Svi proizvodi</h3>
 
-<div class="container">
-        <div class="row d-flex justify-content-between">
-            <div class="col-md-8">
-                <div class="form-group">
-                    <input class="form-control" placeholder="Pretraži..." id="searchTxt" name="Search" value="@Model.SearchTerm" autocomplete="off" autofocus />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-5 pr-0 mb-2">
-                            <button class="btn form-control btn-outline-primary" type="button" id="searchBtn">Pretraži</button>
-                        </div>
-                        <div class="col-md-7 pr-0">
-                            <button class="btn form-control btn-outline-danger" type="button" id="newBtn">Novi proizvod</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @if (Model.Products != null && Model.Products.Count > 0)
-    {
-        <div class="table-responsive">
-            <table id="ProductsTable" class="table table-striped table-hover">
-                <thead class="thead-inverse">
-                    <tr>
-                        <th class="font-weight-bold text-center">Naziv</th>
-                        <th class="font-weight-bold text-center">Kategorija</th>
-                        <th class="font-weight-bold text-center">Cena</th>
-                        <th class="font-weight-bold text-center"></th>
-                        <th class="font-weight-bold text-center"></th>
-                        <th class="font-weight-bold text-center"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var product in Model.Products)
-                    {
-                        <tr class="text-center">
-                            <td>@product.Name</td>
-                            <td>@product.Category.Name</td>
-                            <td>@product.Price</td>
-                            <td>
-                                <a class="editBtn product-btn" data-id="@product.Id"><i class='bx bx-edit'></i></a>
-                            </td>
-                            <td>
-                                <a class="sizeBtn product-btn" data-id="@product.Id"><i class='bx bx-closet'></i></a>
-                            </td>
-                            <td>
-                                <a class="deleteBtn product-btn" data-id="@product.Id"><i class='bx bx-trash-alt'></i></a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    }
-    else
-    {
-        <div class="container">
-            <div class="empty_box d-flex flex-column align-items-center">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="title-section">
-                            <h2 class="title">
-                                Ne postoji proizvod sa ovim imenom
-                            </h2>
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="searchTxt" id="searchTxt" class="form-control float-right" value="@Model.SearchTerm" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <a style="cursor: pointer;" id="searchBtn" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center align-items-center p-2">
-                    <div class="text-center col-md-6">
-                        <p>
-                            Nažalost nismo uspeli da pronadjemo proizvod sa ovim imenom. <br />
-                            Možete kreirati proizvod klikom na dugme pod nazivom "Novi proizvod".
-                        </p>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Naziv</th>
+                                    <th>Kategorija</th>
+                                    <th>Cena</th>
+                                    <th><i class="far fa-edit"></i></th>
+                                    <th><i class="fas fa-box"></i></th>
+                                    <th><i class="far fa-trash-alt"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.Products)
+                                {
+                                      <tr>
+                                          <td>@product.Name</td>
+                                          <td>@product.Category.Name</td>
+                                          <td>@product.Price</td>
+                                          <td>
+                                              <a class="editBtn" style="cursor:pointer;" data-id="@product.Id">Uredi</a>
+                                          </td>
+                                          <td>
+                                              <a style="cursor:pointer;" href="@Url.Action("Size","Product", new { Id = product.Id })">Dodaj veličinu</a>
+                                          </td>
+                                          <td>
+                                              <a class="deleteBtn"  style="cursor:pointer;" data-id="@product.Id">Izbriši</a>
+                                          </td>
+                                      </tr>
+                                }
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-5 p-3">
-                        <img src="~/Content/images/shop/noData.svg" />
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <div id="paginationBtn">
+                            @if (Model.Pager != null && Model.Pager.TotalPages > 1)
+                            {
+                               <ul class="pagination pagination-sm m-0 float-right">
+                                   @if(Model.Pager.CurrentPage > 1)
+                                   {
+                                       <li class="page-item"><a class="page-link pageButtons" data-pageno="1">Prva</a></li>
+                                       <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage - 1)">Prethodna</a></li>
+                                   }
+                                   @for(var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                                   {
+                                       string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
+                                      
+                                       <li class="page-item @activeClass"><a class="page-link pageButtons" data-pageno="@page">@page</a></li>
+                                   }
+                                   @if(Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                   {
+                                      <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage + 1)">Sledeća</a></li>
+                                      <li class="page-item"><a class="page-link pageButtons" data-pageno="@Model.Pager.EndPage">Poslednja</a></li>
+                                   }
+                                   
+                               </ul>
+                            }
+                        </div>
+   
+                        <input type="hidden" value="@Model.SearchTerm" id="searchTerm" />
                     </div>
                 </div>
+                <!-- /.card -->
             </div>
         </div>
-    }
-    <div id="paginationBtn">
-        @if (Model.Pager != null && Model.Pager.TotalPages > 1)
-        {
-            if (Model.Pager.CurrentPage > 1)
-            {
-                <button class="pageButtons" data-pageno="1">PRVA</button>
-                <button class="pageButtons" data-pageno="@(Model.Pager.CurrentPage - 1)">PRETHODNA</button> }
-            for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-            {
-                string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
-
-                <button class="@activeClass pageButtons" data-pageno="@page">@page</button> }
-            if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-            {
-                <button class="pageButtons" data-pageno="@(Model.Pager.CurrentPage + 1)">SLEDEĆA</button>
-                <button class="pageButtons" data-pageno="@Model.Pager.EndPage">POSLEDNJA</button>
-            }
-        }
-    </div>
-    <input type="hidden" value="@Model.SearchTerm" id="searchTerm" />
-</div>
+     
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+ 
 <script src="~/Content/javascript/Product/ProductTable.js"></script>

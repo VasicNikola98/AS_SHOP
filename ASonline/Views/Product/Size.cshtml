@@ -1,6 +1,7 @@
 ﻿@model ASonline.ViewModels.SizeProductViewModel
 @{ 
-        string[] selectSizeOptions = { "XS", "S", "M", "L", "XL", "XXL", "XXXL" };
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string[] selectSizeOptions = { "XS", "S", "M", "L", "XL", "XXL", "XXXL" };
 }
 
 <div class="container">
@@ -15,32 +16,30 @@
                 <h3>Veličina se dodaje za :</h3>
                 <hr />
                 <div class="">
-                    <p>@Model.Product.Name</p>
-                     <br />
-                     <div id="test">
-                         @if (Model.Product.ProductStocks.Count != 0 && Model.Product.ProductStocks != null)
-                         {
-                             <ul>
-                                 @foreach (var item in Model.Product.ProductStocks.OrderBy(x => x.DefaultWeight))
-                                 {
-                                     <li>@item.Size - @item.Quantity</li>
-                                 }
-                             </ul>
-                         }
-                     </div>
+                    <a href="@Url.Action("Details","Product", new { Id = Model.Product.Id })"><h4>@Model.Product.Name</h4></a>
+                    <br />
+                    <div id="test">
+                        @if (Model.Product.ProductStocks.Count != 0 && Model.Product.ProductStocks != null)
+                        {
+            <ul>
+                @foreach (var item in Model.Product.ProductStocks.OrderBy(x => x.DefaultWeight))
+                {
+<li>@item.Size - @item.Quantity</li>}
+            </ul>}
+                    </div>
                 </div>
             </div>
             <form id="stockProduct">
-                <input type="hidden" value="@Model.ProductId" name="ProductId" id="ProductId"/>
+                <input type="hidden" value="@Model.ProductId" name="ProductId" id="ProductId" />
                 <div class="form-group">
                     <label for="Size">Veličina <span class="active">*</span></label>
                     <br />
                     @*<input class="form-control" id="Size" name="Size" autocomplete="off" required />*@
-                    <select class="form-control" id="Size" name="Size" required >
-                       @foreach(var selectOptions in selectSizeOptions)
-                       { 
-                           <option>@selectOptions</option>
-                       }
+                    <select class="form-control" id="Size" name="Size" required>
+                        @foreach (var selectOptions in selectSizeOptions)
+                        {
+                            <option>@selectOptions</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">

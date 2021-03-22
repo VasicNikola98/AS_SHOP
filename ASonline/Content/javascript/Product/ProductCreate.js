@@ -40,15 +40,16 @@ $("#imageUpload").change(function () {
     var element = this;
     var formData = new FormData();
     var totalFiles = element.files.length;
-
+    debugger;
     for (var i = 0; i < totalFiles; i++) {
         var file = element.files[i];
         formData.append("Photo", file);
     }
+    var URL = "https://localhost:44333/Shared/UploadImage/";
 
     $.ajax({
         type: 'POST',
-        url: 'Shared/UploadImage/', 
+        url: URL, 
         dataType: 'json',
         data: formData,
         contentType: false,
@@ -62,28 +63,28 @@ $("#imageUpload").change(function () {
                 }
                 $("#ImageUrl").val(ImgUrl);
 
-                var thumbDiv = document.getElementById("thumbId");
-               
-                var thumb = document.createElement("div");
-                thumb.className = "thumb";
-                var img = document.createElement("img");
-                img.src = ImgUrl[0];
-                img.alt = "image";
-                thumb.appendChild(img);
-                thumbDiv.appendChild(thumb);
-
-
-                for (var i = 1; i < ImgUrl.length; i++) {
-                    var thumb = document.createElement("div");
-                    thumb.className = "productImage";
-                    var img = document.createElement("img");
-                    img.src = ImgUrl[i];
-                    img.alt = "image";
-                    img.className = "thumbPhoto";
-                    
-                    thumb.appendChild(img);
-                    thumbDiv.appendChild(thumb);
-                }
+               // var thumbDiv = document.getElementById("thumbId");
+               //
+               // var thumb = document.createElement("div");
+               // thumb.className = "thumb";
+               // var img = document.createElement("img");
+               // img.src = ImgUrl[0];
+               // img.alt = "image";
+               // thumb.appendChild(img);
+               // thumbDiv.appendChild(thumb);
+               //
+               //
+               // for (var i = 1; i < ImgUrl.length; i++) {
+               //     var thumb = document.createElement("div");
+               //     thumb.className = "productImage";
+               //     var img = document.createElement("img");
+               //     img.src = ImgUrl[i];
+               //     img.alt = "image";
+               //     img.className = "thumbPhoto";
+               //     
+               //     thumb.appendChild(img);
+               //     thumbDiv.appendChild(thumb);
+               // }
 
             }
         })
@@ -94,16 +95,22 @@ $("#imageUpload").change(function () {
 
 $("#saveBtn").click(function () {
     if ($("#createProduct").valid()) {
+        var URL = "https://localhost:44333/Product/Create/";
+        
         $.ajax({
             type: 'POST',
-            url: 'Product/Create/',
+            url: URL,
             data: $("#createProduct").serialize()
         })
             .done(function (response) {
-                $("#tableContainer").html(response);
-                $("#actionContainer").html("");
-                toastr["success"]("Proizvod je uspešno dodat!");
-                focusAction("tableContainer");
+                var url = "https://localhost:44333/Product/Index";
+               // $("#tableContainer").html(response);
+               // $("#actionContainer").html("");
+               // toastr["success"]("Proizvod je uspešno dodat!");
+               // focusAction("tableContainer");
+                swal("Gotovo", "Proizvod je uspešno dodat!", "success").then((value) => {
+                    window.location = url;
+                });
             })
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("FAIL");

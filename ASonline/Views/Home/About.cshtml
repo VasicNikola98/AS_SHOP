@@ -1,5 +1,12 @@
 ﻿@{ ViewBag.Title = "About"; }
 
+<link  href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet"/>
+@*<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>*@
+
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 <!-- Page title -->
 <div class="page-title parallax parallax1">
     <div class="container">
@@ -18,3 +25,92 @@
         </div><!-- /.row -->
     </div><!-- /.container -->
 </div><!-- /.page-title -->
+
+<div class="container">
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Datum rodjenja</th>
+                <th>Mesto rodjenja</th>
+                <th>Broj indeksa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nikola</td>
+                <td>Vasic</td>
+                <td>20.01.1998.</td>
+                <td>Jagodina</td>
+                <td>16498</td>
+            </tr>
+            <tr>
+                <td>Danica</td>
+                <td>Janjic</td>
+                <td>13.07.1999.</td>
+                <td>Vranje</td>
+                <td>4714</td>
+            </tr>
+            <tr>
+                <td>Milos</td>
+                <td>Vasic</td>
+                <td>13.07.1999.</td>
+                <td>Paracin</td>
+                <td>16497</td>
+            </tr>
+            <tr>
+                <td>Nikola</td>
+                <td>Vasic</td>
+                <td>20.01.1998.</td>
+                <td>Jagodina</td>
+                <td>16498</td>
+            </tr>
+            <tr>
+                <td>Danica</td>
+                <td>Janjic</td>
+                <td>13.07.1999.</td>
+                <td>Vranje</td>
+                <td>4714</td>
+            </tr>
+            <tr>
+                <td>Milos</td>
+                <td>Vasic</td>
+                <td>13.07.1999.</td>
+                <td>Paracin</td>
+                <td>16497</td>
+            </tr>
+            <tr>
+                <td>Nikola</td>
+                <td>Vasic</td>
+                <td>20.01.1998.</td>
+                <td>Jagodina</td>
+                <td>16498</td>
+            </tr>
+            <tr>
+                <td>Danica</td>
+                <td>Janjic</td>
+                <td>13.07.1999.</td>
+                <td>Vranje</td>
+                <td>4714</td>
+            </tr>
+            <tr>
+                <td>Milos</td>
+                <td>Vasic</td>
+                <td>13.07.1999.</td>
+                <td>Paracin</td>
+                <td>16497</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    var table = $('#myTable').DataTable({
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true
+    });
+</script>
