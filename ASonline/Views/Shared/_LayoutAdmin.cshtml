@@ -17,15 +17,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
-
     <!-- jQuery -->
     <script src="~/AdminContent/plugins/jquery/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
@@ -55,7 +48,6 @@
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    
                     <div class="info">
                         <a href="#" class="d-block">@User.Identity.Name</a>
                         <span style="color:#696865;">Administrator</span>
@@ -67,7 +59,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tshirt"></i>
                                 <p>
@@ -89,6 +81,38 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>
+                                    Kategorije
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Category")" class="nav-link">
+                                        <i class="fas fa-socks"></i>
+                                        <p>Sve kategorije</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Create","Category")" class="nav-link">
+                                        <i class="fas fa-plus-square"></i>
+                                        <p>Dodaj kategoriju</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index","Home")" class="nav-link">
+                                <i class="nav-icon fas fa-glasses"></i>
+                                <p>
+                                  Pregledaj sajt
+                                </p>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -118,9 +142,12 @@
             </div>
         </footer>
     </div>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
-    
     <!-- Bootstrap -->
     <script src="~/AdminContent/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
@@ -141,6 +168,11 @@
     <script src="~/AdminContent/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/AdminContent/dist/js/pages/dashboard2.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 </body>
 </html>
 

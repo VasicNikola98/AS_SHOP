@@ -31,19 +31,11 @@
     <!--BOXICONS-->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-   
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
     <script src="~/Content/javascript/jquery.min.js"></script>
-    <script src="~/Content/javascript/jquery-ui.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-
-
-    @Scripts.Render("~/bundles/modernizr")
     <!--[if lt IE 9]>
         <script src="javascript/html5shiv.js"></script>
         <script src="javascript/respond.min.js"></script>
@@ -147,8 +139,7 @@
 
                             </li>
                         </ul>
-                    </li>
-}
+                    </li>}
                             </ul>
                         </nav><!-- /.mainnav -->
                     </div><!-- /.nav-wrap -->
@@ -202,15 +193,16 @@
                         <li><a href="@Url.Action("Index","Shop")" class="footer__link">Proizvodi</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                    <li><a href="#" class="footer__link">Moj nalog</a></li> using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
-                                    {
-                    <li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li> }
-                                }
-                                else
-                                {
-                    <li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
-                                    <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>
+            <li><a href="#" class="footer__link">Moj nalog</a></li>
+ using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+            {
+<li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
+ }
 }
+else
+{
+<li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
+                <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>}
                     </ul>
                 </div>
                 <div class="footer__box">
@@ -244,12 +236,12 @@
     </div>
     <div class="cookie-container p-4">
         <div class="container">
-           
+
             <div class="cookieHeader">
-               
-                <h4 style="color:white;" class="text-center"> <i style="font-size: 26px;"  class='bx bx-cookie mr-2'></i><b>Ova web stranica koristi kolačiće</b></h4>
+
+                <h4 style="color:white;" class="text-center"> <i style="font-size: 26px;" class='bx bx-cookie mr-2'></i><b>Ova web stranica koristi kolačiće</b></h4>
             </div>
-            <hr  />
+            <hr />
             <p>
                 Kolačiće upotrebljavamo kako bi ova web stranica radila pravilno i kako bismo bili u stanju da vršimo dalja unapređenja stranice sa svrhom poboljšanja Vašeg korisničkog iskustva, kako bismo personalizovali sadržaj i oglase, omogućili značaj društvenih medija i analizirali promet. Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
             </p>
@@ -302,6 +294,15 @@
 
     <script src="~/Scripts/layout.js"></script>
     @RenderSection("scripts", required: false)
+
+
+   
+    <script src="~/Content/javascript/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
 </body>
 </html>
 

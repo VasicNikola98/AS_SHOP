@@ -54,8 +54,9 @@ namespace ASonline.Controllers
         {
             NewCategoryViewModel model = new NewCategoryViewModel();
 
-            return PartialView(model);
+            return View(model);
         }
+
         [HttpPost]
         public ActionResult Create(NewCategoryViewModel model)
         {
@@ -89,7 +90,7 @@ namespace ASonline.Controllers
                 model.Description = category.Description;
                 model.ImageUrl = category.ImageUrl;
                 model.IsFeatured = category.IsFeatured;
-                return PartialView(model);
+                return View(model);
             }
             else
             {

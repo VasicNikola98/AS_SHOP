@@ -1,57 +1,67 @@
 ﻿@model ASonline.ViewModels.EditCategoryViewModel
-@{ 
-    var trueChecked = Model.IsFeatured ? "checked" : string.Empty;
-    var falseChecked = !Model.IsFeatured ? "checked" : string.Empty;
-    var imageUrl = !string.IsNullOrEmpty(Model.ImageUrl) ? Model.ImageUrl : "/Content/images/System/noPic.png";
-}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title-section">
-                    <h2 class="title">
-                       Izmeni kategoriju
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <form id="editCategory">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <input value="@Model.Id" class="form-control" id="Id" name="Id" autocomplete="off" type="hidden" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Name">Naziv kategorije <span class="active">*</span></label>
-                        <br />
-                        <input class="form-control" value="@Model.Name" id="Name" name="Name" autocomplete="off" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="Description">Opis</label>
-                        <br />
-                        <input class="form-control" value="@Model.Description" id="Description" name="Description"  autocomplete="off" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IsFeatured">Da li je istaknuta? <span class="active">*</span></label>
-                        <br />
-                        <input name="IsFeatured" type="radio" value="true" @trueChecked /> Da
-                        <input name="IsFeatured" type="radio" value="false" @falseChecked /> Ne
-                    </div>
-                    <div class="form-group">
-                        <label for="Image">Slika</label>
-                        <br />
-                        <input id="ImageUrl" name="ImageUrl" type="hidden" />
-                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumb">
-                        <img class="img-thumbnail img-fluid" id="categoryImage" src="@imageUrl" />
-                    </div>
-                </div>
-            </div>
-            <a  id="updateBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Sačuvaj izmene</a>
-            <button id="cancelBtn" type="submit" class="btn mt-2">Nazad</button>
-        </form>
-    </div>
+@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+                var trueChecked = Model.IsFeatured ? "checked" : string.Empty;
+                var falseChecked = !Model.IsFeatured ? "checked" : string.Empty;
+                var imageUrl = !string.IsNullOrEmpty(Model.ImageUrl) ? Model.ImageUrl : "/Content/images/System/noPic.png"; 
+    }
 
-    <script src="~/Content/javascript/Category/CategoryEdit.js"></script>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Izmeni kategoriju</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+
+                    <form id="editCategory">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="Name">Naziv kategorije <span style="color:red;">*</span></label>
+                                        <input class="form-control" value="@Model.Name" id="Name" name="Name" autocomplete="off" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description">Opis</label>
+                                        <input class="form-control" value="@Model.Description" id="Description" name="Description" autocomplete="off"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="IsFeatured">Da li je istaknuta? <span style="color:red;">*</span></label>
+                                        <input name="IsFeatured" type="radio" value="true" @trueChecked /> Da
+                                        <input name="IsFeatured" type="radio" value="false" @falseChecked /> Ne
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image">Slika</label>
+                                        <input type="hidden" name="ImageUrl" id="ImageUrl" />
+                                        <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <img class="img-thumbnail img-fluid" id="categoryImage" src="@imageUrl" />
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a id="updateBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Sačuvaj izmene</a>
+                        </div>
+                        <input name="Id" value="@Model.Id" type="hidden"/>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+</section>
+<!-- /.content -->
+
+
+<script src="~/Content/javascript/Category/CategoryEdit.js"></script>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\ASonline.Entities.csproj": {}
+    "C:\\Users\\Nikola Vasic\\Desktop\\AS_SHOP\\ASonline.Entities\\ASonline.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\ASonline.Entities.csproj": {
+    "C:\\Users\\Nikola Vasic\\Desktop\\AS_SHOP\\ASonline.Entities\\ASonline.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\ASonline.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Nikola Vasic\\Desktop\\AS_SHOP\\ASonline.Entities\\ASonline.Entities.csproj",
         "projectName": "ASonline.Entities",
-        "projectPath": "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\ASonline.Entities.csproj",
+        "projectPath": "C:\\Users\\Nikola Vasic\\Desktop\\AS_SHOP\\ASonline.Entities\\ASonline.Entities.csproj",
         "packagesPath": "C:\\Users\\Nikola Vasic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola Vasic\\Desktop\\ASHOP-master\\ASonline.Entities\\obj\\",
+        "outputPath": "C:\\Users\\Nikola Vasic\\Desktop\\AS_SHOP\\ASonline.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

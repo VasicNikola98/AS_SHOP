@@ -1,21 +1,23 @@
-﻿var products;
-$(".productAddToCart").click(function () {
+﻿$(document).ready(function () {
+    var products;
+    $(".productAddToCart").click(function () {
 
-    var existingCookieData = $.cookie('CartProducts');
+        var existingCookieData = $.cookie('CartProducts');
 
-    if (existingCookieData != undefined && existingCookieData != "" && existingCookieData != null) {
+        if (existingCookieData != undefined && existingCookieData != "" && existingCookieData != null) {
 
-        products = existingCookieData.split('-');
+            products = existingCookieData.split('-');
 
-    }
-    else {
-        products = [];
-    }
-    var productId = $(this).attr('data-id');
+        }
+        else {
+            products = [];
+        }
+        var productId = $(this).attr('data-id');
 
-    products.push(productId);
-    $.cookie('CartProducts', products.join('-'), { path: '/' });
+        products.push(productId);
+        $.cookie('CartProducts', products.join('-'), { path: '/' });
 
-    updateCartProducts();
-    swal("Done", "Product Added to Cart!", "success");
+        updateCartProducts();
+        swal("Done", "Product Added to Cart!", "success");
+    });
 });
