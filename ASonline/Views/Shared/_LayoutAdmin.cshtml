@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 2</title>
+    <title>AS shop</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
+    <link rel="stylesheet" href="~/AdminContent/dist/css/adminStyle.css" />
     <!-- jQuery -->
     <script src="~/AdminContent/plugins/jquery/jquery.min.js"></script>
 </head>
@@ -104,6 +105,15 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index","Order")" class="nav-link">
+                                <i class="nav-icon fas fa-box-open"></i>
+                                <p>
+                                   Porudžbine
+                                </p>
+                            </a>
                         </li>
 
                         <li class="nav-item">

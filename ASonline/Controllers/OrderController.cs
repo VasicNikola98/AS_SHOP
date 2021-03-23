@@ -13,7 +13,12 @@ namespace ASonline.Controllers
     [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
-        public ActionResult Index(string searchTerm, string status, int? pageNo)
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult OrderTable(string searchTerm, string status, int? pageNo)
         {
             OrdersViewModel model = new OrdersViewModel();
             model.Status = status;
@@ -28,9 +33,16 @@ namespace ASonline.Controllers
 
             var totalRecords = OrdersService.Instance.SearchOrdersCount(searchTerm,status);
 
-            model.Pager = new Pager(totalRecords, pageNo, 5);
+            if (model.Orders != null)
+            {
+                model.Pager = new Pager(totalRecords, pageNo, 5);
 
-            return View(model);
+                return PartialView("OrderTable", model);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         public ActionResult Details(int id)

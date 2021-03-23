@@ -1,0 +1,7 @@
+﻿.filterStatus{
+    cursor: pointer;
+}
+
+.filterStatusActive{
+    background: red;
+}

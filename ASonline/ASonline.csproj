@@ -336,6 +336,7 @@
     <Content Include="AdminContent\build\npm\vnu-jar.js" />
     <Content Include="AdminContent\dist\css\adminlte.css" />
     <Content Include="AdminContent\dist\css\adminlte.min.css" />
+    <Content Include="AdminContent\dist\css\adminStyle.css" />
     <Content Include="AdminContent\dist\css\alt\adminlte.components.css" />
     <Content Include="AdminContent\dist\css\alt\adminlte.components.min.css" />
     <Content Include="AdminContent\dist\css\alt\adminlte.core.css" />
@@ -3055,7 +3056,6 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\FilterProducts.cshtml" />
     <Content Include="Views\Category\_CategoryTable.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Product\Size.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
@@ -3066,6 +3066,8 @@
     <Content Include="Views\Home\OrderInfo.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Order\OrderTable.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
