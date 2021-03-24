@@ -5,3 +5,26 @@
 .filterStatusActive{
     background: red;
 }
+
+
+.acceptReviewBtn i {
+    font-size: 30px;
+    cursor: pointer;
+    color: #137833;
+    transition: ease-in 0.2s;
+}
+
+    .acceptReviewBtn i:hover {
+        color: #3dc468;
+    }
+
+.removeReview i{
+    font-size: 30px;
+    cursor: pointer;
+    color: #a81111;
+    transition: ease-in 0.2s;
+}
+
+.removeReview i:hover {
+    color: #d44646;
+}

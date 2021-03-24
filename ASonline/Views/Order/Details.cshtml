@@ -1,141 +1,98 @@
 ﻿@model ASonline.ViewModels.OrderDetailsViewModel
-@{ ViewBag.Title = "Checkout"; }
-<!-- Page title -->
-<div class="page-title parallax parallax1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-title-heading">
-                    <h1 class="title">PORUDŽBINA</h1>
-                </div><!-- /.page-title-heading -->
-                <div class="breadcrumbs">
-                    <ul>
-                        <li><a href="@Url.Action("Index","Home")">Početna</a></li>
-                        <li><a href="">Admin</a></li>
-                        <li><a href="@Url.Action("Details","Order", new { id = Model.Order.Id })">Porudžbina</a></li>
-                    </ul>
-                </div><!-- /.breadcrumbs -->
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</div><!-- /.page-title -->
+@{ ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
-@if (Model != null && Model.Order != null)
-{
-    <section class="flat-row main-shop shop-slidebar">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 order-md-2 mb-4">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">Poručeni proizvodi</span>
-                    </h4>
-                    <ul class="list-group mb-3 sticky-top">
-                        @foreach (var orderItems in Model.Order.OrderItems)
-                        {
-                            var productQuantity = orderItems.Quantity;
-    
-                            <li class="list-group-item d-flex justify-content-between lh-condensed" data-id="@orderItems.ProductId">
-                           
-                                <div>
-                                    <h6 class="my-0">Proizvod: @orderItems.Product.Name</h6>
-                                    <img src="@orderItems.Product.ImageUrl" style="width: 150px; height: 150px;" />
-                                    <h6>Količina: @productQuantity</h6>
-                                    <h6>Velicina: @orderItems.Size</h6>
-                                    <span class="text-muted">Cena: @(productQuantity * orderItems.Product.Price) RSD</span>
-                                </div>
-                            </li>
-                        }
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Ukupna cena za naplatu:</span>
-                            <strong>@Model.Order.TotalAmount RSD</strong>
-                        </li>
-                    </ul>
+
+
+<div class="container p-3 bg-light">
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Poručeni proizvodi</span>
+                <span class="badge bg-primary rounded-pill">@Model.Order.OrderItems.Count</span>
+            </h4>
+            <ul class="list-group mb-3">
+                @foreach (var orderItem in Model.Order.OrderItems)
+                {
+                    var productQuantity = orderItem.Quantity;
+
+    <li class="list-group-item d-flex justify-content-between lh-sm" data-id="@orderItem.ProductId">
+        <div>
+            <h6 class="my-0">@orderItem.Product.Name</h6>
+            <small class="text-muted">Količina: @productQuantity</small>
+            <br />
+            <small class="text-muted">Veličina: @orderItem.Size</small>
+            <br />
+            <small class="text-muted">Cena jednog proizvoda: @orderItem.Product.Price (RSD)</small>
+        </div>
+        <span class="text-muted">@(productQuantity * orderItem.Product.Price) RSD</span>
+    </li>            }
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Ukupno (RSD)</span>
+                    <strong>@Model.Order.TotalAmount</strong>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Adresa za slanje</h4>
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="FirstName">Ime</label>
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.Order.OrderDetail.FirstName" readonly />
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-10 order-md-1">
-                    <h4 class="mb-3">Adresa za slanje pošiljke</h4>
-                    <form class="needs-validation" novalidate="">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="FirstName">Ime</label>
-                                <input type="text" class="form-control" id="FirstName" placeholder="" name="FirstName" value="@Model.Order.OrderDetail.FirstName" required="" />
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="LastName">Prezime</label>
-                                <input type="text" class="form-control" id="LastName" name="LastName" placeholder="" value="@Model.Order.OrderDetail.LastName" required="" />
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Email">Email<span class="text-muted"></span></label>
-                            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Order.OrderDetail.Email" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="Address">Adresa</label>
-                            <input type="text" class="form-control" id="Address" name="Address" required="" value="@Model.Order.OrderDetail.Address" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="Nummber">Broj telefona <span class="text-muted"></span></label>
-                            <input type="text" class="form-control" placeholder="063-111-111" id="Nummber" name="Nummber" value="@Model.Order.OrderDetail.Nummber" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="Country">Država <span class="text-muted"></span></label>
-                            <input type="text" class="form-control" placeholder="Srbija" id="Country" name="Country" value="Srbija" disabled />
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="City">Grad / Opština*</label>
-                                <input type="text" class="form-control" id="City" name="City" placeholder="" value="@Model.Order.OrderDetail.City" required="" />
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="PostCode">Poštanski broj</label>
-                                <input type="text" class="form-control" id="PostCode" name="PostCode" placeholder="" value="@Model.Order.OrderDetail.PostCode" required="" />
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="address">Status</label>
-                            <select name="Stauts" id="changeStatus">
-                                @foreach (var availableStatus in Model.AvailableStatues)
-                                {
-                                    var isSelectedStatus = availableStatus == Model.Order.Status;
-    
-                                   <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>
-                                }
-                            </select>
-                        </div>
-                    </form>
+
+                <div class="col-sm-6">
+                    <label for="LastName">Prezime</label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.Order.OrderDetail.LastName" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label for="Email">Email<span class="text-muted"></span></label>
+                    <input type="email" class="form-control" id="Email" name="Email" value="@Model.Order.OrderDetail.Email" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label for="Address">Adresa</label>
+                    <input type="text" class="form-control" id="Address" name="Address" value="@Model.Order.OrderDetail.Address" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label for="Nummber">Broj telefona <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" id="Nummber" name="Nummber" value="@Model.Order.OrderDetail.Nummber" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label for="Country">Država <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" placeholder="Srbija" id="Country" name="Country" value="Srbija" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="City">Grad / Opština*</label>
+                    <input type="text" class="form-control" id="City" name="City" value="@Model.Order.OrderDetail.City" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="PostCode">Poštanski broj</label>
+                    <input type="text" class="form-control" id="PostCode" name="PostCode" value="@Model.Order.OrderDetail.PostCode" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label for="address">Trenutni status</label>
+                    <select name="Stauts" id="changeStatus" class="form-control">
+                        @foreach (var availableStatus in Model.AvailableStatues)
+                        {
+                            var isSelectedStatus = availableStatus == Model.Order.Status;
+
+            <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>}
+                    </select>
                 </div>
             </div>
         </div>
-        <input type="hidden" value="@Model.Order.Id" id="orderId" name="id"/>
-    </section>
-    <script src="~/Content/javascript/Order/OrderDetails.js"></script>
-}
-else
-{
-     <div class="container">
-         <div class="empty_box d-flex flex-column align-items-center">
-             <div class="row">
-                 <div class="col-md-12">
-                     <div class="title-section">
-                         <h2 class="title">
-                             Još uvek nema ni jedna porudzbina
-                         </h2>
-                     </div>
-                 </div>
-             </div>
-             <div class="row justify-content-center align-items-center p-2">
-                 <div class="text-center col-md-6">
-                     <p>
-                         Nažalost još uvek nemate ni jednu porudzbinu. <br />
-                         Nezaboravite da pormovišete Vaš biznis na društvenim mrežama!
-                     </p>
-                 </div>
-                 <div class="col-md-5 p-3">
-                     <img src="~/Content/images/shop/noOrder.svg" />
-                 </div>
-             </div>
-         </div>
-     </div>
-}
-     
+    </div>
+    <input type="hidden" value="@Model.Order.Id" id="orderId" name="id" />
+</div>
+<script src="~/Content/javascript/Order/OrderDetails.js"></script>
+
+
