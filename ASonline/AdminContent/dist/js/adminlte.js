@@ -2731,3 +2731,7 @@
 
 })));
 //# sourceMappingURL=adminlte.js.map
+
+function submitform() {
+    $("#logoutForm").submit();
+}

@@ -859,6 +859,7 @@ function showLoader() {
     $("#cartProductsCount").html(counter);
 };
 */
+
 function generateUUID() { 
     var d = new Date().getTime();
     var d2 = (performance && performance.now && (performance.now() * 1000)) || 0;

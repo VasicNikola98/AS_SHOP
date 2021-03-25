@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+
+    var URL = "https://localhost:44333/";
+
     $('input[type="radio"]').on('click change', function (e) {
 
         let inputId = $(this).val();
@@ -32,8 +35,6 @@
                 $.cookie('cartItemHashedUserId', hashUserId, { path: '/' });
             }
 
-            let url = 'https://localhost:44333/Shop/PlaceCartItem/'
-
             var cartItem = {
                 productId: prId,
                 productSize: size,
@@ -43,7 +44,7 @@
             $.ajax({
                 method: 'POST',
                 dataType: 'json',
-                url: url,
+                url: URL + "Shop/PlaceCartItem/",
                 data: cartItem
             })
                 .done(function (response) {
@@ -86,7 +87,6 @@
                 title: "Ups..",
                 text: "Morate izabrati veličinu pre dodavanja proizvoda u korpu!",
                 icon: "warning",
-
                 dangerMode: true,
             })
         }
@@ -138,10 +138,9 @@
                     Comment: $("#Comment").val()
                 };
 
-                let url = 'https://localhost:44333/Product/AddReviews/'
                 $.ajax({
                     method: 'POST',
-                    url: url,//'@Url.Action("AddReviews", "Product")',
+                    url: URL + "Product/AddReviews/",
                     dataType: "json",
                     data: review
                 })
@@ -161,7 +160,6 @@
                     title: "Ups...",
                     text: "Popunite sva polja koja su označena * ispravnim podacima!",
                     icon: "warning",
-                    buttons: true,
                     dangerMode: true,
                 })
             }
@@ -171,7 +169,6 @@
                 title: "Ups...",
                 text: "Ocenite proizvod!",
                 icon: "warning",
-                buttons: true,
                 dangerMode: true,
             })
         }

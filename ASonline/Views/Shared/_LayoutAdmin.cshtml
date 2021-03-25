@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
     <link rel="stylesheet" href="~/AdminContent/dist/css/adminStyle.css" />
+
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- jQuery -->
     <script src="~/AdminContent/plugins/jquery/jquery.min.js"></script>
 </head>
@@ -59,10 +63,10 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tshirt"></i>
+                                <i class='nav-icon bx bx-shopping-bag'></i>
                                 <p>
                                     Proizvodi
                                     <i class="right fas fa-angle-left"></i>
@@ -71,13 +75,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="@Url.Action("Index","Product")" class="nav-link">
-                                        <i class="fas fa-dolly"></i>
+                                        <i class="nav-icon fas fa-tshirt"></i>
                                         <p>Svi proizvodi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="@Url.Action("Create","Product")" class="nav-link">
-                                        <i class="fas fa-plus-square"></i>
+                                        <i class="nav-icon fas fa-plus-square text-success"></i>
                                         <p>Dodaj proizvod</p>
                                     </a>
                                 </li>
@@ -85,7 +89,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tags"></i>
+                                <i class='nav-icon bx bx-category-alt'></i>
                                 <p>
                                     Kategorije
                                     <i class="right fas fa-angle-left"></i>
@@ -94,13 +98,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="@Url.Action("Index","Category")" class="nav-link">
-                                        <i class="fas fa-socks"></i>
+                                        <i class='nav-icon bx bx-purchase-tag'></i>
                                         <p>Sve kategorije</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="@Url.Action("Create","Category")" class="nav-link">
-                                        <i class="fas fa-plus-square"></i>
+                                        <i class="nav-icon fas fa-plus-square text-success"></i>
                                         <p>Dodaj kategoriju</p>
                                     </a>
                                 </li>
@@ -109,7 +113,7 @@
 
                         <li class="nav-item">
                             <a href="@Url.Action("Index","Order")" class="nav-link">
-                                <i class="nav-icon fas fa-box-open"></i>
+                                <i class='nav-icon bx bx-box'></i>
                                 <p>
                                     Porudžbine
                                 </p>
@@ -133,6 +137,22 @@
                                 </p>
                             </a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-header">MOJ NALOG</li>
+                           
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+                            {   <li class="nav-item">
+                                   <a href="javascript:submitFormFooter()" title="Logout" class="nav-link">
+                                      <i style="margin-left: 6px; font-size: 19px;" class="nav-icon fas fa-sign-out-alt"></i>
+                                      <p style="margin-left: 4px;">
+                                         Odjavi se
+                                      </p>
+                                  </a>
+                               </li>
+                            } 
+                        }
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -155,11 +175,11 @@
         <!-- Main Footer -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2021</strong>
-               Sva prava zadržana.
+            Sva prava zadržana.
         </footer>
     </div>
 
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
     <!-- ./wrapper -->
@@ -188,7 +208,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
+    <script src="~/AdminContent/dist/js/adminLayout.js"></script>
 </body>
 </html>
 

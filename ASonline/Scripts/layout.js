@@ -55,10 +55,6 @@
         }
     });
 
-    function submitform() {
-        $("#logoutForm").submit();
-    }
-
     function submitFormFooter() {
         $("#logoutFormFooter").submit();
     }
@@ -78,3 +74,7 @@
 
 
 });
+
+function submitform() {
+    $("#logoutForm").submit();
+}

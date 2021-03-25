@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+
+    var URL = "https://localhost:44333/";
+
     $('#createOrderDetails').validate({
         rules: {
             FirstName: {
@@ -60,7 +63,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/Shop/PlaceOrder/',//'@Url.Action("PlaceOrder","Shop")',
+                url: URL + 'Shop/PlaceOrder/',
                 dataType: "json",
                 data: orderDetails
             })
@@ -68,9 +71,8 @@
                     if (response.Success) {
                         getCartCounter();
                         $(".loading-icon").addClass("hide-spinner");
-                        let url = "https://localhost:44333/Shop/";
                         swal("Gotovo", "Vaša narudzbina je prihvaćena.", "success").then((value) => {
-                            window.location = url;//'@Url.Action("Index","Shop")';
+                            window.location = URL + "Shop";
                         });
 
                     }

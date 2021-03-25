@@ -140,34 +140,37 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer clearfix">
+                    
+                      <div class="card-footer clearfix">
                         <div id="paginationBtn">
                             @if (Model.Pager != null && Model.Pager.TotalPages > 1)
                             {
-                <ul class="pagination pagination-sm m-0 float-right">
-                    @if (Model.Pager.CurrentPage > 1)
-                    {
-    <li class="page-item"><a class="page-link pageButtons" data-pageno="1">Prva</a></li>
-                        <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage - 1)">Prethodna</a></li>
-}
-                    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-                    {
-                        string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
-
-    <li class="page-item @activeClass"><a class="page-link pageButtons" data-pageno="@page">@page</a></li>
-}
-                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                    {
-    <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage + 1)">Sledeća</a></li>
-                        <li class="page-item"><a class="page-link pageButtons" data-pageno="@Model.Pager.EndPage">Poslednja</a></li>
-}
-
-                </ul>}
+                                 <ul class="pagination pagination-sm m-0 float-right">
+                                     @if (Model.Pager.CurrentPage > 1)
+                                     {
+                                         <li class="page-item"><a class="page-link pageButtons" data-pageno="1">Prva</a></li>
+                                         <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage - 1)">Prethodna</a></li>
+                                     }
+                                     @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                                     {
+                                         string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
+                                
+                                         <li class="page-item @activeClass"><a class="page-link pageButtons" data-pageno="@page">@page</a></li>
+                                     }
+                                     @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                     {
+                                         <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage + 1)">Sledeća</a></li>
+                                         <li class="page-item"><a class="page-link pageButtons" data-pageno="@Model.Pager.EndPage">Poslednja</a></li>
+                                      }                               
+                                
+                                 </ul>
+                             }
                         </div>
 
                         <input type="hidden" value="@Model.SearchTerm" id="searchTerm" />
                         <input type="hidden" value="@Model.Status" id="status" />
                     </div>
+                    
                 </div>
                 <!-- /.card -->
             </div>

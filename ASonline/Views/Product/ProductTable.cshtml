@@ -39,23 +39,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var product in Model.Products)
+                                @if(Model.Products.Count > 0 && Model.Products != null)
                                 {
-                                      <tr>
-                                          <td>@product.Name</td>
-                                          <td>@product.Category.Name</td>
-                                          <td>@product.Price</td>
-                                          <td>
-                                              <a class="editBtn" style="cursor:pointer;" data-id="@product.Id">Uredi</a>
-                                          </td>
-                                          <td>
-                                              <a style="cursor:pointer;" href="@Url.Action("Size","Product", new { Id = product.Id })">Dodaj veličinu</a>
-                                          </td>
-                                          <td>
-                                              <a class="deleteBtn"  style="cursor:pointer;" data-id="@product.Id">Izbriši</a>
-                                          </td>
-                                      </tr>
+                                      foreach (var product in Model.Products)
+                                      {
+                                        <tr>
+                                            <td>@product.Name</td>
+                                            <td>@product.Category.Name</td>
+                                            <td>@product.Price</td>
+                                            <td>
+                                                <a class="editBtn" style="cursor:pointer;" data-id="@product.Id">Uredi</a>
+                                            </td>
+                                            <td>
+                                                <a style="cursor:pointer;" href="@Url.Action("Size","Product", new { Id = product.Id })">Dodaj veličinu</a>
+                                            </td>
+                                            <td>
+                                                <a class="deleteBtn"  style="cursor:pointer;" data-id="@product.Id">Izbriši</a>
+                                            </td>
+                                        </tr>
+                                    }
                                 }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center">Nije pronadjen nijedan proizvod</td>
+                                    </tr>
+                                }
+
                             </tbody>
                         </table>
                     </div>

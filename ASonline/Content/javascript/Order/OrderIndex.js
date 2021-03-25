@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     var URL = "https://localhost:44333/";
 
     let searchInputField = document.getElementById("searchTxt");

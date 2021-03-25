@@ -67,22 +67,25 @@
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
-            <div class="top-bar-nav">
-                <div class="inner">
-                    <span class="account"><a href="@Url.Action("Index","Manage")"><i class="fa fa-user"></i> Moj nalog </a></span>
-                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-    <a href="javascript:submitform()" title="Logout">Odjavi se</a>}
-                </div>
-            </div> }
-        else
-        {
-<div class="top-bar-nav">
-    <div class="inner">
-        <span class="account"><a href="@Url.Action("Login","Account")"><i class="fa fa-user"></i> Prijavi se </a></span>
-        <span class="account"><a href="@Url.Action("Register","Account")">Registruj se </a></span>
-    </div>
-</div>}
+                            <div class="top-bar-nav">
+                                <div class="inner">
+                                    <span class="account"><a href="@Url.Action("Index","Manage")"><i class="fa fa-user"></i> Moj nalog </a></span>
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                       <a href="javascript:submitform()" title="Logout">Odjavi se</a>
+                                    }
+                                </div>
+                            </div> 
+                         }
+                         else
+                         {
+                              <div class="top-bar-nav">
+                                  <div class="inner">
+                                      <span class="account"><a href="@Url.Action("Login","Account")"><i class="fa fa-user"></i> Prijavi se </a></span>
+                                      <span class="account"><a href="@Url.Action("Register","Account")">Registruj se </a></span>
+                                  </div>
+                              </div>
+                         }
                     </div>
                 </div>
             </div>
@@ -122,25 +125,11 @@
                                 </li>
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                 {
-                    <li class="active">
-                        <a href="">ADMIN</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="@Url.Action("Index", "Order")">PORUDŽBINE</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Product")">PROIZVODI</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Category")">KATEGORIJE</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Reviews", "Product")">KOMENTARI </a>
-
-                            </li>
-                        </ul>
-                    </li>}
-                            </ul>
+                                     <li class="active">
+                                         <a href="@Url.Action("Index","Admin")">ADMIN  <i class='bx bx-cog'></i></a>
+                                     </li>
+                                }
+                           </ul>
                         </nav><!-- /.mainnav -->
                     </div><!-- /.nav-wrap -->
                 </div><!-- /.container-fluid -->
@@ -193,16 +182,17 @@
                         <li><a href="@Url.Action("Index","Shop")" class="footer__link">Proizvodi</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-            <li><a href="#" class="footer__link">Moj nalog</a></li>
- using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
-            {
-<li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
- }
-}
-else
-{
-<li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
-                <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>}
+                           <li><a href="#" class="footer__link">Moj nalog</a></li>
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+                            {
+                               <li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
+                            }
+                        }
+                        else
+                        {
+                             <li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
+                             <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>
+                        }
                     </ul>
                 </div>
                 <div class="footer__box">
