@@ -39,6 +39,9 @@
         }
     });
 
+    var ProductImage = new Array();
+    var ProductStock = new Array();
+
     $("#imageUpload").change(function () {
 
         var element = this;
@@ -60,34 +63,24 @@
         })
             .done(function (response) {
                 if (response.Success) {
-                    var ImgUrl = [];
-                    for (var i = 0; i < response.ImageUrl.length; i++) {
-                        ImgUrl.push(response.ImageUrl[i]);
-                    }
-                    $("#ImageUrl").val(ImgUrl);
+                    ProductImage.push(response.ImageUrl);
 
-                    // var thumbDiv = document.getElementById("thumbId");
-                    //
-                    // var thumb = document.createElement("div");
-                    // thumb.className = "thumb";
-                    // var img = document.createElement("img");
-                    // img.src = ImgUrl[0];
-                    // img.alt = "image";
-                    // thumb.appendChild(img);
-                    // thumbDiv.appendChild(thumb);
-                    //
-                    //
-                    // for (var i = 1; i < ImgUrl.length; i++) {
-                    //     var thumb = document.createElement("div");
-                    //     thumb.className = "productImage";
-                    //     var img = document.createElement("img");
-                    //     img.src = ImgUrl[i];
-                    //     img.alt = "image";
-                    //     img.className = "thumbPhoto";
-                    //     
-                    //     thumb.appendChild(img);
-                    //     thumbDiv.appendChild(thumb);
-                    // }
+                    var mainImageDiv = document.getElementById("product-images");
+                    var imageDiv = document.createElement("div");
+                    imageDiv.style.display = "inline-block";
+                    var productImg = document.createElement("img");
+                    productImg.src = response.ImageUrl;
+                    productImg.alt = "Image";
+
+                    if (ProductImage.length == 1) {
+                        productImg.classList = "productCreateImage-thumb";
+                    }
+                    else {
+                        productImg.classList = "productCreateImage-other";
+                    }
+
+                    imageDiv.appendChild(productImg);
+                    mainImageDiv.appendChild(imageDiv);
 
                 }
             })
@@ -96,14 +89,121 @@
             });
     });
 
+    $("#addSizeBtn").click(function () {
+      
+        var size = $("#SizeId").val();
+        var quantity = parseInt($("#QuantityId").val());
+        var weight = "";
+
+        switch (size) {
+            case "XS":
+                weight = 0;
+                break;
+            case "S":
+                weight = 1;
+                break;
+            case "M":
+                weight = 2;
+                break;
+            case "L":
+                weight = 3;
+                break;
+            case "XL":
+                weight = 4;
+                break;
+            case "XXL":
+                weight = 5;
+                break;
+            case "XXXL":
+                weight = 6;
+                break;
+            default:
+                break;
+        }
+
+  
+
+        if (quantity > 0) {
+
+            var existingSize = ProductStock.find(({ Size }) => Size === size);
+
+            if (existingSize != undefined) {
+
+                ProductStock.forEach((x) => {
+                    if (x.Size === size) {
+                        x.Quantity = x.Quantity + parseInt(quantity);
+                    }
+                })
+
+                toastr.options = {
+                    "debug": false,
+                    "positionClass": "toast-bottom-right",
+                    "onclick": null,
+                    "fadeIn": 300,
+                    "fadeOut": 1000,
+                    "timeOut": 5000,
+                    "extendedTimeOut": 1000
+                }
+
+                toastr["success"]("Veličina je uspešno dodata!");
+
+            }
+            else {
+
+                var productStock = {
+                    Size: size,
+                    Quantity: quantity,
+                    DefaultWeight: weight
+                }
+
+                ProductStock.push(productStock);
+
+                toastr.options = {
+                    "debug": false,
+                    "positionClass": "toast-bottom-right",
+                    "onclick": null,
+                    "fadeIn": 300,
+                    "fadeOut": 1000,
+                    "timeOut": 5000,
+                    "extendedTimeOut": 1000
+                }
+
+                toastr["success"]("Veličina je uspešno dodata!");
+
+            }
+            
+        }
+        else {
+            toastr.options = {
+                "debug": false,
+                "positionClass": "toast-bottom-right",
+                "onclick": null,
+                "fadeIn": 300,
+                "fadeOut": 1000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            }
+
+            toastr["error"]("Količina mora biti veća od nule!");
+        }
+       
+    });
+
     $("#saveBtn").click(function () {
         if ($("#createProduct").valid()) {
-           
 
             $.ajax({
                 type: 'POST',
                 url: URL + "Product/Create/",
-                data: $("#createProduct").serialize()
+                data: {
+                    Name: $("#Name").val(),
+                    Description: $("#Description").val(),
+                    PriceUnderline: $("#PriceUnderline").val(),
+                    Price: $("#Price").val(),
+                    CategoryId: $("#CategoryId").val(),
+                    ImageUrl: ProductImage,
+                    Stock: ProductStock
+                }
             })
                 .done(function (response) {
                    

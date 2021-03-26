@@ -28,3 +28,37 @@
 .removeReview i:hover {
     color: #d44646;
 }
+
+.productCreateImage-thumb {
+    display: inline-block;
+    margin: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+.productCreateImage-other {
+    display: inline-block;
+    height: 150px;
+    width: 100px;
+    margin: 5px;
+}
+
+.imageRemoveBtn {
+    position: relative;
+    top: 0;
+    color: red;
+}
+
+.btnSize i{
+    cursor: pointer;
+    font-size: 41px;
+    margin-top: 28px;
+    color: #03a311;
+    transition: ease-in 0.3s;
+}
+
+    .btnSize i:hover {
+        font-size: 41px;
+        margin-top: 28px;
+        color: #2ed13c;
+    }

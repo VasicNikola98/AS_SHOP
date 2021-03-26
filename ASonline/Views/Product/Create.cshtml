@@ -1,6 +1,7 @@
 ﻿@model ASonline.ViewModels.NewProductViewModel
 @{ ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string[] selectSizeOptions = { "XS", "S", "M", "L", "XL", "XXL", "XXXL" };
     // var imageUrl = "/Content/images/System/noPic.png"; }
 }
 
@@ -8,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- left column -->
-            <div class="col-md-12">
+            <div class="col-md-7">
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
@@ -37,32 +38,67 @@
 
                             <div class="form-group">
                                 <label for="CategoryId">Kategorija <span style="color:red;">*</span></label>
-                                <select class="form-control" name="CategoryId">
+                                <select class="form-control" id="CategoryId" name="CategoryId">
                                     @foreach (var category in Model.AvailableCategories)
                                     {
-                                        <option value="@category.Id">@category.Name</option>
+                                         <option value="@category.Id">@category.Name</option>
                                     }
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="Image">Slika</label>
-                               
-                                    <input type="hidden" name="ImageUrl" id="ImageUrl" />
-                                    <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" multiple="multiple" autocomplete="off" />
+                                <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
                             </div>
-                           
+
+                             <hr />
+
+                             <h5 for="Size">Trenutno na stanju</h5>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                     <label for="Size">Veličina</label>
+                                     <select class="form-control" name="Size" id="SizeId">
+                                         @foreach (var sizeOption in selectSizeOptions)
+                                         {
+                                             <option>@sizeOption</option>
+                                         }
+                                     </select>
+                                 </div>
+                                 </div>
+                                  <div class="col-md-6">
+                                      <div class="row">
+                                          <div class="col-md-8">
+                                              <div class="form-group">
+                                                  <label for="Quantity">Količina <span style="color:red;">*</span></label>
+                                                  <input name="Quantity" id="QuantityId" class="form-control" type="number" min="1" value="1" />
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                              <a id="addSizeBtn" class="btnSize"><i class="fas fa-plus-square"></i></a>
+                                          </div>
+                                      </div>
+                                     </div>
+                             </div>
+     
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
                             <a id="saveBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj proizvod</a>
                         </div>
+
+                       
                     </form>
                 </div>
                 <!-- /.card -->
-             
+
             </div>
             <!--/.col (left) -->
+            <div class="col-md-5">
+                <div id="product-images">
+
+                </div>
+            </div>
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->

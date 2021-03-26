@@ -177,28 +177,36 @@ namespace ASonline.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(NewProductViewModel model)
         {
-                var product = new Product();
-                product.Name = model.Name;
-                product.Description = model.Description;
-                product.PriceUnderline = model.PriceUnderline;
-                product.Price = model.Price;
-                product.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
+            var product = new Product();
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.PriceUnderline = model.PriceUnderline;
+            product.Price = model.Price;
+            product.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
 
-               
-                var s = model.ImageUrl.Split(',');
-                
-                product.ProductImages = new List<ProductImages>();
-                for (var i = 0; i < s.Length; i++)
-                {
-                    product.ProductImages.Add(new ProductImages { ImageURL = s[i] });
-                }
-                
-                
             
+            product.ProductImages = new List<ProductImages>();
 
-                ProductService.Instance.SaveProduct(product);
+            foreach(var img in model.ImageUrl)
+            {
+               product.ProductImages.Add(new ProductImages { ImageURL = img });
+            }
 
-                return RedirectToAction("ProductTable");
+            product.ProductStocks = new List<ProductStock>();
+
+            foreach (var stock in model.Stock)
+            {
+                product.ProductStocks.Add(new ProductStock
+                {
+                    Size = stock.Size,
+                    Quantity = stock.Quantity,
+                    DefaultWeight = stock.DefaultWeight
+                });
+            }
+
+            ProductService.Instance.SaveProduct(product);
+
+            return RedirectToAction("ProductTable");
             
         }
         #endregion
