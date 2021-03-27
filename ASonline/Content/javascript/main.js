@@ -882,7 +882,7 @@ function getCartCounter() {
         url: '/Shop/GetCartCounter/',
         dataType: "json",
         success: function (result) {
-            $('#cartProductsCount').html(result);
+            $('.cartProductsCount').html(result);
         }
     });
 }

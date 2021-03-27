@@ -273,3 +273,4 @@ C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\ASonline.Database.cs
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.pdb
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddDateOfCreatedInPorductModel.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.ProductArhive.resources

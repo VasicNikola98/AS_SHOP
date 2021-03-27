@@ -173,6 +173,10 @@
     <Compile Include="Migrations\202103271803423_AddDateOfCreatedInPorductModel.Designer.cs">
       <DependentUpon>202103271803423_AddDateOfCreatedInPorductModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103271901563_ProductArhive.cs" />
+    <Compile Include="Migrations\202103271901563_ProductArhive.Designer.cs">
+      <DependentUpon>202103271901563_ProductArhive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103271803423_AddDateOfCreatedInPorductModel.resx">
       <DependentUpon>202103271803423_AddDateOfCreatedInPorductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103271901563_ProductArhive.resx">
+      <DependentUpon>202103271901563_ProductArhive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -110,20 +110,31 @@ namespace ASonline.Controllers
             {
                 Order newOrder = new Order();
                 OrderDetails orderDetails = new OrderDetails(model.FirstName,model.LastName,model.Email,model.Address,model.Nummber,model.Country,model.City,model.PostCode);
-                ShopService.Instance.SaveOrderDetails(orderDetails);
 
                 var boughtProducts = ShopService.Instance.GetCartItemsByHashId(HashedUserId.Value);
                
                 newOrder.OrderedAt = DateTime.Now;
                 newOrder.Status = "Nerešena";
                 newOrder.TotalAmount = boughtProducts.Sum(x => x.Product.Price * x.Quantity);
+
                 newOrder.OrderItems = new List<OrderItem>();
-                newOrder.OrderItems.AddRange(boughtProducts.Select(x => new OrderItem() { ProductId = x.Product.Id, Quantity = x.Quantity, Size = x.Size }));
+
+                newOrder.OrderItems.AddRange(boughtProducts.Select(x => new OrderItem() {
+                    Quantity = x.Quantity,
+                    Price = x.Product.Price,
+                    PriceUnderline = x.Product.PriceUnderline,
+                    Size = x.Size,
+                    ProductName = x.Product.Name,
+                    ImageUrl = string.IsNullOrEmpty(x.Product.ProductImages[0].ImageURL) ? "" : x.Product.ProductImages[0].ImageURL
+                }));
+
+
                 newOrder.OrderDetail = orderDetails;
 
                 ShopService.Instance.DeleteCartItems(HashedUserId.Value);
 
                 var rowsEffected = ShopService.Instance.SaveOrder(newOrder);
+
                 ShopService.Instance.UpdateStockProduct(boughtProducts);
                 result.Data = new { Success = true, Rows = rowsEffected };
             }

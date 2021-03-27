@@ -94,6 +94,7 @@ namespace ASonline.Service
             {
                 return ctx.CartItems.Where(x => x.HashUserId.Contains(HashId))
                     .Include(x => x.Product)
+                    .Include("Product.ProductImages")
                     .ToList();
             }
         }

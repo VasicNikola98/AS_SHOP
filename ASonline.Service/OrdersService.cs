@@ -38,7 +38,6 @@ namespace ASonline.Service
                     .Where(x => x.Id == id)
                     .Include(x => x.OrderDetail)
                     .Include(x => x.OrderItems)
-                    .Include("OrderItems.Product")
                     .FirstOrDefault();
             }
         }

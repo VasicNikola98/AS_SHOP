@@ -332,12 +332,10 @@ namespace ASonline.Service
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
-                    .Include(x => x.CartItems)
                     .FirstOrDefault();
 
                 if (deleteProduct != null)
                 {
-                    ctx.CartItems.RemoveRange(deleteProduct.CartItems);
                     ctx.ProductImages.RemoveRange(deleteProduct.ProductImages);
                     ctx.ProductStocks.RemoveRange(deleteProduct.ProductStocks);
                     ctx.Reviews.RemoveRange(deleteProduct.Reviews);

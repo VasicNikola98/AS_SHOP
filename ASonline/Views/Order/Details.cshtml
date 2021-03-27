@@ -1,12 +1,29 @@
 ﻿@model ASonline.ViewModels.OrderDetailsViewModel
 @{ ViewBag.Title = "Checkout";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var statusAlert = "";
+    }
 
 
 
 <div class="container p-3 bg-light">
+    @if(Model.Order.Status == "Isporučena")
+    {
+        statusAlert = "alert alert-success";
+    }
+    else if(Model.Order.Status == "U procesu")
+    {
+        statusAlert = "alert alert-warning";
+    }
+    else
+    {
+        statusAlert = "alert alert-danger";
+    }
+    <div class="@statusAlert">
+        <h4 class="font-italic">Status pošiljke <span class="float-right">@Model.Order.Status</span></h4>
+    </div>
     <div class="row g-5">
-        <div class="col-md-5 col-lg-4 order-md-last">
+        <div class="col-md-5 col-lg-6 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Poručeni proizvodi</span>
                 <span class="badge bg-primary rounded-pill">@Model.Order.OrderItems.Count</span>
@@ -16,17 +33,50 @@
                 {
                     var productQuantity = orderItem.Quantity;
 
-    <li class="list-group-item d-flex justify-content-between lh-sm" data-id="@orderItem.ProductId">
-        <div>
-            <h6 class="my-0">@orderItem.Product.Name</h6>
-            <small class="text-muted">Količina: @productQuantity</small>
-            <br />
-            <small class="text-muted">Veličina: @orderItem.Size</small>
-            <br />
-            <small class="text-muted">Cena jednog proizvoda: @orderItem.Product.Price (RSD)</small>
-        </div>
-        <span class="text-muted">@(productQuantity * orderItem.Product.Price) RSD</span>
-    </li>            }
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+
+                        @if(orderItem.PriceUnderline != 0)
+                        {
+                            var procent = (double.Parse(orderItem.PriceUnderline.ToString()) / 100);
+                            var salePrice = (orderItem.Price * procent);
+                            var saleAmount = (orderItem.Price - salePrice);
+                             <div class="row">
+                                 <div class="col-md-5">
+                                     <img src="@orderItem.ImageUrl" style="width: 138px; height: 150px; margin-bottom: 13px;" />
+                                 </div>
+                                 <div class="col-md-7">
+                                      <h6 class="my-0">@orderItem.ProductName</h6>
+                                       <small class="text-muted">Količina: @productQuantity</small>
+                                       <br />
+                                       <small class="text-muted">Veličina: @orderItem.Size</small>
+                                       <br />
+                                       <small class="text-muted">Cena jednog proizvoda: @saleAmount (RSD)</small>
+                                       <br />
+                                       <small class="text-muted"><span style="color: red;">Proizvod je snižen za @orderItem.PriceUnderline %</span></small>
+                                 </div>
+                              
+                            </div>
+                            <span class="text-muted">@(productQuantity * saleAmount) RSD</span>
+                        }
+                        else
+                        {
+                             <div class="row">
+                                 <div class="col-md-5">
+                                     <img src="@orderItem.ImageUrl" style="width: 138px; height: 150px; margin-bottom: 13px;" />
+                                 </div>
+                                 <div class="col-md-7">
+                                     <h6 class="my-0">@orderItem.ProductName</h6>
+                                     <small class="text-muted">Količina: @productQuantity</small>
+                                     <br />
+                                     <small class="text-muted">Veličina: @orderItem.Size</small>
+                                     <br />
+                                     <small class="text-muted">Cena jednog proizvoda: @orderItem.Price (RSD)</small>
+                                 </div>
+                            </div>
+                            <span class="text-muted">@(productQuantity * orderItem.Price) RSD</span>
+                        }
+                    </li>            
+                 }
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Ukupno (RSD)</span>
                     <strong>@Model.Order.TotalAmount</strong>
@@ -35,7 +85,7 @@
         </div>
 
 
-        <div class="col-md-7 col-lg-8">
+        <div class="col-md-7 col-lg-6">
             <h4 class="mb-3">Adresa za slanje</h4>
             <div class="row g-3">
                 <div class="col-sm-6">
@@ -85,7 +135,8 @@
                         {
                             var isSelectedStatus = availableStatus == Model.Order.Status;
 
-            <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>}
+                            <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>
+                       }
                     </select>
                 </div>
             </div>

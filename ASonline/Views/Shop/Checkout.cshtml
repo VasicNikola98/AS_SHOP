@@ -5,7 +5,7 @@
 @if (Model != null && Model.CartProducts != null && Model.CartProducts.Count > 0)
 {
      <!-- Page title -->
-        <div class="page-title parallax parallax1">
+    <div class="page-title parallax parallax1">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -22,95 +22,104 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div><!-- /.page-title -->
-    <section class="flat-row main-shop shop-slidebar">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 order-md-2 mb-4">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">Tvoja korpa</span>
-                    </h4>
-                    <ul class="list-group mb-3 sticky-top">
-                        @foreach (var product in Model.CartProducts)
-                        {
-                             <li class="list-group-item d-flex justify-content-between lh-condensed" data-id="@product.Product.Id">
-                            
-                                 <div>
-                                     <h6 class="my-0">Proizvod: @product.Product.Name</h6>
-                                   
-                                     <h6 >Količina: <span id="qty">@product.Quantity</span></h6>
-                                     <h6>Veličina: @product.Size</h6>
-                                     <span class="text-muted">Cena: @(product.Quantity * product.Product.Price) RSD</span>
-                                 </div>
-                                 <a href="@Url.Action("DeleteCartItem","Shop", new { Id = product.Id })">X</a>
-                             </li>
-                         }                       
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Ukupna cena proizvoda:</span>
-                            <strong>@Model.CartProducts.Sum(x => x.Product.Price * x.Quantity) RSD</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Poštarina:</span>
-                            <strong>+ 250 RSD</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Ukupno:</span>
-                            <strong>@(Model.CartProducts.Sum(x => x.Product.Price * x.Quantity) + 250 )  RSD</strong>
-                        </li>
-                    </ul>
+
+    <div class="row p-5 g-5 container bg-light">
+      <div class="col-md-5 col-lg-7 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Tvoja korpa</span>
+          <span class="badge bg-primary rounded-pill cartProductsCount"></span>
+        </h4>
+        <ul class="list-group mb-3">
+           @foreach(var cartItem in Model.CartProducts)
+           {
+               <li class="list-group-item d-flex justify-content-between lh-sm">
+                   <div class="row">
+                       <div class="col-md-5">
+                           <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: 118px; height:150px;" />
+                       </div>
+                       <div class="col-md-7">
+                           <h6 class="my-0 font-weight-bold">@cartItem.Product.Name</h6>
+                           <small class="text-muted">Količina: @cartItem.Quantity</small>
+                           <br />
+                           <small class="text-muted">Veličina: @cartItem.Size</small>
+                           <br />
+                           
+                       </div>
+          
+                   </div>
+                   <span class="text-muted">@cartItem.Product.Price RSD</span>
+                   <a href="@Url.Action("DeleteCartItem","Shop", new { Id = cartItem.Id })">X</a>
+               </li>
+           }
+           <li class="list-group-item d-flex justify-content-between bg-light">
+               <div class="text-danger">
+                   <h6 class="my-0">Troškovi dostave:</h6>
+               </div>
+               <span class="text-danger">+250 RSD</span>
+           </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Ukupno (RSD)</span>
+            <strong>@(Model.CartProducts.Sum(x => x.Product.Price * x.Quantity) + 250) RSD</strong>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="col-md-7 col-lg-5">
+        <h4 class="mb-3">Adresa za naplatu</h4>
+        <form id="createOrderDetails">
+            <div class="row g-3">
+                <div class="col-sm-12">
+                    <label for="FirstName">Ime <span class="active">*</span></label>
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" required autocomplete="off" />
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-10 order-md-1">
-                    <h4 class="mb-3">Adresa za naplatu</h4>
-                    <form id="createOrderDetails">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="FirstName">Ime <span class="active">*</span></label>
-                                <input type="text" class="form-control" id="FirstName" name="FirstName" required autocomplete="off"/>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="LastName">Prezime <span class="active">*</span></label>
-                                <input type="text" class="form-control" id="LastName" name="LastName" required  autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Email">Email (Opciono)<span class="text-muted"></span></label>
-                            <input type="email" class="form-control" id="Email" name="Email" autocomplete="off"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Address">Adresa <span class="active">*</span></label>
-                            <input type="text" class="form-control" id="Address" name="Address" required  autocomplete="off"/>
-                            <div class="invalid-feedback">Unesite adresu za isporuku. </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Nummber">Broj telefona <span class="active">*</span> <span class="text-muted"></span></label>
-                            <input type="text" class="form-control" id="Nummber" name="Nummber" autocomplete="off"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Country">Država <span class="text-muted"></span></label>
-                            <input type="text" class="form-control" placeholder="Srbija" id="Country" name="Country" value="Srbija" disabled />
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="City">Grad / Opština <span class="active">*</span></label>
-                                <input type="text" class="form-control" id="City" name="City"  required autocomplete="off"/>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="PostCode">Poštanski broj <span class="active">*</span></label>
-                                <input type="text" class="form-control" id="PostCode" name="PostCode" required autocomplete="off"/>
-                            </div>
-                        </div>
-                        <hr class="mb-4">
-                        <button id="placeOrderBtn" class="btn btn-primary btn-lg btn-block" type="button">
-                            <i class="loading-icon fa fa-spinner fa-spin hide-spinner"></i>
-                            PORUČITE
-                        </button>
-                    </form>
+
+                <div class="col-sm-12">
+                    <label for="LastName">Prezime <span class="active">*</span></label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" required autocomplete="off" />
                 </div>
+
+                <div class="col-12">
+                    <label for="Email">Email (Opciono)<span class="text-muted"></span></label>
+                    <input type="email" class="form-control" id="Email" name="Email" autocomplete="off" />
+                </div>
+
+                <div class="col-12">
+                    <label for="Address">Adresa <span class="active">*</span></label>
+                    <input type="text" class="form-control" id="Address" name="Address" required autocomplete="off" />
+                    <div class="invalid-feedback">Unesite adresu za isporuku. </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="Nummber">Broj telefona <span class="active">*</span> <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" id="Nummber" name="Nummber" autocomplete="off" />
+                </div>
+
+                <div class="col-12">
+                    <label for="Country">Država <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" placeholder="Srbija" id="Country" name="Country" value="Srbija" readonly />
+                </div>
+
+                
+                <div class="col-md-12">
+                    <label for="City">Grad / Opština <span class="active">*</span></label>
+                    <input type="text" class="form-control" id="City" name="City" required autocomplete="off" />
+                </div>
+                <div class="col-md-12">
+                    <label for="PostCode">Poštanski broj <span class="active">*</span></label>
+                    <input type="text" class="form-control" id="PostCode" name="PostCode" required autocomplete="off" />
+                </div>
+            
             </div>
-    
-        </div>
-  </section>
+            <hr class="mb-4">
+            <button id="placeOrderBtn" class="btn btn-primary btn-lg btn-block" type="button">
+                <i class="loading-icon fa fa-spinner fa-spin hide-spinner"></i>
+                PORUČITE
+            </button>
+        </form>
+      </div>
+    </div>
+
 <script src="~/Content/javascript/Shop/Checkout.js"></script>
 }
  else

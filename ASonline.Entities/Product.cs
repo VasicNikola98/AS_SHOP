@@ -26,7 +26,6 @@ namespace ASonline.Entities
         public List<ProductStock> ProductStocks { get; set; }
         public virtual Category Category { get; set; }
         public virtual List<Review> Reviews { get; set; }
-        public virtual List<CartItem> CartItems { get; set; }
         public virtual List<ProductImages> ProductImages { get; set; }
 
     }
