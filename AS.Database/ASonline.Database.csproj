@@ -169,6 +169,10 @@
     <Compile Include="Migrations\202103162021031_AddWeightForSize.Designer.cs">
       <DependentUpon>202103162021031_AddWeightForSize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103271803423_AddDateOfCreatedInPorductModel.cs" />
+    <Compile Include="Migrations\202103271803423_AddDateOfCreatedInPorductModel.Designer.cs">
+      <DependentUpon>202103271803423_AddDateOfCreatedInPorductModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -269,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103162021031_AddWeightForSize.resx">
       <DependentUpon>202103162021031_AddWeightForSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103271803423_AddDateOfCreatedInPorductModel.resx">
+      <DependentUpon>202103271803423_AddDateOfCreatedInPorductModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

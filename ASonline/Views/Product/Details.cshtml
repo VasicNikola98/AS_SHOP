@@ -57,9 +57,19 @@
                                 <div class="price mb-4">
                                     @if (Model.Product.PriceUnderline != 0)
                                     {
-                                        <del><span class="regular">@Model.Product.PriceUnderline RSD</span></del>
+                                       var procent = (double.Parse(Model.Product.PriceUnderline.ToString()) / 100);
+                                     var salePrice = (Model.Product.Price * procent);
+                                     var saleAmount = (Model.Product.Price - salePrice);
+                                     <del><b><span class="regular">@Model.Product.Price RSD</span></b></del>
+                                     <ins>
+                                         <span class="amount">@saleAmount RSD</span>
+                                     </ins>
                                     }
-                                    <ins><span class="amount">@Model.Product.Price RSD</span></ins>
+                                    else
+                                    {
+                                        <ins><span class="amount">@Model.Product.Price RSD</span></ins>
+                                    }
+                                    
                                 </div>
                                 <div class="product-description mb-5">
                                     <p>

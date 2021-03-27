@@ -75,7 +75,7 @@
                              </a>
                              @if (product.PriceUnderline != 0)
                              {
-                                 <span class="new sale">-@(100 - ((int)((product.Price * 100) / product.PriceUnderline)))%</span>
+                                 <span class="new sale">- @product.PriceUnderline %</span>
                              }
                          </div>
                          <div class="product-info clearfix">
@@ -83,11 +83,20 @@
                              <div class="price">
                                  @if (product.PriceUnderline != 0)
                                  {
-                                     <del><b><span class="regular">@product.PriceUnderline RSD</span></b></del>
+                                     var procent = (double.Parse(product.PriceUnderline.ToString()) / 100);
+                                     var salePrice = (product.Price * procent);
+                                     var saleAmount = (product.Price - salePrice);
+                                     <del><b><span class="regular">@product.Price RSD</span></b></del>
+                                     <ins>
+                                         <span class="amount">@saleAmount RSD</span>
+                                     </ins>
                                  }
-                                 <ins>
-                                     <span class="amount">@product.Price RSD</span>
-                                 </ins>
+                                 else
+                                 {
+                                   <ins>
+                                       <span class="amount">@product.Price RSD</span>
+                                   </ins>
+                                 }
                              </div>
                          </div>
                          <div class="add-to-cart text-center" data-id="@product.Id">

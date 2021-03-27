@@ -21,28 +21,26 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="Name">Naziv <span style="color:red;">*</span></label>
-                                <input class="form-control" id="Name" name="Name" autocomplete="off" required />
+                                <input class="form-control" id="Name" name="Name" autocomplete="off" required placeholder="Naziv"/>
                             </div>
                             <div class="form-group">
                                 <label for="Description">Opis</label>
-                                <textarea class="form-control" id="Description" name="Description" rows="12" autocomplete="off"> </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="PriceUnderline">Precrtana cena</label>
-                                <input class="form-control" id="PriceUnderline" name="PriceUnderline" autocomplete="off" />
+                                <textarea class="form-control" id="Description" name="Description" rows="12" autocomplete="off" placeholder="Opis proizvoda..."> </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="Price">Cena<span style="color:red;">*</span></label>
-                                <input class="form-control" id="Price" name="Price" autocomplete="off" required />
+                                <input class="form-control" id="Price" name="Price" autocomplete="off" required placeholder="Cena (RSD)" />
                             </div>
-
+                            <div class="form-group">
+                                <label for="PriceUnderline">Sniženje ( % )</label>
+                                <input class="form-control" type="number" min="1" max="100" id="PriceUnderline" name="PriceUnderline" placeholder="Sniženje ( % )" autocomplete="off" />
+                            </div>
                             <div class="form-group">
                                 <label for="CategoryId">Kategorija <span style="color:red;">*</span></label>
                                 <select class="form-control" id="CategoryId" name="CategoryId">
                                     @foreach (var category in Model.AvailableCategories)
                                     {
-                                         <option value="@category.Id">@category.Name</option>
-                                    }
+                        <option value="@category.Id">@category.Name</option>}
                                 </select>
                             </div>
                             <div class="form-group">
@@ -50,36 +48,43 @@
                                 <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
                             </div>
 
-                             <hr />
+                            <hr />
 
-                             <h5 for="Size">Trenutno na stanju</h5>
-                             <div class="row">
-                                 <div class="col-md-6">
-                                     <div class="form-group">
-                                     <label for="Size">Veličina</label>
-                                     <select class="form-control" name="Size" id="SizeId">
-                                         @foreach (var sizeOption in selectSizeOptions)
-                                         {
-                                             <option>@sizeOption</option>
-                                         }
-                                     </select>
-                                 </div>
-                                 </div>
-                                  <div class="col-md-6">
-                                      <div class="row">
-                                          <div class="col-md-8">
-                                              <div class="form-group">
-                                                  <label for="Quantity">Količina <span style="color:red;">*</span></label>
-                                                  <input name="Quantity" id="QuantityId" class="form-control" type="number" min="1" value="1" />
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                              <a id="addSizeBtn" class="btnSize"><i class="fas fa-plus-square"></i></a>
-                                          </div>
-                                      </div>
-                                     </div>
-                             </div>
-     
+                            <h5 for="Size">Trenutno na stanju</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Size">Veličina</label>
+                                        <select class="form-control" name="Size" id="SizeId">
+                                            @foreach (var sizeOption in selectSizeOptions)
+                                            {
+                                <option>@sizeOption</option>
+}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="Quantity">Količina <span style="color:red;">*</span></label>
+                                                <input name="Quantity" id="QuantityId" class="form-control" type="number" min="1" value="1" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a id="addSizeBtn" class="btnSize"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="addedSizesId">
+
+                                </div>
+                                @*<div class="badge badge-pill badge-info p-2 ml-2">
+                <span style="font-size:16px;">XS - 1</span>
+            </div>
+            <span style="position:relative; top: -9px; left: -1px; color:red;">X</span>*@
+                            </div>
+
                         </div>
                         <!-- /.card-body -->
 

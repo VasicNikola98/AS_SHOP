@@ -76,6 +76,7 @@ namespace ASonline.Service
             {
                 return ctx.Products
                     .Include(x => x.ProductImages)
+                    .OrderByDescending(x => x.CreatedAt)
                     .Take(n).ToList();
             }
         }

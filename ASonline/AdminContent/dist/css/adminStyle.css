@@ -62,3 +62,33 @@
         margin-top: 28px;
         color: #2ed13c;
     }
+
+.removeSizeBtn {
+    position: relative;
+    top: -16px;
+    left: 12px;
+    color: #b80f0f;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.removeThumbImage {
+    position:absolute;
+    color: white;
+    top: 0;
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: 14px;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;   
+}
+
+.removeOtherImage {
+    position: absolute;
+    border: 1px solid white;
+    padding: 6px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}

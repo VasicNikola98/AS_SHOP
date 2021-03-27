@@ -16,6 +16,8 @@ namespace ASonline.Entities
         [MaxLength(1000)]
         public string Description { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         public int PriceUnderline { get; set; }
 
         [Required]

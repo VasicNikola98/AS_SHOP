@@ -45,27 +45,36 @@
                         </a>
                         @if(product.PriceUnderline != 0)
                         {
-                        <span class="new sale">-@(100 - ((int)((product.Price * 100) / product.PriceUnderline)))%</span>
+                          <span class="new sale">- @product.PriceUnderline %</span>
                         }
                         @if (Model.IsLatestProducts)
                         {
-                    <span class="new">Novo</span>}
-                    </div>
-                    <div class="product-info text-center clearfix p-3">
-                        <span class="product-title">@product.Name</span>
-                        <div class="price">
-                            @if (product.PriceUnderline != 0)
-                            {
-                                <del><b><span class="regular">@product.PriceUnderline RSD</span></b></del>
-                            }
-                            <ins>
-                                <span class="amount">@product.Price RSD</span>
-                            </ins>
+                            <span class="new">Novo</span>}
+                            </div>
+                            <div class="product-info text-center clearfix p-3">
+                                <span class="product-title">@product.Name</span>
+                                <div class="price">
+                                    @if (product.PriceUnderline != 0)
+                                    {
+                                        var procent = (double.Parse(product.PriceUnderline.ToString()) / 100);
+                                        var salePrice = (product.Price * procent);
+                                        var saleAmount = (product.Price - salePrice);
+                                        <del><b><span class="regular">@product.Price RSD</span></b></del>
+                                         <ins>
+                                        <span class="amount">@saleAmount RSD</span>
+                                       </ins>
+                                    }
+                                    else
+                                    {
+                                       <ins>
+                                        <span class="amount">@product.Price RSD</span>
+                                       </ins>
+                                    }
+                                </div>
+                            </div>
+                        <div class="add-to-cart text-center">
+                            <a href="@Url.Action("Details","Product", new { Id = product.Id })">IZABERITE OPCIJE</a>
                         </div>
-                    </div>
-                    <div class="add-to-cart text-center">
-                        <a href="@Url.Action("Details","Product", new { Id = product.Id })">IZABERITE OPCIJE</a>
-                    </div>
                     @*<a href="#" class="like"><i class="fa fa-heart-o"></i></a>*@
                 </li>
             }

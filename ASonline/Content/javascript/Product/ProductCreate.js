@@ -41,6 +41,7 @@
 
     var ProductImage = new Array();
     var ProductStock = new Array();
+    var id = 0;
 
     $("#imageUpload").change(function () {
 
@@ -63,8 +64,13 @@
         })
             .done(function (response) {
                 if (response.Success) {
-                    ProductImage.push(response.ImageUrl);
+                    var product = {
+                        Id: id,
+                        ImageUrl: response.ImageUrl
+                    }
+                    ProductImage.push(product);
 
+                    
                     var mainImageDiv = document.getElementById("product-images");
                     var imageDiv = document.createElement("div");
                     imageDiv.style.display = "inline-block";
@@ -72,14 +78,28 @@
                     productImg.src = response.ImageUrl;
                     productImg.alt = "Image";
 
+                    var removeImageBtn = document.createElement("span");
+                    removeImageBtn.innerHTML = "X";
+                    removeImageBtn.id = id;
+
+                    ++id;
+                    removeImageBtn.onclick = function () {
+                        removeImage(this);
+                    };
+
                     if (ProductImage.length == 1) {
                         productImg.classList = "productCreateImage-thumb";
+                        removeImageBtn.classList = "removeThumbImage";
+                       
                     }
                     else {
                         productImg.classList = "productCreateImage-other";
+                        removeImageBtn.classList = "removeOtherImage";
                     }
 
+
                     imageDiv.appendChild(productImg);
+                    imageDiv.appendChild(removeImageBtn);
                     mainImageDiv.appendChild(imageDiv);
 
                 }
@@ -88,6 +108,54 @@
                 alert("Fail")
             });
     });
+
+    function removeImage(e) {
+
+        var i = 0;
+        var imageId = e.id;
+       
+        while (i < ProductImage.length) {
+            if (ProductImage[i].Id === parseInt(imageId)) {
+                ProductImage.splice(i, 1);
+            } else {
+                ++i;
+            }
+        }
+
+        var mainImageDiv = document.getElementById("product-images");
+        mainImageDiv.innerHTML = "";
+
+        if (ProductImage.length > 0) {
+            for (var i = 0; i < ProductImage.length; i++) {
+
+                var imageDiv = document.createElement("div");
+                imageDiv.style.display = "inline-block";
+                var productImg = document.createElement("img");
+                productImg.src = ProductImage[i].ImageUrl;
+                console.log(ProductImage[i].ImageUrl);
+                productImg.alt = "Image";
+
+                var removeImageBtn = document.createElement("span");
+                removeImageBtn.innerHTML = "X";
+                removeImageBtn.id = ProductImage[i].Id;
+                removeImageBtn.onclick = function () {
+                    removeImage(this);
+                };
+
+                if (i === 0) {
+                    productImg.classList = "productCreateImage-thumb";
+                    removeImageBtn.classList = "removeThumbImage";
+                } else {
+                    productImg.classList = "productCreateImage-other";
+                    removeImageBtn.classList = "removeOtherImage";
+                }
+
+                imageDiv.appendChild(productImg);
+                imageDiv.appendChild(removeImageBtn);
+                mainImageDiv.appendChild(imageDiv);
+            }
+        }
+    }
 
     $("#addSizeBtn").click(function () {
       
@@ -171,6 +239,37 @@
                 toastr["success"]("Veličina je uspešno dodata!");
 
             }
+
+            if (ProductStock.length > 0) {
+                var mainSizeDiv = document.getElementById("addedSizesId");
+                mainSizeDiv.innerHTML = "";
+
+                ProductStock.forEach((x) => {
+                    var badgeDiv = document.createElement("div");
+                    badgeDiv.classList.add("badge");
+                    badgeDiv.classList.add("badge-pill");
+                    badgeDiv.classList.add("badge-info");
+                    badgeDiv.classList.add("p-2");
+                    badgeDiv.classList.add("ml-2");
+
+                    var sizeInfo = document.createElement("span");
+                    sizeInfo.style.fontSize = "16px";
+                    sizeInfo.innerHTML = `${x.Size} - ${x.Quantity}`;
+
+                    var removeSizeBtn = document.createElement("span");
+                    removeSizeBtn.classList = "removeSizeBtn";
+                    removeSizeBtn.innerHTML = "X";
+                    removeSizeBtn.id = x.DefaultWeight;
+                    removeSizeBtn.onclick = function () {
+                        removeSize(x);
+                    }
+                 
+
+                    badgeDiv.appendChild(sizeInfo);
+                    badgeDiv.appendChild(removeSizeBtn);
+                    mainSizeDiv.appendChild(badgeDiv);
+                });
+            }
             
         }
         else {
@@ -189,6 +288,53 @@
        
     });
 
+    function removeSize(size) {
+        
+        var i = 0;
+        while (i < ProductStock.length) {
+            if (ProductStock[i].DefaultWeight === size.DefaultWeight) {
+                ProductStock.splice(i, 1);
+            } else {
+                ++i;
+            }
+        }
+
+
+        if (ProductStock.length >= 0) {
+            var mainSizeDiv = document.getElementById("addedSizesId");
+            mainSizeDiv.innerHTML = "";
+
+            ProductStock.forEach((x) => {
+                var badgeDiv = document.createElement("div");
+                badgeDiv.classList.add("badge");
+                badgeDiv.classList.add("badge-pill");
+                badgeDiv.classList.add("badge-info");
+                badgeDiv.classList.add("p-2");
+                badgeDiv.classList.add("ml-2");
+
+                var sizeInfo = document.createElement("span");
+                sizeInfo.style.fontSize = "16px";
+                sizeInfo.innerHTML = `${x.Size} - ${x.Quantity}`;
+
+                var removeSizeBtn = document.createElement("span");
+                removeSizeBtn.classList = "removeSizeBtn";
+  
+                removeSizeBtn.innerHTML = "X";
+                removeSizeBtn.id = x.DefaultWeight;
+                removeSizeBtn.onclick = function () {
+                    removeSize(x);
+                }
+
+
+                badgeDiv.appendChild(sizeInfo);
+                badgeDiv.appendChild(removeSizeBtn);
+                mainSizeDiv.appendChild(badgeDiv);
+            });
+        }
+
+        console.log(ProductStock);
+    }
+
     $("#saveBtn").click(function () {
         if ($("#createProduct").valid()) {
 
@@ -201,7 +347,7 @@
                     PriceUnderline: $("#PriceUnderline").val(),
                     Price: $("#Price").val(),
                     CategoryId: $("#CategoryId").val(),
-                    ImageUrl: ProductImage,
+                    ProductImage: ProductImage,
                     Stock: ProductStock
                 }
             })

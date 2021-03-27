@@ -183,25 +183,31 @@ namespace ASonline.Controllers
             product.PriceUnderline = model.PriceUnderline;
             product.Price = model.Price;
             product.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
+            product.CreatedAt = DateTime.Now;
 
-            
-            product.ProductImages = new List<ProductImages>();
-
-            foreach(var img in model.ImageUrl)
+            if (model.ProductImage != null)
             {
-               product.ProductImages.Add(new ProductImages { ImageURL = img });
+                product.ProductImages = new List<ProductImages>();
+
+                foreach (var img in model.ProductImage)
+                {
+                    product.ProductImages.Add(new ProductImages { ImageURL = img.ImageUrl });
+                }
             }
 
-            product.ProductStocks = new List<ProductStock>();
-
-            foreach (var stock in model.Stock)
+            if (model.Stock != null)
             {
-                product.ProductStocks.Add(new ProductStock
+                product.ProductStocks = new List<ProductStock>();
+
+                foreach (var stock in model.Stock)
                 {
-                    Size = stock.Size,
-                    Quantity = stock.Quantity,
-                    DefaultWeight = stock.DefaultWeight
-                });
+                    product.ProductStocks.Add(new ProductStock
+                    {
+                        Size = stock.Size,
+                        Quantity = stock.Quantity,
+                        DefaultWeight = stock.DefaultWeight
+                    });
+                }
             }
 
             ProductService.Instance.SaveProduct(product);

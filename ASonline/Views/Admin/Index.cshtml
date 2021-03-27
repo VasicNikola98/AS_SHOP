@@ -161,13 +161,27 @@
                           @foreach (var latestProduct in Model.LatestProducts)
                           {
                               <li class="item">
+                                 @if(latestProduct.ProductImages.Count > 0 && latestProduct.ProductImages != null)
+                                 {
                                   <div class="product-img">
-                                      <img src="@(string.IsNullOrEmpty(latestProduct.ProductImages[0].ImageURL) ? "" : latestProduct.ProductImages[0].ImageURL)" alt="Product Image" class="img-size-50">
+                                      <img src="@latestProduct.ProductImages[0].ImageURL" alt="Product Image" class="img-size-50">
                                   </div>
+                                 }
                                   <div class="product-info">
                                       <a href="@Url.Action("Details","Product", new { Id = latestProduct.Id })" class="product-title">
                                           @latestProduct.Name
-                                          <span class="badge badge-warning float-right">@latestProduct.Price RSD</span>
+                                          <span class="badge badge-success float-right">@latestProduct.Price RSD</span>
+                                          @if (latestProduct.PriceUnderline != 0)
+                                          {
+                                              var procent = (double.Parse(latestProduct.PriceUnderline.ToString()) / 100);
+                                              var salePrice = (latestProduct.Price * procent);
+                                              var saleAmount = (latestProduct.Price - salePrice);
+                                              <br />
+                                              <span class="badge badge-danger float-right p-1">-@latestProduct.PriceUnderline <sup>%</sup></span>
+                                              <br />
+                                              <span class="badge badge-warning float-right p-1">@saleAmount RSD</span>
+                                          }
+
                                       </a>
                                       <span class="product-description">
                                          ID Proizvoda: @latestProduct.Id

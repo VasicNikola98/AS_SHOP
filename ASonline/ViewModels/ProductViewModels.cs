@@ -16,6 +16,12 @@ namespace ASonline.ViewModels
         public Pager Pager { get; set; }
     }
 
+    public class ProductImage
+    {
+        public int Id { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
     public class NewProductViewModel
     {
         [Required]
@@ -32,7 +38,7 @@ namespace ASonline.ViewModels
         [Range(1, 1000000000000000)]
         public int Price { get; set; }
         public int CategoryId { get; set; }
-        public List<String> ImageUrl { get; set; }
+        public List<ProductImage> ProductImage { get; set; }
         public List<ProductStock> Stock { get; set; }
         public List<Category> AvailableCategories { get; set; }
     }
