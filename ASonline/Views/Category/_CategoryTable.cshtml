@@ -47,10 +47,10 @@
                                                    (@category.Products.Count)
                                                </td>
                                                <td>
-                                                   <a style="cursor:pointer;" href="@Url.Action("Edit","Category", new { Id = category.Id })"><i class="far fa-edit"></i></a>
+                                                   <a class="categoryEditBtn" href="@Url.Action("Edit","Category", new { Id = category.Id })"><i class="far fa-edit"></i></a>
                                                </td>
                                                <td>
-                                                   <a style="cursor:pointer;" class="deleteBtn" data-id="@category.Id"><i class='far fa-trash-alt'></i></a>
+                                                   <a class="deleteBtn" data-id="@category.Id"><i class='far fa-trash-alt'></i></a>
                                                </td>
                                            </tr>
                                      }

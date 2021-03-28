@@ -247,10 +247,9 @@
                 ProductStock.forEach((x) => {
                     var badgeDiv = document.createElement("div");
                     badgeDiv.classList.add("badge");
-                    badgeDiv.classList.add("badge-pill");
-                    badgeDiv.classList.add("badge-info");
+                    badgeDiv.classList.add("badge-secondary");
                     badgeDiv.classList.add("p-2");
-                    badgeDiv.classList.add("ml-2");
+                    badgeDiv.style.margin = "10px";
 
                     var sizeInfo = document.createElement("span");
                     sizeInfo.style.fontSize = "16px";
@@ -307,10 +306,9 @@
             ProductStock.forEach((x) => {
                 var badgeDiv = document.createElement("div");
                 badgeDiv.classList.add("badge");
-                badgeDiv.classList.add("badge-pill");
-                badgeDiv.classList.add("badge-info");
+                badgeDiv.classList.add("badge-secondary");
                 badgeDiv.classList.add("p-2");
-                badgeDiv.classList.add("ml-2");
+                badgeDiv.style.margin = "10px";
 
                 var sizeInfo = document.createElement("span");
                 sizeInfo.style.fontSize = "16px";

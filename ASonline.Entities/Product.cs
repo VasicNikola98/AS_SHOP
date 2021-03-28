@@ -21,7 +21,6 @@ namespace ASonline.Entities
         public int PriceUnderline { get; set; }
 
         [Required]
-        [Range(1, 1000000000000000)]
         public int Price { get; set; }
         public List<ProductStock> ProductStocks { get; set; }
         public virtual Category Category { get; set; }

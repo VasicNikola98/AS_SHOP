@@ -11,7 +11,7 @@
             <!-- left column -->
             <div class="col-md-7">
                 <!-- general form elements -->
-                <div class="card card-primary">
+                <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">Podaci o novom proizvodu</h3>
                     </div>
@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="Name">Naziv <span style="color:red;">*</span></label>
-                                <input class="form-control" id="Name" name="Name" autocomplete="off" required placeholder="Naziv"/>
+                                <input class="form-control" id="Name" name="Name" autocomplete="off" required placeholder="Naziv" />
                             </div>
                             <div class="form-group">
                                 <label for="Description">Opis</label>
@@ -40,70 +40,67 @@
                                 <select class="form-control" id="CategoryId" name="CategoryId">
                                     @foreach (var category in Model.AvailableCategories)
                                     {
-                        <option value="@category.Id">@category.Name</option>}
+                        <option value="@category.Id">@category.Name</option>
+}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="Image">Slika</label>
                                 <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
                             </div>
-
-                            <hr />
-
-                            <h5 for="Size">Trenutno na stanju</h5>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="Size">Veličina</label>
-                                        <select class="form-control" name="Size" id="SizeId">
-                                            @foreach (var sizeOption in selectSizeOptions)
-                                            {
-                                <option>@sizeOption</option>
-}
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label for="Quantity">Količina <span style="color:red;">*</span></label>
-                                                <input name="Quantity" id="QuantityId" class="form-control" type="number" min="1" value="1" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a id="addSizeBtn" class="btnSize"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="addedSizesId">
-
-                                </div>
-                                @*<div class="badge badge-pill badge-info p-2 ml-2">
-                <span style="font-size:16px;">XS - 1</span>
-            </div>
-            <span style="position:relative; top: -9px; left: -1px; color:red;">X</span>*@
-                            </div>
-
                         </div>
                         <!-- /.card-body -->
+                        <div class="col-md-7">
+                            <div id="product-images">
+
+                            </div>
+                        </div>
 
                         <div class="card-footer">
                             <a id="saveBtn" class="btn btn-info mt-2" style="cursor: pointer; color: white;">Dodaj proizvod</a>
                         </div>
-
-                       
                     </form>
                 </div>
                 <!-- /.card -->
 
             </div>
             <!--/.col (left) -->
-            <div class="col-md-5">
-                <div id="product-images">
 
+            <div class="col-md-5 h-100">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Dodaj zalihe</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="Size">Veličina</label>
+                            <select class="form-control" name="Size" id="SizeId">
+                                @foreach (var sizeOption in selectSizeOptions)
+                                {
+                                     <option>@sizeOption</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Quantity">Količina <span style="color:red;">*</span></label>
+                            <input name="Quantity" id="QuantityId" class="form-control" type="number" min="1" value="1" />
+                        </div>
+
+                        <div id="addedSizesId">
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <a id="addSizeBtn" class="btnSize float-right"><i class='bx bx-add-to-queue'></i></a>
+                    </div>
                 </div>
             </div>
+
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->

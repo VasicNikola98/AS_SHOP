@@ -31,11 +31,9 @@ namespace ASonline.ViewModels
         [MaxLength(1000)]
         public String Description { get; set; }
 
-        [Range(1, 1000000000000000)]
         public int PriceUnderline { get; set; }
 
         [Required]
-        [Range(1, 1000000000000000)]
         public int Price { get; set; }
         public int CategoryId { get; set; }
         public List<ProductImage> ProductImage { get; set; }
@@ -55,17 +53,19 @@ namespace ASonline.ViewModels
         [MaxLength(1000)]
         public String Description { get; set; }
 
-        [Range(1, 1000000000000000)]
+      
         public int PriceUnderline { get; set; }
 
         [Required]
-        [Range(1, 1000000000000000)]
         public int Price { get; set; }
 
         public int CategoryId { get; set; }
         public String ImageUrl { get; set; }
 
         public List<Category> AvailableCategories { get; set; }
+
+        public List<ProductStock> AvailableSize { get; set; }
+
     }
 
     public class SizeProductViewModel
@@ -76,6 +76,8 @@ namespace ASonline.ViewModels
         public string Size { get; set; }
         [Required]
         public int Quantity { get; set; }
+
+        public int DefaultWeight { get; set; }
     }
 
     public class ProductViewModel

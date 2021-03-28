@@ -105,62 +105,6 @@ namespace ASonline.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Size(int Id)
-        {
-            SizeProductViewModel model = new SizeProductViewModel();
-
-            var product = ProductService.Instance.GetProductById(Id);
-            model.Product = product;
-            model.ProductId = Id;
-            return View(model);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Size(SizeProductViewModel model)
-        {
-            var stock = new ProductStock();
-
-            stock.Size = model.Size;
-            stock.Quantity = model.Quantity;
-            
-            switch(stock.Size)
-            {
-                case "XS":
-                    stock.DefaultWeight = 0;
-                    break;
-                case "S":
-                    stock.DefaultWeight = 1;
-                    break;
-                case "M":
-                    stock.DefaultWeight = 2;
-                    break;
-                case "L":
-                    stock.DefaultWeight = 3;
-                    break;
-                case "XL":
-                    stock.DefaultWeight = 4;
-                    break;
-                case "XXL":
-                    stock.DefaultWeight = 5;
-                    break;
-                case "XXXL":
-                    stock.DefaultWeight = 6;
-                    break;
-                default:
-                    break;
-            }
-
-            stock.Product = ProductService.Instance.GetProductById(model.ProductId);
-
-            ProductService.Instance.SaveSize(stock);
-
-            return RedirectToAction("ProductTable");
-        }
-
-
         #region Creation
         [HttpGet]
         [Authorize(Roles = "Admin")]
@@ -234,26 +178,36 @@ namespace ASonline.Controllers
             model.CategoryId = product.Category != null ? product.Category.Id : 0;
             //model.ImageUrl = product.ImageUrl;
             model.AvailableCategories = CategoryService.Instance.GetCategories();
+            model.AvailableSize = product.ProductStocks;
 
-            return PartialView(model);
+            return View(model);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(EditProductViewModel model)
+        public JsonResult Edit(EditProductViewModel model)
         {
-            var existingProduct = ProductService.Instance.GetProductById(model.Id);
-            existingProduct.Name = model.Name;
-            existingProduct.Description = model.Description;
-            existingProduct.PriceUnderline = model.PriceUnderline;
-            existingProduct.Price = model.Price;
-            existingProduct.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
-           // existingProduct.ImageUrl = model.ImageUrl;
+            JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            if(model != null)
+            {
+                var existingProduct = ProductService.Instance.GetProductById(model.Id);
+                existingProduct.Name = model.Name;
+                existingProduct.Description = model.Description;
+                existingProduct.PriceUnderline = model.PriceUnderline;
+                existingProduct.Price = model.Price;
+                existingProduct.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
 
-           
-            ProductService.Instance.UpdateProduct(existingProduct);
+                ProductService.Instance.UpdateProduct(existingProduct);
 
-            return RedirectToAction("ProductTable");
+                result.Data = new { Success = true };
+            }
+            else
+            {
+                result.Data = new { Success = false };
+            }
+
+            return result;
         }
         #endregion
 
@@ -269,6 +223,55 @@ namespace ASonline.Controllers
             }
 
             return RedirectToAction("ProductTable");
+        }
+        #endregion
+
+        #region Size
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public JsonResult AddSize(SizeProductViewModel model)
+        {
+            JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            if(model != null)
+            {
+                var stock = new ProductStock();
+
+                stock.Size = model.Size;
+                stock.Quantity = model.Quantity;
+                stock.DefaultWeight = model.DefaultWeight;
+
+                stock.Product = ProductService.Instance.GetProductById(model.ProductId);
+
+                ProductService.Instance.SaveSize(stock);
+
+                result.Data = new { Success = true };
+            }
+            else
+            {
+                result.Data = new { Success = false };
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        public JsonResult DeleteSize(int Id)
+        {
+            JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            if(Id > 0)
+            {
+                ProductService.Instance.DeleteSize(Id);
+                result.Data = new { Success = true };
+            }
+            else
+            {
+                result.Data = new { Success = false };
+            }
+
+            return result;
         }
         #endregion
 

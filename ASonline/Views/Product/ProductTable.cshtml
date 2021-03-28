@@ -33,9 +33,8 @@
                                     <th>Naziv</th>
                                     <th>Kategorija</th>
                                     <th>Cena</th>
-                                    <th><i class="far fa-edit"></i></th>
-                                    <th><i class="fas fa-box"></i></th>
-                                    <th><i class="far fa-trash-alt"></i></th>
+                                    <th>Izmeni</th>
+                                    <th>Ukloni</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,13 +47,10 @@
                                             <td>@product.Category.Name</td>
                                             <td>@product.Price</td>
                                             <td>
-                                                <a class="editBtn" style="cursor:pointer;" data-id="@product.Id">Uredi</a>
+                                                <a class="editBtn" href="@Url.Action("Edit","Product", new { Id = product.Id })"><i class="far fa-edit"></i></a>
                                             </td>
                                             <td>
-                                                <a style="cursor:pointer;" href="@Url.Action("Size","Product", new { Id = product.Id })">Dodaj veličinu</a>
-                                            </td>
-                                            <td>
-                                                <a class="deleteBtn"  style="cursor:pointer;" data-id="@product.Id">Izbriši</a>
+                                                <a class="deleteBtn" data-id="@product.Id"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     }

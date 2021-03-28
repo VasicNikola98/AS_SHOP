@@ -49,27 +49,13 @@
     color: red;
 }
 
-.btnSize i{
-    cursor: pointer;
-    font-size: 41px;
-    margin-top: 28px;
-    color: #03a311;
-    transition: ease-in 0.3s;
-}
-
-    .btnSize i:hover {
-        font-size: 41px;
-        margin-top: 28px;
-        color: #2ed13c;
-    }
-
 .removeSizeBtn {
     position: relative;
-    top: -16px;
-    left: 12px;
-    color: #b80f0f;
+    font-size: 15px;
     cursor: pointer;
-    font-size: 14px;
+    color: black;
+    top: -22px;
+    left: 19px;
 }
 
 .removeThumbImage {
@@ -91,4 +77,69 @@
     color: white;
     border-radius: 7px;
     cursor: pointer;
+}
+
+.deleteBtn i {
+    cursor: pointer;
+    font-size: 25px;
+    color: #d60606;
+    transition: ease-in 0.3s;
+}
+
+.deleteBtn  :hover {
+  color: #e84646;
+  transition: ease-in 0.1s;
+}
+
+.editBtn i {
+    cursor: pointer;
+    font-size: 25px;
+    color: #056c9c;
+    transition: ease-in 0.3s;
+}
+
+.editBtn :hover {
+    transition: ease-in 0.1s;
+    color: #19b2d1;
+}
+
+.removeAvailableSize {
+    position: relative;
+    font-size: 15px;
+    cursor: pointer;
+    color: black;
+    top: -22px;
+    left: 19px;
+}
+
+.addSizeBtn i {
+    font-size: 35px;
+    color: #0c54b3;
+    cursor: pointer;
+}
+
+.addSizeBtn :hover {
+    color: #5994e3;
+}
+
+.btnSize i {
+    font-size: 35px;
+    color: #0c54b3;
+    cursor: pointer;
+}
+
+.btnSize {
+    color: #5994e3;
+}
+
+.categoryEditBtn i {
+    cursor: pointer;
+    font-size: 25px;
+    color: #056c9c;
+    transition: ease-in 0.3s;
+}
+
+.categoryEditBtn :hover {
+    transition: ease-in 0.1s;
+    color: #19b2d1;
 }

@@ -55,22 +55,6 @@
             });
     });
 
-    $(".editBtn").click(function () {
-
-        $.ajax({
-            url: URL + "/Product/Edit/",
-            data: {
-                Id: $(this).attr('data-id'),
-            }
-        })
-            .done(function (response) {
-               
-            })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Fail")
-            });
-    });
-
     $(".sizeBtn").click(function () {
         $.ajax({
             url: URL + "/Product/Size/",

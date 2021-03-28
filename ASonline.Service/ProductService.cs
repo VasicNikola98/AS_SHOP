@@ -365,6 +365,15 @@ namespace ASonline.Service
                 }
             }
         }
+        public void DeleteSize(int Id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var size = ctx.ProductStocks.Where(x => x.Id == Id).FirstOrDefault();
+                ctx.ProductStocks.Remove(size);
+                ctx.SaveChanges();
+            }
+        }
         #endregion
 
         #region Review
