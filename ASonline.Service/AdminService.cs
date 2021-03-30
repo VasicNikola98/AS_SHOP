@@ -1,11 +1,8 @@
 ﻿using AS.Database;
 using ASonline.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASonline.Service
 {
@@ -30,6 +27,8 @@ namespace ASonline.Service
         }
         #endregion
 
+
+        #region GET
         public int GetProductsCount()
         {
             using (var ctx = new ASDbContext())
@@ -80,6 +79,7 @@ namespace ASonline.Service
                     .Take(n).ToList();
             }
         }
+        #endregion
 
         public void DeleteImage(int Id)
         {

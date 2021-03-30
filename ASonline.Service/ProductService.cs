@@ -3,8 +3,6 @@ using ASonline.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace ASonline.Service
@@ -30,19 +28,7 @@ namespace ASonline.Service
         }
         #endregion
 
-        #region Product
-        public void SaveProduct(Product product)
-        {
-            using (var ctx = new ASDbContext())
-            {
-                if (product != null)
-                {
-                    ctx.Entry(product.Category).State = System.Data.Entity.EntityState.Unchanged;
-                    ctx.Products.Add(product);
-                    ctx.SaveChanges();
-                }
-            }
-        }
+        #region GET
         public List<Product> GetProducts(string search, int pageNo, int pageSize)
         {
             using (var ctx = new ASDbContext())
@@ -194,6 +180,24 @@ namespace ASonline.Service
                 return (int)(ctx.Products.Max(x => x.Price));
             }
         }
+        public List<Product> GetProductById(List<int> ids)
+        {
+
+            using (var ctx = new ASDbContext())
+            {
+                return ctx.Products
+                    .Where(x => ids.Contains(x.Id))
+                    .Include(x => x.ProductStocks)
+                    .Include(x => x.ProductImages)
+                    .Include(x => x.Reviews)
+                    .Include(x => x.ProductImages)
+                    .ToList();
+            }
+
+        }
+        #endregion
+
+        #region Search
         public List<Product> SearchProducts(string searchTerm, int? categoryId, int? sortBy, int pageNo, int pageSize)
         {
             using (var ctx = new ASDbContext())
@@ -286,21 +290,24 @@ namespace ASonline.Service
                 return products.Count;
             }
         }
-        public List<Product> GetProductById(List<int> ids)
-        {
+        #endregion
 
+        #region Create
+        public void SaveProduct(Product product)
+        {
             using (var ctx = new ASDbContext())
             {
-                return ctx.Products
-                    .Where(x => ids.Contains(x.Id))
-                    .Include(x => x.ProductStocks)
-                    .Include(x => x.ProductImages)
-                    .Include(x => x.Reviews)
-                    .Include(x => x.ProductImages)
-                    .ToList();
+                if (product != null)
+                {
+                    ctx.Entry(product.Category).State = System.Data.Entity.EntityState.Unchanged;
+                    ctx.Products.Add(product);
+                    ctx.SaveChanges();
+                }
             }
-
         }
+        #endregion
+
+        #region Update
         public void UpdateProduct(Product product)
         {
             using (var ctx = new ASDbContext())
@@ -319,6 +326,9 @@ namespace ASonline.Service
                 ctx.SaveChanges();
             }
         }
+        #endregion
+
+        #region Delete
         public void DeleteProduct(Product product)
         {
             using (var ctx = new ASDbContext())
@@ -342,6 +352,12 @@ namespace ASonline.Service
                 }
             }
         }
+        #endregion
+
+
+
+
+        #region Size
         public void SaveSize(ProductStock stock)
         {
             using (var ctx = new ASDbContext())

@@ -1,14 +1,8 @@
 ﻿using AS.Database;
 using ASonline.Entities;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASonline.Service
 {
@@ -33,6 +27,7 @@ namespace ASonline.Service
         }
         #endregion
 
+        #region Order
         public int SaveOrder(Order order)
         {
             using (var ctx = new ASDbContext())
@@ -52,7 +47,9 @@ namespace ASonline.Service
 
             }
         }
+        #endregion
 
+        #region CartItem
         public bool SaveCartItem(CartItem item)
         {
             using (var ctx = new ASDbContext())
@@ -131,7 +128,9 @@ namespace ASonline.Service
 
             }
         }
+        #endregion
 
+        #region Newsletter
         public void SaveNewsletter(Newsletter newsletter)
         {
             using (var ctx = new ASDbContext())
@@ -144,21 +143,45 @@ namespace ASonline.Service
             }
         }
 
-        public List<Newsletter> GetVerifiedNewsletters()
+        public List<Newsletter> GetNewsletters(bool verified)
         {
             using (var ctx = new ASDbContext())
             {
-                return ctx.Newsletters.ToList();
+                return ctx.Newsletters.Where(x => x.IsVerified == verified).ToList();
             }
         }
 
-        public List<Newsletter> GetNotVerifiedNewsletters()
+        public List<Newsletter> GetLatestNewsletters(int n)
         {
             using (var ctx = new ASDbContext())
             {
-                return ctx.Newsletters.Where(x => x.IsVerified == false).ToList();
+                return ctx.Newsletters.Take(n).ToList();
             }
         }
+
+        public void AcceptNewsletter(int Id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var subscriber = ctx.Newsletters.Where(x => x.Id == Id).FirstOrDefault();
+                subscriber.IsVerified = true;
+
+                ctx.Entry(subscriber).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+            }
+        }
+
+        public void DeclineNewsletter(int Id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var subscriber = ctx.Newsletters.Where(x => x.Id == Id).FirstOrDefault();
+                
+                ctx.Newsletters.Remove(subscriber);
+                ctx.SaveChanges();
+            }
+        }
+        #endregion
 
         public void UpdateStockProduct(List<CartItem> cartItem)
         {

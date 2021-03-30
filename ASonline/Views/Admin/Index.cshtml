@@ -137,10 +137,11 @@
              </div>
              <!-- /.card -->
          }
-
+      
+   
          @if (Model.LatestProducts.Count > 0 && Model.LatestProducts != null)
          {
-            <div class="row">
+           
              <!-- PRODUCT LIST -->
             <div class="card col-md-6">
               <div class="card-header">
@@ -199,8 +200,57 @@
               <!-- /.card-footer -->
             </div>
             <!-- /.card -->
-        </div>
+       
          }
+
+         @if (Model.LatestNewsletter.Count > 0 && Model.LatestNewsletter != null)
+        {
+
+                  <!-- NEWSLETTER LIST -->
+                <div class="card col-md-6">
+                   <div class="card-header">
+                     <h3 class="card-title">Nedavno dodati proizvodi</h3>
+            
+                     <div class="card-tools">
+                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                         <i class="fas fa-minus"></i>
+                       </button>
+                       <button type="button" class="btn btn-tool" data-card-widget="remove">
+                         <i class="fas fa-times"></i>
+                       </button>
+                     </div>
+                   </div>
+                   <!-- /.card-header -->
+                   <div class="card-body p-0">
+                       <ul class="products-list product-list-in-card pl-2 pr-2">
+                               @foreach (var latestNewsletter in Model.LatestNewsletter)
+                               {
+                                   <li class="item">
+                                       <div class="product-info">
+                                           <a href="#" class="product-title">
+                                               @latestNewsletter.NewsletterEmail
+                                               @if (latestNewsletter.IsVerified)
+                                               {
+                                                   <span class="badge badge-success float-right">Verifikovan</span>
+                                               }
+                                               else
+                                               {
+                                                   <span class="badge badge-danger float-right">Nije verifikovan</span>
+                                               }
+                                           </a>
+                                           <span class="product-description">
+                                              Pretplaćen: @latestNewsletter.SubscribedAt.ToShortDateString()
+                                           </span>
+                                       </div>
+                                   </li>
+                               }
+                           <!-- /.item -->
+                       </ul>
+                   </div>
+                   <!-- /.card-body -->
+                 </div>
+                 <!-- /.card -->
+        }
 
     </div>
     <!-- /.col -->

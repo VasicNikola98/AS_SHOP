@@ -18,6 +18,28 @@
         color: #3dc468;
     }
 
+.acceptNewsletter i {
+    font-size: 30px;
+    cursor: pointer;
+    color: #137833;
+    transition: ease-in 0.2s;
+}
+
+    .acceptNewsletter  :hover {
+        color: #3dc468;
+    }
+
+.declineNewsletter i {
+    font-size: 30px;
+    cursor: pointer;
+    color: #a81111;
+    transition: ease-in 0.2s;
+}
+
+    .declineNewsletter :hover {
+        color: #d44646;
+    }
+
 .removeReview i{
     font-size: 30px;
     cursor: pointer;

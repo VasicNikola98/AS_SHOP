@@ -588,7 +588,6 @@ C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\ASonline.Entities.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\ASonline.Service.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\SendGrid.SmtpApi.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\StarkbankEcdsa.dll
-C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\System.ComponentModel.Annotations.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\AS.Database.pdb
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\AS.Database.dll.config
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\bin\ASonline.Entities.pdb

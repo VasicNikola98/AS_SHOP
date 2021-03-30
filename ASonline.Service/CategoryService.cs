@@ -2,12 +2,8 @@
 using ASonline.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASonline.Service
 {
@@ -32,17 +28,8 @@ namespace ASonline.Service
         }
         #endregion
 
-        public void SaveCategory(Category category)
-        {
-            using(var ctx = new ASDbContext())
-            {
-                if(category != null)
-                {
-                    ctx.Categories.Add(category);
-                    ctx.SaveChanges();
-                }
-            }
-        }
+       
+        #region GET
         public List<Category> GetCategories()
         {
             using(var ctx = new ASDbContext())
@@ -113,6 +100,23 @@ namespace ASonline.Service
 
             }
         }
+        #endregion
+
+        #region Create
+        public void SaveCategory(Category category)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                if (category != null)
+                {
+                    ctx.Categories.Add(category);
+                    ctx.SaveChanges();
+                }
+            }
+        }
+        #endregion
+
+        #region Update
         public void UpdateCategory(Category category)
         {
             using(var ctx = new ASDbContext())
@@ -121,6 +125,9 @@ namespace ASonline.Service
                 ctx.SaveChanges();
             }
         }
+        #endregion
+
+        #region Delete
         public void DeleteCategory(int Id)
       {
             using (var ctx = new ASDbContext())
@@ -134,5 +141,7 @@ namespace ASonline.Service
                 }
             }
         }
+#endregion
+
     }
 }
