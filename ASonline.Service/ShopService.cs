@@ -66,14 +66,18 @@ namespace ASonline.Service
                     .ProductStocks.Where(x => x.Size == item.Size)
                     .FirstOrDefault();
 
-                if (cartItem == null)
+                if (cartItem == null && item.Quantity > 0 && item.Quantity <= maxQuantity.Quantity)
                 {
                     ctx.Entry(item.Product).State = System.Data.Entity.EntityState.Unchanged;
                     ctx.CartItems.Add(item);
                     ctx.SaveChanges();
                     return true;
                 }
-                else if((cartItem.Quantity + item.Quantity) > maxQuantity.Quantity)
+                else if (cartItem != null && item.Quantity > 0 && (cartItem.Quantity + item.Quantity) > maxQuantity.Quantity)
+                {
+                    return false;
+                }
+                else if(item.Quantity <= 0 ||  item.Quantity > maxQuantity.Quantity)
                 {
                     return false;
                 }
@@ -137,6 +141,22 @@ namespace ASonline.Service
                     ctx.Newsletters.Add(newsletter);
                     ctx.SaveChanges();
                 }
+            }
+        }
+
+        public List<Newsletter> GetVerifiedNewsletters()
+        {
+            using (var ctx = new ASDbContext())
+            {
+                return ctx.Newsletters.ToList();
+            }
+        }
+
+        public List<Newsletter> GetNotVerifiedNewsletters()
+        {
+            using (var ctx = new ASDbContext())
+            {
+                return ctx.Newsletters.Where(x => x.IsVerified == false).ToList();
             }
         }
 

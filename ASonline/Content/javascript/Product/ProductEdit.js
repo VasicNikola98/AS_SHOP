@@ -57,6 +57,9 @@
         }
     });
 
+
+    var EditProductImages = new Array();
+    var id = 0;
     $("#imageUpload").change(function () {
 
 
@@ -78,16 +81,61 @@
             processData: false
         })
             .done(function (response) {
-                console.log(response);
+               
                 if (response.Success) {
-                    $("#productImage").attr("src", response.ImageUrl);
-                    $("#ImageUrl").val(response.ImageUrl);
+
+                    var image = {
+                        Id: id,
+                        ImageUrl: response.ImageUrl
+                    }
+
+                    EditProductImages.push(image);
+
+                    var mainImageDiv = document.getElementById("image-wrapper");
+                    var imageDiv = document.createElement("div");
+                    imageDiv.style.display = "inline-block";
+
+                    var image = document.createElement("img");
+                    image.src = response.ImageUrl;
+                    image.alt = "Image";
+                    image.className = "productCreateImage-other";
+
+                    var removeBtn = document.createElement("span");
+                    removeBtn.innerHTML = "X";
+                    removeBtn.className = "removeImageDBtn";
+                    removeBtn.id = id;
+                    ++id;
+
+                    removeBtn.onclick = function () {
+                        removeImage(this);
+                    }
+
+                    imageDiv.appendChild(image);
+                    imageDiv.appendChild(removeBtn);
+                    mainImageDiv.appendChild(imageDiv);
                 }
             })
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Fail")
             });
     });
+
+    function removeImage(e) {
+
+        var i = 0;
+        var imageId = e.id;
+
+        while (i < EditProductImages.length) {
+            if (EditProductImages[i].Id === parseInt(imageId)) {
+                EditProductImages.splice(i, 1);
+            } else {
+                ++i;
+            }
+        }
+
+        e.parentElement.innerHTML = "";
+
+    }
 
     $(".removeAvailableSize").click(function (e) {
 
@@ -267,5 +315,24 @@
         }
       
 
+    });
+
+    $(".removeImageBtn").click(function (e) {
+        
+        $.ajax({
+            type: 'POST',
+            url: URL + 'Shared/DeleteImage/',
+            data: {
+                Id: $(this).attr("data-id")
+            }
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    e.target.parentElement.innerHTML = "";
+                }
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail")
+            });
     });
 });

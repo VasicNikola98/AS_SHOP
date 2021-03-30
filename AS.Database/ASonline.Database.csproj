@@ -177,6 +177,22 @@
     <Compile Include="Migrations\202103271901563_ProductArhive.Designer.cs">
       <DependentUpon>202103271901563_ProductArhive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103291228531_Update ProductModel.cs" />
+    <Compile Include="Migrations\202103291228531_Update ProductModel.Designer.cs">
+      <DependentUpon>202103291228531_Update ProductModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103291409406_Initial.cs" />
+    <Compile Include="Migrations\202103291409406_Initial.Designer.cs">
+      <DependentUpon>202103291409406_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103291424196_AddNewPropertyInNewsletterModel.cs" />
+    <Compile Include="Migrations\202103291424196_AddNewPropertyInNewsletterModel.Designer.cs">
+      <DependentUpon>202103291424196_AddNewPropertyInNewsletterModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103301214467_AddCartItemListInProduct.cs" />
+    <Compile Include="Migrations\202103301214467_AddCartItemListInProduct.Designer.cs">
+      <DependentUpon>202103301214467_AddCartItemListInProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -283,6 +299,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103271901563_ProductArhive.resx">
       <DependentUpon>202103271901563_ProductArhive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291228531_Update ProductModel.resx">
+      <DependentUpon>202103291228531_Update ProductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291409406_Initial.resx">
+      <DependentUpon>202103291409406_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291424196_AddNewPropertyInNewsletterModel.resx">
+      <DependentUpon>202103291424196_AddNewPropertyInNewsletterModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103301214467_AddCartItemListInProduct.resx">
+      <DependentUpon>202103301214467_AddCartItemListInProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

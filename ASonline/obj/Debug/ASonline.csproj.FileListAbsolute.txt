@@ -605,3 +605,4 @@ C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\obj\Debug\ASonline.csproj.CoreCom
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\obj\Debug\ASonline.csproj.CopyComplete
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\obj\Debug\ASonline.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\obj\Debug\ASonline.pdb
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\ASonline\obj\Debug\ASonline.Migrations.UpdateProductModel.resources

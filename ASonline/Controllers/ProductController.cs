@@ -176,7 +176,7 @@ namespace ASonline.Controllers
             model.PriceUnderline = product.PriceUnderline;
             model.Price = product.Price;
             model.CategoryId = product.Category != null ? product.Category.Id : 0;
-            //model.ImageUrl = product.ImageUrl;
+            model.ProductImages = product.ProductImages;
             model.AvailableCategories = CategoryService.Instance.GetCategories();
             model.AvailableSize = product.ProductStocks;
 
@@ -197,7 +197,7 @@ namespace ASonline.Controllers
                 existingProduct.PriceUnderline = model.PriceUnderline;
                 existingProduct.Price = model.Price;
                 existingProduct.Category = CategoryService.Instance.GetCategoryById(model.CategoryId);
-
+                
                 ProductService.Instance.UpdateProduct(existingProduct);
 
                 result.Data = new { Success = true };
@@ -359,5 +359,6 @@ namespace ASonline.Controllers
         }
 
         #endregion
+
     }
 }

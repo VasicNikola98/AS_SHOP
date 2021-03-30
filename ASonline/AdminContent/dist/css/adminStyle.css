@@ -70,12 +70,9 @@
 }
 
 .removeOtherImage {
-    position: absolute;
-    border: 1px solid white;
-    padding: 6px;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border-radius: 7px;
+    position: relative;
+    top: -82px;
+    left: -5px;
     cursor: pointer;
 }
 
@@ -142,4 +139,18 @@
 .categoryEditBtn :hover {
     transition: ease-in 0.1s;
     color: #19b2d1;
+}
+
+.removeImageBtn {
+    position: relative;
+    top: -82px;
+    left: -5px;
+    cursor: pointer;
+}
+
+.removeImageDBtn {
+    position: relative;
+    top: -82px;
+    left: -5px;
+    cursor: pointer;
 }

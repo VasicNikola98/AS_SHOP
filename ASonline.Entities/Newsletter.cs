@@ -8,5 +8,7 @@ namespace ASonline.Entities
     {
         public int Id { get; set; }
         public string NewsletterEmail { get; set; }
+        public DateTime SubscribedAt { get; set; }
+        public bool IsVerified { get; set; }
     }
 }

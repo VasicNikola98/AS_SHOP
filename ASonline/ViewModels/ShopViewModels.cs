@@ -64,6 +64,7 @@ namespace ASonline.ViewModels
         public string productId { get; set; }
         public string productSize { get; set; }
         public string productQuantity { get; set; }
+       
     }
 
 }

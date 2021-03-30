@@ -58,9 +58,12 @@
 
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: 267px; height: 150px; margin-bottom: 13px;" />
-                                </div>
+                                @if (cartItem.Product.ProductImages.Count > 0 )
+                                {
+                                   <div class="col-md-5">
+                                       <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: auto; height: auto; margin-bottom: 13px;" />
+                                   </div>
+                                }
                                 <div class="col-md-7">
                                     <h6 class="my-0 font-weight-bold">@cartItem.Product.Name</h6>
 
@@ -74,8 +77,8 @@
                                     <br />
                                 </div>
                             </div>
-                            <span class="text-muted font-weight-bold">@(cartItem.Quantity * saleAmount) RSD</span>
-                            <a href="@Url.Action("DeleteCartItem", "Shop", new { Id = cartItem.Id })">X</a>
+                            <span class="text-muted font-weight-bold font-italic">@(cartItem.Quantity * saleAmount) RSD</span>
+                            <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("DeleteCartItem", "Shop", new { Id = cartItem.Id })">X</a>
                         </li>
                     }
                     else
@@ -83,9 +86,12 @@
                       
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: 267px; height: 150px; margin-bottom: 13px;" />
-                                </div>
+                                @if (cartItem.Product.ProductImages.Count > 0)
+                                {
+                                    <div class="col-md-5">
+                                        <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: auto; height: auto; margin-bottom: 13px;" />
+                                    </div>
+                                }
                                 <div class="col-md-7">
                                     <h6 class="my-0 font-weight-bold">@cartItem.Product.Name</h6>
                                     <small class="text-muted">Cena: @cartItem.Product.Price RSD</small>
@@ -97,7 +103,7 @@
                                 </div>
                             </div>
                             <span class="text-muted font-weight-bold font-italic">@(cartItem.Quantity * cartItem.Product.Price) RSD</span>
-                            <a href="@Url.Action("DeleteCartItem", "Shop", new { Id = cartItem.Id })">X</a>
+                            <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("DeleteCartItem", "Shop", new { Id = cartItem.Id })">X</a>
                         </li>
                     }
                 }
@@ -193,7 +199,7 @@ else
                     <img src="~/Content/images/shop/emptyCart.svg" />
                 </div>
             </div>
-            <div class="p-2">
+            <div class="p-3">
                 <a href="@Url.Action("Index", "Shop")" class="btn btn-danger">KRENI U KUPOVINU</a>
             </div>
         </div>

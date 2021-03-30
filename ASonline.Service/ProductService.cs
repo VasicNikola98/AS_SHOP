@@ -312,11 +312,7 @@ namespace ASonline.Service
                 productInDb.Price = product.Price;
                 productInDb.Category = product.Category;
 
-               /* if (!string.IsNullOrEmpty(product.ImageUrl))
-                {
-                    productInDb.ImageUrl = product.ImageUrl;
-                }
-               */
+             
 
                 ctx.Entry(productInDb.Category).State = System.Data.Entity.EntityState.Unchanged;
                 ctx.Entry(productInDb).State = System.Data.Entity.EntityState.Modified;
@@ -332,6 +328,7 @@ namespace ASonline.Service
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
+                    .Include(x => x.CartItems)
                     .FirstOrDefault();
 
                 if (deleteProduct != null)
@@ -339,6 +336,7 @@ namespace ASonline.Service
                     ctx.ProductImages.RemoveRange(deleteProduct.ProductImages);
                     ctx.ProductStocks.RemoveRange(deleteProduct.ProductStocks);
                     ctx.Reviews.RemoveRange(deleteProduct.Reviews);
+                    ctx.CartItems.RemoveRange(deleteProduct.CartItems);
                     ctx.Products.Remove(deleteProduct);
                     ctx.SaveChanges();
                 }

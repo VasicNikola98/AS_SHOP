@@ -80,5 +80,15 @@ namespace ASonline.Service
                     .Take(n).ToList();
             }
         }
+
+        public void DeleteImage(int Id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var image = ctx.ProductImages.Where(x => x.Id == Id).FirstOrDefault();
+                ctx.ProductImages.Remove(image);
+                ctx.SaveChanges();
+            }
+        }
     }
 }

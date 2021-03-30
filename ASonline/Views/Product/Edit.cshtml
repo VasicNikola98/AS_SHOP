@@ -49,6 +49,16 @@
                                 <label for="Image">Slika</label>
                                 <input type="file" accept=".jpg, .png" class="form-control" id="imageUpload" name="Image" autocomplete="off" />
                             </div>
+                            <div id="image-wrapper">
+                                @foreach (var images in Model.ProductImages)
+                                {
+                                   <div class="d-inline-block">
+                                       <img class="productCreateImage-other" src="@images.ImageURL" alt="Image" />
+                                       <span class="removeImageBtn" data-id="@images.Id">X</span>
+                                   </div>
+                                }
+                            </div>
+
                             <hr />
 
                             <h5 for="Size">Trenutno na stanju</h5>
@@ -61,8 +71,9 @@
                                        <span style="font-size: 16px; margin-left: 10px;">@availableSize.Size - @availableSize.Quantity</span>
                                        <span class="removeAvailableSize" data-id="@availableSize.Id">x</span>
                                    </span>
-                                  }
+                                }
                              }
+
                         </div>
                         <!-- /.card-body -->
 
@@ -102,18 +113,13 @@
                             <div id="sizeDiv">
                                
                             </div>
+
+
                         </div>
                         <div class="card-footer">
                             <a class="float-right addSizeBtn"><i class='bx bx-add-to-queue'></i></a>
                         </div>
                     </form>
-
-                </div>
-            </div>
-
-            <!--/.col (left) -->
-            <div class="col-md-5">
-                <div id="product-images">
 
                 </div>
             </div>

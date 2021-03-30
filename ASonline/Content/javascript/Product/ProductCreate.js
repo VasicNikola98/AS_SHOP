@@ -87,17 +87,9 @@
                         removeImage(this);
                     };
 
-                    if (ProductImage.length == 1) {
-                        productImg.classList = "productCreateImage-thumb";
-                        removeImageBtn.classList = "removeThumbImage";
-                       
-                    }
-                    else {
-                        productImg.classList = "productCreateImage-other";
-                        removeImageBtn.classList = "removeOtherImage";
-                    }
-
-
+                    productImg.classList = "productCreateImage-other";
+                    removeImageBtn.classList = "removeOtherImage";
+ 
                     imageDiv.appendChild(productImg);
                     imageDiv.appendChild(removeImageBtn);
                     mainImageDiv.appendChild(imageDiv);
@@ -122,39 +114,7 @@
             }
         }
 
-        var mainImageDiv = document.getElementById("product-images");
-        mainImageDiv.innerHTML = "";
-
-        if (ProductImage.length > 0) {
-            for (var i = 0; i < ProductImage.length; i++) {
-
-                var imageDiv = document.createElement("div");
-                imageDiv.style.display = "inline-block";
-                var productImg = document.createElement("img");
-                productImg.src = ProductImage[i].ImageUrl;
-                console.log(ProductImage[i].ImageUrl);
-                productImg.alt = "Image";
-
-                var removeImageBtn = document.createElement("span");
-                removeImageBtn.innerHTML = "X";
-                removeImageBtn.id = ProductImage[i].Id;
-                removeImageBtn.onclick = function () {
-                    removeImage(this);
-                };
-
-                if (i === 0) {
-                    productImg.classList = "productCreateImage-thumb";
-                    removeImageBtn.classList = "removeThumbImage";
-                } else {
-                    productImg.classList = "productCreateImage-other";
-                    removeImageBtn.classList = "removeOtherImage";
-                }
-
-                imageDiv.appendChild(productImg);
-                imageDiv.appendChild(removeImageBtn);
-                mainImageDiv.appendChild(imageDiv);
-            }
-        }
+        e.parentElement.innerHTML = "";
     }
 
     $("#addSizeBtn").click(function () {
@@ -298,7 +258,6 @@
             }
         }
 
-
         if (ProductStock.length >= 0) {
             var mainSizeDiv = document.getElementById("addedSizesId");
             mainSizeDiv.innerHTML = "";
@@ -330,7 +289,6 @@
             });
         }
 
-        console.log(ProductStock);
     }
 
     $("#saveBtn").click(function () {

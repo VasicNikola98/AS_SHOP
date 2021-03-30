@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASonline.Service;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -38,6 +39,24 @@ namespace ASonline.Controllers
             {
                 result.Data = new { Success = false, Message = ex.Message };
             }
+            return result;
+        }
+
+        public JsonResult DeleteImage(int Id)
+        {
+            JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            if (Id > 0)
+            {
+                AdminService.Instance.DeleteImage(Id);
+                result.Data = new { Success = true };
+            }
+            else
+            {
+                result.Data = new { Success = false };
+            }
+
             return result;
         }
     }

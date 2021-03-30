@@ -58,8 +58,8 @@
                                     @if (Model.Product.PriceUnderline != 0)
                                     {
                                        var procent = (double.Parse(Model.Product.PriceUnderline.ToString()) / 100);
-                                     var salePrice = (Model.Product.Price * procent);
-                                     var saleAmount = (Model.Product.Price - salePrice);
+                                       var salePrice = (Model.Product.Price * procent);
+                                       var saleAmount = (Model.Product.Price - salePrice);
                                      <del><b><span class="regular">@Model.Product.Price RSD</span></b></del>
                                      <ins>
                                          <span class="amount">@saleAmount RSD</span>

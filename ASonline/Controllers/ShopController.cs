@@ -59,23 +59,30 @@ namespace ASonline.Controllers
             if(HashedUserId != null && !string.IsNullOrEmpty(HashedUserId.Value))
             {
                 
-                var cartItem = new CartItem();
-                cartItem.HashUserId = HashedUserId.Value;
-                cartItem.Size = model.productSize;
-                cartItem.Quantity = int.Parse(model.productQuantity);
-                var cartProduct = ProductService.Instance.GetProductById(int.Parse(model.productId));
-                cartItem.Product = cartProduct;
-
-                var validate = ShopService.Instance.SaveCartItem(cartItem);
-
-                if(validate)
+                if(model.productQuantity != null)
                 {
-                    result.Data = new { Success = true };
+                    var cartItem = new CartItem();
+                    cartItem.HashUserId = HashedUserId.Value;
+                    cartItem.Size = model.productSize;
+                    cartItem.Quantity = int.Parse(model.productQuantity);
+                    var cartProduct = ProductService.Instance.GetProductById(int.Parse(model.productId));
+                    cartItem.Product = cartProduct;
+                    var validate = ShopService.Instance.SaveCartItem(cartItem);
+                    if (validate)
+                    {
+                        result.Data = new { Success = true };
+                    }
+                    else
+                    {
+                        result.Data = new { Success = false };
+                    }
                 }
                 else
                 {
                     result.Data = new { Success = false };
                 }
+
+             
             }
             else
             {
@@ -197,6 +204,9 @@ namespace ASonline.Controllers
                 Newsletter newsletter = new Newsletter();
 
                 newsletter.NewsletterEmail = NewsletterEmail;
+                newsletter.SubscribedAt = DateTime.Now;
+                newsletter.IsVerified = false;
+
                 ShopService.Instance.SaveNewsletter(newsletter);
 
                 result.Data = new { Success = true };

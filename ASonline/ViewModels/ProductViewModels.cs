@@ -25,10 +25,9 @@ namespace ASonline.ViewModels
     public class NewProductViewModel
     {
         [Required]
-        [MinLength(5), MaxLength(50)]
+      
         public String Name { get; set; }
 
-        [MaxLength(1000)]
         public String Description { get; set; }
 
         public int PriceUnderline { get; set; }
@@ -43,31 +42,21 @@ namespace ASonline.ViewModels
 
     public class EditProductViewModel
     {
-
         public int Id { get; set; }
-
         [Required]
-        [MinLength(5), MaxLength(50)]
         public String Name { get; set; }
-
-        [MaxLength(1000)]
         public String Description { get; set; }
-
-      
         public int PriceUnderline { get; set; }
-
         [Required]
         public int Price { get; set; }
-
         public int CategoryId { get; set; }
-        public String ImageUrl { get; set; }
-
         public List<Category> AvailableCategories { get; set; }
-
         public List<ProductStock> AvailableSize { get; set; }
 
-    }
+        public List<ProductImages> ProductImages { get; set; }
 
+    }
+    
     public class SizeProductViewModel
     {
         public int ProductId { get; set; }

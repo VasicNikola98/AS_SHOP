@@ -274,3 +274,7 @@ C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.dll
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.pdb
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddDateOfCreatedInPorductModel.resources
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.ProductArhive.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.UpdateProductModel.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.Initial.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddNewPropertyInNewsletterModel.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItemListInProduct.resources

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ASonline.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -22,5 +23,11 @@ namespace ASonline.Controllers
             model.LatestProducts = AdminService.Instance.GetLatestProducts(5);
             return View(model);
         }
+
+        public ActionResult Newsletter()
+        {
+            return View();
+        }
+
     }
 }
