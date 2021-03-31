@@ -74,7 +74,7 @@
 
     $(".deleteBtn").click(function () {
         swal({
-            text: "Da li ste sigurni da želite da izbrišete ovu kategoriju?",
+            text: "Da li ste sigurni da želite da izbrišete ovu kategoriju? Brisanjem kategorije brišu se svi proizvodi koji se nalaze u njoj!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

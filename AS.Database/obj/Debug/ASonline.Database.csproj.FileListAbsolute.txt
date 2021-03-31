@@ -278,3 +278,4 @@ C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migratio
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.Initial.resources
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddNewPropertyInNewsletterModel.resources
 C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddCartItemListInProduct.resources
+C:\Users\Nikola Vasic\Desktop\AS_SHOP\AS.Database\obj\Debug\AS.Database.Migrations.AddDoubleTypeOfTotalAmount.resources

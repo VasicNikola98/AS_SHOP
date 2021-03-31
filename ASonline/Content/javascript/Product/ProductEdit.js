@@ -5,12 +5,7 @@
     $('#editProduct').validate({
         rules: {
             Name: {
-                required: true,
-                minlength: 3,
-                maxlength: 50
-            },
-            Description: {
-                maxlength: 1000
+                required: true
             },
             Price: {
                 required: true,
@@ -19,11 +14,9 @@
         messages: {
             Name: {
                 required: 'Naziv proizvoda je obavezno polje!',
-                minlength: 'Naziv proizvoda mora biti veći od 3 karaktera!',
-                maxlength: 'Naziv proizvoda ne može da sadrži više od 50 karaktera!'
             },
-            Description: {
-                maxlength: 'Opis proizvoda ne može da sadrži više od 1000 karaktera!'
+            Price: {
+                required: 'Cena je obavezno polje!'
             }
         }
     });
@@ -51,7 +44,6 @@
                 title: "Ups...",
                 text: "Popunite sva polja koja su označena * ispravnim podacima!",
                 icon: "warning",
-                buttons: true,
                 dangerMode: true,
             })
         }
@@ -159,12 +151,12 @@
 
     $("#sizeForm").validate({
         rules: {
-            Name: {
+            Quantity: {
                 required: true,
             },
         },
         messages: {
-            Name: {
+            Quantity: {
                 required: 'Količina je obavezno polje!',
             }
         }

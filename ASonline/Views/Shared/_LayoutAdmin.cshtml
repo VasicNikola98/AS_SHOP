@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="~/AdminContent/dist/css/adminStyle.css" />
 
+    <link rel="stylesheet" href="~/AdminContent/dist/css/loader.css" />
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -26,6 +27,7 @@
     <script src="~/AdminContent/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+   
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -167,7 +169,13 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="loader-wrapper">
+                        <div class="lds-ring"><div></div><div></div><div></div></div>
+                    </div>
+                </div>
+            </section>
             @RenderBody()
 
         </div>

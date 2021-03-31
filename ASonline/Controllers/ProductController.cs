@@ -40,7 +40,6 @@ namespace ASonline.Controllers
             }
         }
 
-   
 
         [HttpGet]
         [Authorize(Roles = "Admin")]

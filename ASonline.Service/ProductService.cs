@@ -45,7 +45,7 @@ namespace ASonline.Service
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
                     .Include(x => x.ProductImages)
-                    .OrderByDescending(x => x.Price)
+                    .OrderByDescending(x => x.CreatedAt)
                     .ToList();
 
                 }
@@ -57,7 +57,7 @@ namespace ASonline.Service
                         .Include(x => x.ProductStocks)
                         .Include(x => x.Category)
                         .Include(x => x.Reviews)
-                        .OrderByDescending(x => x.Price)
+                        .OrderByDescending(x => x.CreatedAt)
                         .ToList();
                 }
 
@@ -75,7 +75,7 @@ namespace ASonline.Service
                     .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
-                    .OrderByDescending(x => x.Price)
+                    .OrderByDescending(x => x.CreatedAt)
                     .ToList();
             }
         }
@@ -85,7 +85,7 @@ namespace ASonline.Service
             {
                 return ctx.Products
                     .Where(x => x.Category.Id == categoryId)
-                    .OrderByDescending(x => x.Id)
+                    .OrderByDescending(x => x.CreatedAt)
                     .Take(pageSize)
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
@@ -103,7 +103,7 @@ namespace ASonline.Service
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
-                    .OrderByDescending(x => x.Id)
+                    .OrderByDescending(x => x.CreatedAt)
                     .ToList();
             }
         }
@@ -113,7 +113,7 @@ namespace ASonline.Service
             using (var context = new ASDbContext())
             {
                 return context.Products
-                    .OrderByDescending(x => x.Id)
+                    .OrderByDescending(x => x.CreatedAt)
                     .Take(numberOfProducts)
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
@@ -131,7 +131,7 @@ namespace ASonline.Service
                     .Include(x => x.ProductImages)
                     .Include(x => x.Category)
                     .Include(x => x.Reviews)
-                    .OrderByDescending(x => x.Price)
+                    .OrderByDescending(x => x.CreatedAt)
                     .ToList();
 
                 return products;
@@ -146,7 +146,7 @@ namespace ASonline.Service
                     return ctx.Products
                         .Where(p => p.Name != null && p.Name.ToLower()
                         .Contains(search.ToLower()))
-                        .OrderBy(x => x.Id)
+                        .OrderBy(x => x.CreatedAt)
                         .Count();
                 }
                 else
@@ -206,7 +206,7 @@ namespace ASonline.Service
                     .Include(x => x.ProductStocks)
                     .Include(x => x.ProductImages)
                     .Include(x => x.Reviews)
-                    .OrderByDescending(x => x.Price)
+                    .OrderByDescending(x => x.CreatedAt)
                     .ToList();
 
                 if (categoryId.HasValue)
@@ -414,6 +414,7 @@ namespace ASonline.Service
                 return ctx.Reviews
                     .Where(x => x.isConfirmed == false)
                     .Include(x => x.Product)
+                    .OrderByDescending(x => x.Created)
                     .ToList();
             }
         }

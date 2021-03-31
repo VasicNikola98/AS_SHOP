@@ -84,7 +84,6 @@
                 title: "Ups...",
                 text: "Popunite sva polja koja su označena * ispravnim podacima!",
                 icon: "warning",
-                buttons: true,
                 dangerMode: true,
             });
         }

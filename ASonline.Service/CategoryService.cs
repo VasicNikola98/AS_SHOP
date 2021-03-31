@@ -132,9 +132,25 @@ namespace ASonline.Service
       {
             using (var ctx = new ASDbContext())
             {
-                var category = ctx.Categories.Where(x => x.Id == Id).Include(x => x.Products).FirstOrDefault();
+                var category = ctx.Categories
+                    .Where(x => x.Id == Id)
+                    .Include(x => x.Products)
+                    .Include("Products.ProductImages")
+                    .Include("Products.Reviews")
+                    .Include("Products.CartItems")
+                    .Include("Products.ProductStocks")
+                    .FirstOrDefault();
+               
                 if (category != null)
                 {
+                    foreach(var product in category.Products)
+                    {
+                        ctx.ProductImages.RemoveRange(product.ProductImages);
+                        ctx.Reviews.RemoveRange(product.Reviews);
+                        ctx.CartItems.RemoveRange(product.CartItems);
+                        ctx.ProductStocks.RemoveRange(product.ProductStocks);
+                    }
+
                     ctx.Products.RemoveRange(category.Products);
                     ctx.Categories.Remove(category);
                     ctx.SaveChanges();

@@ -5,9 +5,8 @@
 
 @if (Model != null && Model.Product != null)
 {
-    var defaultImageUrl = "/Content/images/System/noPic.png";
-    //var imageUrl = string.IsNullOrEmpty(Model.Product.ImageUrl) ? defaultImageUrl : Model.Product.ImageUrl;
-    var confirmedReviews = Model.Product.Reviews.Where(x => x.isConfirmed).ToList();<!-- Page title -->
+
+    var confirmedReviews = Model.Product.Reviews.Where(x => x.isConfirmed).OrderByDescending(x => x.Created).ToList();<!-- Page title -->
     <div class="page-title parallax parallax1">
         <div class="container">
             <div class="row">
@@ -160,16 +159,14 @@
                                                 {
 
                                                     <li class="review">
-                                                        <div class="thumb">
-                                                            <img src="~/Content/images/default-avatar.png" alt="Image">
-                                                        </div>
+                                                       
                                                         <div class="text-wrap">
                                                             <div class="review-meta">
                                                                 <h5 class="name">@item.Username</h5>
 
                                                             </div>
                                                             <div class="review-text">
-                                                                <p>@item.Content</p>
+                                                                <p class="font-weight-bold">@item.Content</p>
 
                                                                 <p class="active">Ocena (@item.Rating)</p>
                                                                 <br />

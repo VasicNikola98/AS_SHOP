@@ -2735,3 +2735,5 @@
 function submitform() {
     $("#logoutForm").submit();
 }
+
+$(".loader-wrapper").fadeOut();

@@ -6,35 +6,24 @@
         rules: {
             Name: {
                 required: true,
-                minlength: 3,
-                maxlength: 50
-            },
-            Description: {
-                maxlength: 1000
             },
             Price: {
                 required: true,
-                range: [1, 1000000000000000]
+               
             },
             PriceUnderline: {
-                range: [1, 1000000000000000]
+                range: [0, 100]
             }
         },
         messages: {
             Name: {
                 required: 'Naziv proizvoda je obavezno polje!',
-                minlength: 'Naziv proizvoda mora biti veći od 3 karaktera!',
-                maxlength: 'Naziv proizvoda ne može da sadrži više od 50 karaktera!'
-            },
-            Description: {
-                maxlength: 'Opis proizvoda ne može da sadrži više od 1000 karaktera!'
             },
             Price: {
                 required: 'Cena proizvoda je obavezno polje!',
-                range: 'Cena mora biti u opsegu od 1 do 1000000000000000!'
             },
             PriceUnderline: {
-                range: 'Cena mora biti u opsegu od 1 do 1000000000000000!'
+                range: 'Sniženje mora biti u rangu od 0 do 100 %'
             }
         }
     });
@@ -322,7 +311,6 @@
                 title: "Ups...",
                 text: "Popunite sva polja koja su označena * ispravnim podacima!",
                 icon: "warning",
-                buttons: true,
                 dangerMode: true,
             })
         }

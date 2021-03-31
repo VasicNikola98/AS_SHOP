@@ -352,6 +352,7 @@
     <Content Include="AdminContent\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminContent\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminContent\dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="AdminContent\dist\css\loader.css" />
     <Content Include="AdminContent\dist\img\AdminLTELogo.png" />
     <Content Include="AdminContent\dist\img\avatar.png" />
     <Content Include="AdminContent\dist\img\avatar2.png" />

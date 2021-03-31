@@ -9,7 +9,7 @@ namespace ASonline.Entities
         public int Id { get; set; }
         public DateTime OrderedAt { get; set; }
         public string Status { get; set; }
-        public decimal TotalAmount { get; set; }
+        public double TotalAmount { get; set; }
         public virtual List<OrderItem> OrderItems { get; set; }
         public virtual OrderDetails OrderDetail { get; set; }
 

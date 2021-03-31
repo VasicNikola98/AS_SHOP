@@ -122,19 +122,52 @@ namespace ASonline.Controllers
                
                 newOrder.OrderedAt = DateTime.Now;
                 newOrder.Status = "Nerešena";
-                newOrder.TotalAmount = boughtProducts.Sum(x => x.Product.Price * x.Quantity);
 
+                foreach(var item in boughtProducts)
+                {
+                    if (item.Product.PriceUnderline > 0)
+                    {
+                        var procent = (double.Parse(item.Product.PriceUnderline.ToString()) / 100);
+                        var salePrice = (item.Product.Price * procent);
+                        var saleAmount = (item.Product.Price - salePrice);
+
+                        newOrder.TotalAmount = newOrder.TotalAmount + saleAmount;
+                       
+                    }
+                    else
+                    {
+                        newOrder.TotalAmount = newOrder.TotalAmount + (item.Product.Price * item.Quantity);
+                    }
+                }
+             
                 newOrder.OrderItems = new List<OrderItem>();
-
-                newOrder.OrderItems.AddRange(boughtProducts.Select(x => new OrderItem() {
-                    Quantity = x.Quantity,
-                    Price = x.Product.Price,
-                    PriceUnderline = x.Product.PriceUnderline,
-                    Size = x.Size,
-                    ProductName = x.Product.Name,
-                    ImageUrl = string.IsNullOrEmpty(x.Product.ProductImages[0].ImageURL) ? "" : x.Product.ProductImages[0].ImageURL
-                }));
-
+                foreach(var x in boughtProducts)
+                {
+                    if(x.Product.ProductImages.Count > 0)
+                    {
+                        newOrder.OrderItems.Add(new OrderItem
+                        {
+                            Quantity = x.Quantity,
+                            Price = x.Product.Price,
+                            PriceUnderline = x.Product.PriceUnderline,
+                            Size = x.Size,
+                            ProductName = x.Product.Name,
+                            ImageUrl = x.Product.ProductImages[0].ImageURL
+                        });
+                    }
+                    else
+                    {
+                        newOrder.OrderItems.Add(new OrderItem
+                        {
+                            Quantity = x.Quantity,
+                            Price = x.Product.Price,
+                            PriceUnderline = x.Product.PriceUnderline,
+                            Size = x.Size,
+                            ProductName = x.Product.Name,
+                            ImageUrl = ""
+                        });
+                    }
+                }
 
                 newOrder.OrderDetail = orderDetails;
 

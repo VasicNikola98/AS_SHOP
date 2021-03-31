@@ -61,7 +61,7 @@
 .productCreateImage-other {
     display: inline-block;
     height: 150px;
-    width: 100px;
+    width: auto;
     margin: 5px;
 }
 
@@ -176,3 +176,11 @@
     left: -5px;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+}
+
+    .error label {
+        font-weight: 500;
+    }

@@ -71,186 +71,174 @@
         </div>
         <!-- /.row -->
 
-         @if (Model.LatestOrders.Count > 0 && Model.LatestOrders != null)
-         {
-             <!-- TABLE: LATEST ORDERS -->
-             <div class="card">
-                 <div class="card-header border-transparent">
-                     <h3 class="card-title">Poslednje porudžbine</h3>
-             
-                     <div class="card-tools">
-                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                             <i class="fas fa-minus"></i>
-                         </button>
-                         <button type="button" class="btn btn-tool" data-card-widget="remove">
-                             <i class="fas fa-times"></i>
-                         </button>
-                     </div>
-                 </div>
-                 <!-- /.card-header -->
-                 <div class="card-body p-0">
-                     <div class="table-responsive">
-                         <table class="table m-0">
-                             <thead>
-                                 <tr>
-                                     <th>User ID</th>
-                                     <th>Ukupna cena</th>
-                                     <th>Status</th>
-                                     <th>Poručeno</th>
-                                     <th>Akcija</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                     @foreach (var latestOrder in Model.LatestOrders)
-                                     {
-                                         var alertStatus = "";
-                                         if (latestOrder.Status == "Nerešena")
-                                         {
-                                             alertStatus = "badge badge-danger";
-                                         }
-                                         else if (latestOrder.Status == "U procesu")
-                                         {
-                                             alertStatus = "badge badge-warning";
-                                         }
-                                         else
-                                         {
-                                             alertStatus = "badge badge-success";
-                                         }
-                                          <tr>
-                                              <td>@latestOrder.Id</td>
-                                              <td>@latestOrder.TotalAmount</td>
-                                              <td><span class="@alertStatus">@latestOrder.Status</span></td>
-                                              <td>@latestOrder.OrderedAt.ToShortDateString()</td>
-                                              <td><a href="@Url.Action("Details", "Order", new { id = latestOrder.Id })" class="btn btn-info">Detalji</a></td>
-                                          </tr>
-                                     }
-                             </tbody>
-                         </table>
-                     </div>
-                     <!-- /.table-responsive -->
-                 </div>
-                 <!-- /.card-body -->
-                 <div class="card-footer clearfix">
-                     <a href="@Url.Action("Index", "Order")" class="btn btn-sm btn-secondary float-left">Ostale porudžbine</a>
-                 </div>
-                 <!-- /.card-footer -->
-             </div>
-             <!-- /.card -->
-         }
-      
-   
-         @if (Model.LatestProducts.Count > 0 && Model.LatestProducts != null)
-         {
-           
-             <!-- PRODUCT LIST -->
-            <div class="card col-md-6">
-              <div class="card-header">
-                <h3 class="card-title">Nedavno dodati proizvodi</h3>
+        @if (Model.LatestOrders.Count > 0 && Model.LatestOrders != null)
+        {<!-- TABLE: LATEST ORDERS -->
+                    <div class="card">
+                        <div class="card-header border-transparent">
+                            <h3 class="card-title">Poslednje porudžbine</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Ukupna cena</th>
+                                            <th>Status</th>
+                                            <th>Poručeno</th>
+                                            <th>Akcija</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var latestOrder in Model.LatestOrders)
+                                        {
+                                            var alertStatus = "";
+                                            if (latestOrder.Status == "Nerešena")
+                                            {
+                                                alertStatus = "badge badge-danger";
+                                            }
+                                            else if (latestOrder.Status == "U procesu")
+                                            {
+                                                alertStatus = "badge badge-warning";
+                                            }
+                                            else
+                                            {
+                                                alertStatus = "badge badge-success";
+                                            }
+                        <tr>
+                            <td>@latestOrder.Id</td>
+                            <td>@latestOrder.TotalAmount</td>
+                            <td><span class="@alertStatus">@latestOrder.Status</span></td>
+                            <td>@latestOrder.OrderedAt.ToShortDateString()</td>
+                            <td><a href="@Url.Action("Details", "Order", new { id = latestOrder.Id })" class="btn btn-info">Detalji</a></td>
+                        </tr>}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        @if (Model.LatestOrders.Count > 7)
+                        {<!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <a href="@Url.Action("Index", "Order")" class="btn btn-sm btn-secondary float-left">Ostale porudžbine</a>
+                            </div> <!-- /.card-footer -->}
+                    </div> <!-- /.card -->}
+
+        @if (Model.LatestProducts.Count > 0 && Model.LatestProducts != null)
+        {<!-- PRODUCT LIST -->
+    <div class="card col-md-6">
+        <div class="card-header">
+            <h3 class="card-title">Nedavno dodati proizvodi</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
                     <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                  <ul class="products-list product-list-in-card pl-2 pr-2">
-                          @foreach (var latestProduct in Model.LatestProducts)
-                          {
-                              <li class="item">
-                                 @if(latestProduct.ProductImages.Count > 0 && latestProduct.ProductImages != null)
-                                 {
-                                  <div class="product-img">
-                                      <img src="@latestProduct.ProductImages[0].ImageURL" alt="Product Image" class="img-size-50">
-                                  </div>
-                                 }
-                                  <div class="product-info">
-                                      <a href="@Url.Action("Details","Product", new { Id = latestProduct.Id })" class="product-title">
-                                          @latestProduct.Name
-                                          <span class="badge badge-success float-right">@latestProduct.Price RSD</span>
-                                          @if (latestProduct.PriceUnderline != 0)
-                                          {
-                                              var procent = (double.Parse(latestProduct.PriceUnderline.ToString()) / 100);
-                                              var salePrice = (latestProduct.Price * procent);
-                                              var saleAmount = (latestProduct.Price - salePrice);
-                                              <br />
-                                              <span class="badge badge-danger float-right p-1">-@latestProduct.PriceUnderline <sup>%</sup></span>
-                                              <br />
-                                              <span class="badge badge-warning float-right p-1">@saleAmount RSD</span>
-                                          }
-
-                                      </a>
-                                      <span class="product-description">
-                                         ID Proizvoda: @latestProduct.Id
-                                      </span>
-                                  </div>
-                              </li>
-                          }
-                      <!-- /.item -->
-                  </ul>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer text-center">
-                <a href="@Url.Action("Index", "Product")" class="uppercase">Vidi sve proizvode</a>
-              </div>
-              <!-- /.card-footer -->
+                </button>
             </div>
-            <!-- /.card -->
-       
-         }
-
-         @if (Model.LatestNewsletter.Count > 0 && Model.LatestNewsletter != null)
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <ul class="products-list product-list-in-card pl-2 pr-2">
+                @foreach (var latestProduct in Model.LatestProducts)
+                {
+    <li class="item">
+        @if (latestProduct.ProductImages.Count > 0 && latestProduct.ProductImages != null)
         {
-
-                  <!-- NEWSLETTER LIST -->
-                <div class="card col-md-6">
-                   <div class="card-header">
-                     <h3 class="card-title">Nedavno dodati proizvodi</h3>
-            
-                     <div class="card-tools">
-                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                         <i class="fas fa-minus"></i>
-                       </button>
-                       <button type="button" class="btn btn-tool" data-card-widget="remove">
-                         <i class="fas fa-times"></i>
-                       </button>
-                     </div>
-                   </div>
-                   <!-- /.card-header -->
-                   <div class="card-body p-0">
-                       <ul class="products-list product-list-in-card pl-2 pr-2">
-                               @foreach (var latestNewsletter in Model.LatestNewsletter)
-                               {
-                                   <li class="item">
-                                       <div class="product-info">
-                                           <a href="#" class="product-title">
-                                               @latestNewsletter.NewsletterEmail
-                                               @if (latestNewsletter.IsVerified)
-                                               {
-                                                   <span class="badge badge-success float-right">Verifikovan</span>
-                                               }
-                                               else
-                                               {
-                                                   <span class="badge badge-danger float-right">Nije verifikovan</span>
-                                               }
-                                           </a>
-                                           <span class="product-description">
-                                              Pretplaćen: @latestNewsletter.SubscribedAt.ToShortDateString()
-                                           </span>
-                                       </div>
-                                   </li>
-                               }
-                           <!-- /.item -->
-                       </ul>
-                   </div>
-                   <!-- /.card-body -->
-                 </div>
-                 <!-- /.card -->
+            <div class="product-img">
+                <img src="@latestProduct.ProductImages[0].ImageURL" alt="Product Image" class="img-size-50">
+            </div>
         }
+        <div class="product-info">
+            <a href="@Url.Action("Details","Product", new { Id = latestProduct.Id })" class="product-title">
+                @latestProduct.Name
+                <span class="badge badge-success float-right">@latestProduct.Price RSD</span>
+                @if (latestProduct.PriceUnderline != 0)
+                {
+                    var procent = (double.Parse(latestProduct.PriceUnderline.ToString()) / 100);
+                    var salePrice = (latestProduct.Price * procent);
+                    var saleAmount = (latestProduct.Price - salePrice);
+    <br />
+                            <span class="badge badge-danger float-right p-1">-@latestProduct.PriceUnderline <sup>%</sup></span>
+                                                    <br />
+                                                                            <span class="badge badge-warning float-right p-1">@saleAmount RSD</span>}
+
+            </a>
+            <span class="product-description">
+                ID Proizvoda: @latestProduct.Id
+            </span>
+        </div>
+    </li>}
+                <!-- /.item -->
+            </ul>
+        </div>
+        @if (Model.LatestProducts.Count > 5)
+        {
+            <!-- /.card-body -->
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Index", "Product")" class="uppercase">Vidi sve proizvode</a>
+            </div>
+            <!-- /.card-footer -->
+        }
+    </div>
+    <!-- /.card -->}
+
+        @if (Model.LatestNewsletter.Count > 0 && Model.LatestNewsletter != null)
+        {
+    <!-- NEWSLETTER LIST -->
+    <div class="card col-md-6">
+        <div class="card-header">
+            <h3 class="card-title">Nedavno dodati proizvodi</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <ul class="products-list product-list-in-card pl-2 pr-2">
+                @foreach (var latestNewsletter in Model.LatestNewsletter)
+                {
+    <li class="item">
+        <div class="product-info">
+            <a href="#" class="product-title">
+                @latestNewsletter.NewsletterEmail
+                @if (latestNewsletter.IsVerified)
+                {
+    <span class="badge badge-success float-right">Verifikovan</span> }
+                        else
+                        {
+    <span class="badge badge-danger float-right">Nije verifikovan</span>}
+            </a>
+            <span class="product-description">
+                Pretplaćen: @latestNewsletter.SubscribedAt.ToShortDateString()
+            </span>
+        </div>
+    </li>}
+                <!-- /.item -->
+            </ul>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+}
 
     </div>
     <!-- /.col -->

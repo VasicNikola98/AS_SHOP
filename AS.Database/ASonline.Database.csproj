@@ -193,6 +193,10 @@
     <Compile Include="Migrations\202103301214467_AddCartItemListInProduct.Designer.cs">
       <DependentUpon>202103301214467_AddCartItemListInProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103311234205_AddDoubleTypeOfTotalAmount.cs" />
+    <Compile Include="Migrations\202103311234205_AddDoubleTypeOfTotalAmount.Designer.cs">
+      <DependentUpon>202103311234205_AddDoubleTypeOfTotalAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103301214467_AddCartItemListInProduct.resx">
       <DependentUpon>202103301214467_AddCartItemListInProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311234205_AddDoubleTypeOfTotalAmount.resx">
+      <DependentUpon>202103311234205_AddDoubleTypeOfTotalAmount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
