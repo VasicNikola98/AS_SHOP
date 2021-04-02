@@ -34,6 +34,7 @@ namespace ASonline.Controllers
             return View(model);
         }
         public ActionResult FilterProducts(string searchTerm, int? categoryId, int? sortBy, int? pageNo)
+        
         {
             FilterProductaViewModel model = new FilterProductaViewModel();
 
@@ -122,6 +123,7 @@ namespace ASonline.Controllers
                
                 newOrder.OrderedAt = DateTime.Now;
                 newOrder.Status = "Nerešena";
+                newOrder.IsArhivated = false;
 
                 foreach(var item in boughtProducts)
                 {

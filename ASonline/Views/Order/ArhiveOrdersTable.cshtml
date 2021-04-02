@@ -1,0 +1,127 @@
+﻿@model ASonline.ViewModels.OrdersViewModel
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+     
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Arhivirane porudžbine</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="searchTxt" id="searchTxt" class="form-control float-right" value="@Model.SearchTerm" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <a style="cursor: pointer;" id="searchBtn" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>UserId</th>
+                                    <th>Ukupna cena</th>
+                                    <th>Poručeno</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Orders.Count > 0 && Model.Orders != null)
+                                {
+                                    foreach (var order in Model.Orders.OrderByDescending(x => x.OrderedAt.ToString()))
+                                    {
+                                        var alertStatus = "";
+                                        if (order.Status == "Nerešena")
+                                        {
+                                            alertStatus = "badge badge-danger";
+                                        }
+                                        else if (order.Status == "U procesu")
+                                        {
+                                            alertStatus = "badge badge-warning";
+                                        }
+                                        else
+                                        {
+                                            alertStatus = "badge badge-success";
+                                        }
+
+                                        <tr>
+                                            <td>#@order.OrderDetail.Id</td>
+                                            <td>@order.TotalAmount</td>
+                                            <td>@order.OrderedAt.ToShortDateString()</td>
+                                            <td><span class="@alertStatus">@order.Status</span></td>
+                                            <td>
+                                                <a class="detailBtn btn btn-primary" style="color: white; cursor: pointer;" data-id="@order.Id" href="@Url.Action("Details", "Order", new { id = order.Id })">Detalji</a>
+                                            </td>
+                                            <td>
+                                                <a class="recoverOrderBtn" data-id="@order.Id"><i class="fas fa-recycle"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-center">Nije pronađena nijedna porudžbina</td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer clearfix">
+                        <div id="paginationBtn">
+                            @if (Model.Pager != null && Model.Pager.TotalPages > 1)
+                            {
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    @if (Model.Pager.CurrentPage > 1)
+                                    {
+                                        <li class="page-item"><a class="page-link pageButtons" data-pageno="1">Prva</a></li>
+                                        <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage - 1)">Prethodna</a></li>
+                                    }
+                                    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                                    {
+                                        string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
+
+                                        <li class="page-item @activeClass"><a class="page-link pageButtons" data-pageno="@page">@page</a></li>
+                                    }
+                                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                    {
+                                        <li class="page-item"><a class="page-link pageButtons" data-pageno="@(Model.Pager.CurrentPage + 1)">Sledeća</a></li>
+                                        <li class="page-item"><a class="page-link pageButtons" data-pageno="@Model.Pager.EndPage">Poslednja</a></li>
+                                    }
+
+                                </ul>
+                            }
+                        </div>
+
+                        <input type="hidden" value="@Model.SearchTerm" id="searchTerm" />
+                        <input type="hidden" value="@Model.Status" id="status" />
+                    </div>
+
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<script src="~/Content/javascript/Order/OrderIndex.js"></script>
+
+
+

@@ -10,13 +10,13 @@ namespace ASonline.ViewModels
 
     public class OrdersViewModel
     {
+        public string Status { get; set; }
         public List<Order> Orders { get; set; }
         public Pager Pager { get; set; }
-        public string Status { get; set; }
-        public string SearchTerm { get; set; }
         public int InProgressCount { get; set; }
         public int DeliveredCount { get; set; }
         public int UnresolvedCount { get; set; }
+        public string SearchTerm { get; set; }
 
     }
 

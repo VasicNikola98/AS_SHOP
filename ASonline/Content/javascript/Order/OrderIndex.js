@@ -29,7 +29,6 @@
             });
     });
 
-
     $(".pageButtons").click(function () {
 
         $.ajax({
@@ -66,5 +65,73 @@
                 alert("Fail")
             });
 
+    });
+
+    $(".arhiveBtn").click(function () {
+
+        $.ajax({
+            type: 'POST',
+            url: URL + 'Order/ArhiveOrder/',
+            data: {
+                Id: $(this).attr("data-id")
+            }
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    swal("Gotovo", "Porudžbina je uspešno arhivirana!", "success").then((value) => {
+                        window.location = URL + "Order/Index/";
+                    });
+                }
+                else {
+                    toastr.options = {
+                        "debug": false,
+                        "positionClass": "toast-bottom-right",
+                        "onclick": null,
+                        "fadeIn": 300,
+                        "fadeOut": 1000,
+                        "timeOut": 5000,
+                        "extendedTimeOut": 1000
+                    }
+
+                    toastr["warning"]("Porudžbinu je moguće arhivirati samo kada je njen status postavljen na 'Isporučena' ");
+                }
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail")
+            });
+    });
+
+    $(".recoverOrderBtn").click(function () {
+
+        $.ajax({
+            type: 'POST',
+            url: URL + 'Order/RecoverOrder/',
+            data: {
+                Id: $(this).attr("data-id")
+            }
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    swal("Gotovo", "Narudžbina je uspešno vraćena u tabeli sa aktivnim porudžbinama!", "success").then((value) => {
+                        window.location = URL + "Order/ArhiveIndex/";
+                    });
+                }
+                else {
+                    toastr.options = {
+                        "debug": false,
+                        "positionClass": "toast-bottom-right",
+                        "onclick": null,
+                        "fadeIn": 300,
+                        "fadeOut": 1000,
+                        "timeOut": 5000,
+                        "extendedTimeOut": 1000
+                    }
+
+                    toastr["error"]("Došlo je do greške pri izvršavanju ove funcije!");
+                }
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail")
+            });
     });
 });

@@ -3073,9 +3073,11 @@
     <Content Include="Views\Home\OrderInfo.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Order\OrderTable.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Admin\NewSletter.cshtml" />
+    <Content Include="Views\Order\OrderTable.cshtml" />
+    <Content Include="Views\Order\ArhiveIndex.cshtml" />
+    <Content Include="Views\Order\ArhiveOrdersTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

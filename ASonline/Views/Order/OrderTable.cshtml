@@ -97,7 +97,8 @@
                                     <th>Ukupna cena</th>
                                     <th>Poručeno</th>
                                     <th>Status</th>
-                                    <th>Akcija</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,6 +127,9 @@
                                              <td><span class="@alertStatus">@order.Status</span></td>
                                              <td>
                                                  <a class="detailBtn btn btn-primary" style="color: white; cursor: pointer;" data-id="@order.Id" href="@Url.Action("Details", "Order", new { id = order.Id })">Detalji</a>
+                                             </td>
+                                             <td>
+                                                 <a class="arhiveBtn btn btn-secondary" data-id="@order.Id">Arhiviraj</a>
                                              </td>
                                          </tr>
                                     }

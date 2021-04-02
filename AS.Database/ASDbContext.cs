@@ -28,8 +28,7 @@ namespace AS.Database
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Review> Reviews { get; set; }
-
         public DbSet<ProductImages> ProductImages { get; set; }
-
+    
     }
 }

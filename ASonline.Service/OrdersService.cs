@@ -41,33 +41,16 @@ namespace ASonline.Service
                     .FirstOrDefault();
             }
         }
-        public int GetOrderInProgressCount()
+        public int GetOrderCount(string status,bool IsArhive)
         {
             using (var ctx = new ASDbContext())
             {
                 return ctx.Orders
-                    .Where(x => x.Status.Contains("U procesu"))
+                    .Where(x => x.Status.Contains(status) && x.IsArhivated == IsArhive)
                     .Count();
             }
         }
-        public int GetOrderDeliveredCount()
-        {
-            using (var ctx = new ASDbContext())
-            {
-                return ctx.Orders
-                    .Where(x => x.Status.Contains("Isporučena"))
-                    .Count();
-            }
-        }
-        public int GetOrderUnresolvedCount()
-        {
-            using (var ctx = new ASDbContext())
-            {
-                return ctx.Orders
-                    .Where(x => x.Status.Contains("Nerešena"))
-                    .Count();
-            }
-        }
+      
         #endregion
 
         #region Search
@@ -97,11 +80,12 @@ namespace ASonline.Service
                 return orders.Count;
             }
         }
-        public List<Order> SearchOrders(string searchTerm, string status, int pageNo, int pageSize)
+        public List<Order> SearchOrders(string searchTerm, string status, int pageNo, int pageSize, bool IsArhive)
         {
             using (var ctx = new ASDbContext())
             {
                 var orders = ctx.Orders
+                    .Where(x => x.IsArhivated == IsArhive)
                     .Include(x => x.OrderDetail)
                     .OrderByDescending(x => x.OrderedAt)
                     .ToList();
@@ -141,5 +125,44 @@ namespace ASonline.Service
         }
         #endregion
 
+        public bool ArhiveOrder(int id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var order = ctx.Orders.Where(x => x.Id == id).FirstOrDefault();
+                
+                if(order.Status == "Isporučena" && order != null)
+                {
+                    order.IsArhivated = true;
+                    ctx.Entry(order).State = EntityState.Modified;
+                    return ctx.SaveChanges() > 0;
+                }
+                else
+                {
+                    return false;
+                }
+              
+            }
+        }
+
+        public bool RecoverOrder(int id)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var order = ctx.Orders.Where(x => x.Id == id).FirstOrDefault();
+
+                if (order != null)
+                {
+                    order.IsArhivated = false;
+                    ctx.Entry(order).State = EntityState.Modified;
+                    return ctx.SaveChanges() > 0;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
     }
 }

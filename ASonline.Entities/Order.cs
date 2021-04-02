@@ -10,6 +10,7 @@ namespace ASonline.Entities
         public DateTime OrderedAt { get; set; }
         public string Status { get; set; }
         public double TotalAmount { get; set; }
+        public bool IsArhivated { get; set; }
         public virtual List<OrderItem> OrderItems { get; set; }
         public virtual OrderDetails OrderDetail { get; set; }
 

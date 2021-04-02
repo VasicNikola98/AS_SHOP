@@ -197,6 +197,18 @@
     <Compile Include="Migrations\202103311234205_AddDoubleTypeOfTotalAmount.Designer.cs">
       <DependentUpon>202103311234205_AddDoubleTypeOfTotalAmount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103311601043_AddArhivedOrdersEntity.cs" />
+    <Compile Include="Migrations\202103311601043_AddArhivedOrdersEntity.Designer.cs">
+      <DependentUpon>202103311601043_AddArhivedOrdersEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104012022076_DeleteArhivProduct.cs" />
+    <Compile Include="Migrations\202104012022076_DeleteArhivProduct.Designer.cs">
+      <DependentUpon>202104012022076_DeleteArhivProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104012023409_AddArhivatePropertyInOrder.cs" />
+    <Compile Include="Migrations\202104012023409_AddArhivatePropertyInOrder.Designer.cs">
+      <DependentUpon>202104012023409_AddArhivatePropertyInOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -318,6 +330,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103311234205_AddDoubleTypeOfTotalAmount.resx">
       <DependentUpon>202103311234205_AddDoubleTypeOfTotalAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311601043_AddArhivedOrdersEntity.resx">
+      <DependentUpon>202103311601043_AddArhivedOrdersEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104012022076_DeleteArhivProduct.resx">
+      <DependentUpon>202104012022076_DeleteArhivProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104012023409_AddArhivatePropertyInOrder.resx">
+      <DependentUpon>202104012023409_AddArhivatePropertyInOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

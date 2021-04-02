@@ -65,7 +65,12 @@ namespace ASonline.Service
         {
             using (var ctx = new ASDbContext())
             {
-                return ctx.Orders.OrderByDescending(x => x.OrderedAt).Take(n).ToList();
+                 return ctx.Orders
+                    .Where(x => x.IsArhivated == false)
+                    .OrderByDescending(x => x.OrderedAt)
+                    .Take(n)
+                    .ToList();
+               
             }
         }
 

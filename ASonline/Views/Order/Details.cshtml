@@ -128,17 +128,24 @@
                     <input type="text" class="form-control" id="PostCode" name="PostCode" value="@Model.Order.OrderDetail.PostCode" readonly />
                 </div>
 
-                <div class="col-12">
-                    <label for="address">Trenutni status</label>
-                    <select name="Stauts" id="changeStatus" class="form-control">
-                        @foreach (var availableStatus in Model.AvailableStatues)
-                        {
-                            var isSelectedStatus = availableStatus == Model.Order.Status;
+                @if(Model.Order.IsArhivated)
+                {
 
-                            <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>
-                       }
-                    </select>
-                </div>
+                }
+                else
+                {
+                    <div class="col-12">
+                        <label for="address">Trenutni status</label>
+                            <select name="Stauts" id="changeStatus" class="form-control">
+                                @foreach (var availableStatus in Model.AvailableStatues)
+                                {
+                                    var isSelectedStatus = availableStatus == Model.Order.Status;
+                           
+                                    <option @(isSelectedStatus ? "selected" : string.Empty)>@availableStatus</option>
+                               }
+                            </select>
+                    </div>
+                }
             </div>
         </div>
     </div>

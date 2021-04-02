@@ -184,3 +184,14 @@
     .error label {
         font-weight: 500;
     }
+
+.recoverOrderBtn i{
+    font-size: 32px;
+    cursor: pointer;
+    color: #1b8c0a;
+}
+
+.recoverOrderBtn :hover{
+    transition: ease-in 0.1s;
+    color: #58db44;
+}

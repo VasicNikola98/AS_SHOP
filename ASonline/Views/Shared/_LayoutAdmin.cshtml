@@ -112,12 +112,27 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="@Url.Action("Index","Order")" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class='nav-icon bx bx-box'></i>
                                 <p>
                                     Porudžbine
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Order")" class="nav-link">
+                                        <i class="nav-icon fas fa-box-open"></i>
+                                        <p>Sve porudžbine</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("ArhiveIndex","Order")" class="nav-link">
+                                        <i class="nav-icon fas fa-boxes"></i>
+                                        <p>Arhivirane porudžbine</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="nav-item">
@@ -176,6 +191,7 @@
                     </div>
                 </div>
             </section>
+
             @RenderBody()
 
         </div>
