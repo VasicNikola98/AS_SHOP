@@ -26,9 +26,9 @@
                 </h5>
                 <ul>
                     <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Default, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Default ? "active" : string.Empty : string.Empty)">Standardno</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Popularity, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Popularity ? "active" : string.Empty : string.Empty)">Popularnosti</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceLowToHigh, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceLowToHigh ? "active" : string.Empty : string.Empty)">Cena: od manjoj ka većoj</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceHighToLow, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceHighToLow ? "active" : string.Empty : string.Empty)">Cena: od većoj ka manjoj</a></li>
+                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Popularity, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Popularity ? "active" : string.Empty : string.Empty)">Najnovije</a></li>
+                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceLowToHigh, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceLowToHigh ? "active" : string.Empty : string.Empty)">Cena: Od manje ka većoj</a></li>
+                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceHighToLow, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceHighToLow ? "active" : string.Empty : string.Empty)">Cena: Od veće ka manjoj</a></li>
                 </ul>
             </div><!-- /.widget-sort-by -->
             <div class="widget widget_tag ">

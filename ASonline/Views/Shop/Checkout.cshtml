@@ -64,6 +64,12 @@
                                        <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: auto; height: auto; margin-bottom: 13px;" />
                                    </div>
                                 }
+                                else
+                                {
+                                     <div class="col-md-5">
+                                        <img src="~/Content/images/shop/noImage.png" style="width: auto; height: auto; margin-bottom: 13px;" />
+                                    </div>
+                                }
                                 <div class="col-md-7">
                                     <h6 class="my-0 font-weight-bold">@cartItem.Product.Name</h6>
 
@@ -90,6 +96,12 @@
                                 {
                                     <div class="col-md-5">
                                         <img src="@cartItem.Product.ProductImages[0].ImageURL" style="width: auto; height: auto; margin-bottom: 13px;" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-5">
+                                        <img src="~/Content/images/shop/noImage.png" style="width: auto; height: auto; margin-bottom: 13px;" />
                                     </div>
                                 }
                                 <div class="col-md-7">

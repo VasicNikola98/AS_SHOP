@@ -32,6 +32,30 @@ namespace ASonline.Controllers
             return View();
         }
 
+        public ActionResult NewsletterTable(string search, int? pageNo)
+        {
+            NewsletterFilterViewModel model = new NewsletterFilterViewModel();
+            model.SearchTerm = search;
+
+            pageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
+
+            var totalRecords = AdminService.Instance.GetNewsletterCount(search);
+            model.SearchTerm = search;
+
+            model.Newsletters = AdminService.Instance.GetNewsletters(search, pageNo.Value, 5);
+
+            if (model.Newsletters != null)
+            {
+                model.Pager = new Pager(totalRecords, pageNo, 5);
+
+                return PartialView("NewsletterTable", model);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
+
         public ActionResult NewSletter()
         {
             var model = new NewslatterViewModel();

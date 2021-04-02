@@ -136,19 +136,34 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="@Url.Action("Reviews","Product")" class="nav-link">
-                                <i class="nav-icon far fa-comments"></i>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
-                                    Komentari
+                                    Newsletters
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("NewsletterIndex","Admin")" class="nav-link">
+                                        <i class="nav-icon fas fa-users"></i>
+                                        <p>Svi pretplatnici</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("NewSletter","Admin")" class="nav-link">
+                                        <i class="nav-icon fas fa-user-secret"></i>
+                                        <p>Novi zahtevi</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="nav-item">
                             <a href="@Url.Action("Reviews","Product")" class="nav-link">
-                                <i class="nav-icon fas fa-mail-bulk"></i>
+                                <i class="nav-icon far fa-comments"></i>
                                 <p>
-                                   Newsletters
+                                    Komentari
                                 </p>
                             </a>
                         </li>
@@ -164,17 +179,19 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                    <li class="nav-header">MOJ NALOG</li> using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
-                                    {
-                                        <li class="nav-item">
-                                            <a href="javascript:submitFormFooter()" title="Logout" class="nav-link">
-                                                <i style="margin-left: 6px; font-size: 19px;" class="nav-icon fas fa-sign-out-alt"></i>
-                                                <p style="margin-left: 4px;">
-                                                    Odjavi se
-                                                </p>
-                                            </a>
-                                        </li>}
-                                                    }
+                    <li class="nav-header">MOJ NALOG</li>
+ using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+                    {
+                    <li class="nav-item">
+                        <a href="javascript:submitFormFooter()" title="Logout" class="nav-link">
+                            <i style="margin-left: 6px; font-size: 19px;" class="nav-icon fas fa-sign-out-alt"></i>
+                            <p style="margin-left: 4px;">
+                                Odjavi se
+                            </p>
+                        </a>
+                    </li>
+}
+            }
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

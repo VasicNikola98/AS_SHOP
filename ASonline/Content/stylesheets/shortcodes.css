@@ -1373,7 +1373,7 @@
 }
 
 .slidebar-shop .widget ul li a:hover, .slidebar-shop .widget ul li a.active {
-	color: #333333;
+	color: red;
 }
 
 /* Widget color */

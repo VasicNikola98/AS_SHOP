@@ -65,12 +65,12 @@ namespace ASonline.Service
         {
             using (var ctx = new ASDbContext())
             {
-                 return ctx.Orders
-                    .Where(x => x.IsArhivated == false)
-                    .OrderByDescending(x => x.OrderedAt)
-                    .Take(n)
-                    .ToList();
-               
+                return ctx.Orders
+                   .Where(x => x.IsArhivated == false)
+                   .OrderByDescending(x => x.OrderedAt)
+                   .Take(n)
+                   .ToList();
+
             }
         }
 
@@ -82,6 +82,45 @@ namespace ASonline.Service
                     .Include(x => x.ProductImages)
                     .OrderByDescending(x => x.CreatedAt)
                     .Take(n).ToList();
+            }
+        }
+
+        public int GetNewsletterCount(string search)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                if (string.IsNullOrEmpty(search))
+                {
+                    return ctx.Newsletters.Count();
+                }
+                else
+                {
+                    return ctx.Newsletters
+                  .Where(x => x.NewsletterEmail.ToLower().Contains(search.ToLower()))
+                  .Count();
+                }
+
+            }
+        }
+
+        public List<Newsletter> GetNewsletters(string search, int pageNo, int pageSize)
+        {
+            using (var ctx = new ASDbContext())
+            {
+                var newsletter = ctx.Newsletters.ToList();
+
+               
+
+                if (!string.IsNullOrEmpty(search))
+                {
+                    newsletter = newsletter.Where(x => x.NewsletterEmail.ToLower()
+                    .Contains(search.ToLower()))
+                        .ToList();
+                }
+
+             
+
+                return newsletter.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
             }
         }
         #endregion

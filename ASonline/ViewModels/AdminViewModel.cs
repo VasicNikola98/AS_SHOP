@@ -21,4 +21,11 @@ namespace ASonline.ViewModels
     {
         public List<Newsletter> Newsletters { get; set; }
     }
+
+    public class NewsletterFilterViewModel
+    {
+        public List<Newsletter> Newsletters { get; set; }
+        public string SearchTerm { get; set; }
+        public Pager Pager { get; set; }
+    }
 }

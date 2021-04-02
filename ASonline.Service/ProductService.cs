@@ -229,12 +229,13 @@ namespace ASonline.Service
                     switch (sortBy.Value)
                     {
                         case 2:
+                            products = products.OrderByDescending(x => x.CreatedAt).ToList();
                             break;
                         case 3:
-                            products = products.OrderBy(x => x.Price).ToList();
+                            products = products.OrderBy(x => x.PriceUnderline > 0 ? x.PriceUnderline : x.Price).ToList();
                             break;
                         case 4:
-                            products = products.OrderByDescending(x => x.Price).ToList();
+                            products = products.OrderByDescending(x => x.PriceUnderline > 0 ? x.PriceUnderline : x.Price).ToList();
                             break;
                         default:
                             products = products.OrderByDescending(x => x.Id).ToList();

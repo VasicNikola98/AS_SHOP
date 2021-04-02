@@ -2664,6 +2664,7 @@
     <Content Include="Content\images\slider\slider-bg-7.jpg" />
     <Content Include="Content\images\slider\slider-bg-8.jpg" />
     <Content Include="Content\images\wordpress-version.png" />
+    <Content Include="Content\javascript\Admin\NewsletterTable.js" />
     <Content Include="Content\javascript\bootstrap.min.js" />
     <Content Include="Content\javascript\Category\CategoryCreate.js" />
     <Content Include="Content\javascript\Category\CategoryEdit.js" />
@@ -3078,6 +3079,8 @@
     <Content Include="Views\Order\OrderTable.cshtml" />
     <Content Include="Views\Order\ArhiveIndex.cshtml" />
     <Content Include="Views\Order\ArhiveOrdersTable.cshtml" />
+    <Content Include="Views\Admin\NewsletterIndex.cshtml" />
+    <Content Include="Views\Admin\NewsletterTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

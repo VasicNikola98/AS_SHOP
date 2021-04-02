@@ -1103,7 +1103,7 @@ h6 {
     }
 
 .menu-extra .header-search-form .header-search-field {
-    margin: 0;
+    margin-left: 75px;
     padding-top: 13px;
     padding-bottom: 8px;
     padding-left: 28px;
