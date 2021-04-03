@@ -4,139 +4,184 @@
 
 @{ var defaultImageUrl = "/Content/images/System/noPic.png"; }
 
-<div class="container">
-    <div >
-        <div class="filter-shop  clearfix">
-            <p class="showing-product">
-                Prikazano @((((Model.Pager.CurrentPage - 1) * Model.Pager.PageSize)) + 1 ) – @(((Model.Pager.CurrentPage - 1) * Model.Pager.PageSize) + (Model.Products.Count < Model.Pager.PageSize ? Model.Products.Count : Model.Pager.PageSize)) od @Model.Pager.TotalItems rezultata
-            </p>
-            <ul class="flat-filter-search">
-                <li>
-                    <a class="show-filter"><i class='bx bx-filter'></i>Filteri</a>
-                </li>
-                <li class="search-product"><a >Pretraži</a></li>
-            </ul>
-        </div><!-- /.filte-shop -->
-        <div class="box-filter slidebar-shop">
-            <div class="btn-close"><a><i class="fa fa-times"></i></a></div>
-            <div class="">
-            <div class="widget widget-sort-by clearfix">
-                <h5 class="widget-title">
-                    Sortiraj po
-                </h5>
-                <ul>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Default, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Default ? "active" : string.Empty : string.Empty)">Standardno</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Popularity, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Popularity ? "active" : string.Empty : string.Empty)">Najnovije</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceLowToHigh, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceLowToHigh ? "active" : string.Empty : string.Empty)">Cena: Od manje ka većoj</a></li>
-                    <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceHighToLow, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceHighToLow ? "active" : string.Empty : string.Empty)">Cena: Od veće ka manjoj</a></li>
-                </ul>
-            </div><!-- /.widget-sort-by -->
-            <div class="widget widget_tag ">
-                <h5 class="widget-title">
-                   Istaknute kategorije
-                </h5>
-                <div class="tag-list">
-                    @foreach (var featuredCategory in Model.FeaturedCategories)
-                    {
-                       <a href="@Url.Action("Index","Shop", new { categoryId = featuredCategory.Id, sortBy = Model.SortBy, searchTerm = Model.SearchTerm })" class="@(Model.CategoryId.HasValue && Model.CategoryId.Value == featuredCategory.Id ? "active" : string.Empty)">@featuredCategory.Name</a>
-                    }
-                </div>
-            </div><!-- /.widget -->
-            <div class="widget widget_tag ">
-                <h5 class="widget-title">
-                   <a class="active" href="@Url.Action("Index","Shop")">Ukloni Filtere</a>
-                </h5>
-            </div><!-- /.widget -->
-            </div>
-            </div><!-- /.box-filter -->
-        <div class="shop-search clearfix">
-            <form role="search" method="get" class="search-form" action="@Url.Action("Index","Shop")">
-                <label>
-                    <input type="search" class="search-field" placeholder="Pretraži …" value="@Model.SearchTerm" name="searchTerm">
-                </label>
-            </form>
-        </div><!-- /.top-serach -->
+@if (Model.Products.Count > 0)
+{
+     <div class="container">
+         <div >
+             <div class="filter-shop  clearfix">
+                 <p class="showing-product">
+                     Prikazano @((((Model.Pager.CurrentPage - 1) * Model.Pager.PageSize)) + 1 ) – @(((Model.Pager.CurrentPage - 1) * Model.Pager.PageSize) + (Model.Products.Count < Model.Pager.PageSize ? Model.Products.Count : Model.Pager.PageSize)) od @Model.Pager.TotalItems rezultata
+                 </p>
+                 <ul class="flat-filter-search">
+                     <li>
+                         <a class="show-filter"><i class='bx bx-filter'></i>Filteri</a>
+                     </li>
+                     <li class="search-product"><a >Pretraži</a></li>
+                 </ul>
+             </div><!-- /.filte-shop -->
+             <div class="box-filter slidebar-shop">
+                 <div class="btn-close"><a><i class="fa fa-times"></i></a></div>
+                 <div class="">
+                 <div class="widget widget-sort-by clearfix">
+                     <h5 class="widget-title">
+                         Sortiraj po
+                     </h5>
+                     <ul>
+                         <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Default, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Default ? "active" : string.Empty : string.Empty)">Standardno</a></li>
+                         <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.Popularity, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.Popularity ? "active" : string.Empty : string.Empty)">Najnovije</a></li>
+                         <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceLowToHigh, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceLowToHigh ? "active" : string.Empty : string.Empty)">Cena: Od manje ka većoj</a></li>
+                         <li><a href="@Url.Action("Index", "Shop", new { sortBy = (int)SortByEnums.PriceHighToLow, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="dataLink @(Model.SortBy.HasValue ? Model.SortBy.Value == (int)SortByEnums.PriceHighToLow ? "active" : string.Empty : string.Empty)">Cena: Od veće ka manjoj</a></li>
+                     </ul>
+                 </div><!-- /.widget-sort-by -->
+                 <div class="widget widget_tag ">
+                     <h5 class="widget-title">
+                        Istaknute kategorije
+                     </h5>
+                     <div class="tag-list">
+                         @foreach (var featuredCategory in Model.FeaturedCategories)
+                         {
+                            <a href="@Url.Action("Index", "Shop", new { categoryId = featuredCategory.Id, sortBy = Model.SortBy, searchTerm = Model.SearchTerm })" class="@(Model.CategoryId.HasValue && Model.CategoryId.Value == featuredCategory.Id ? "active" : string.Empty)">@featuredCategory.Name</a>
+                         }
+                     </div>
+                 </div><!-- /.widget -->
+                 <div class="widget widget_tag ">
+                     <h5 class="widget-title">
+                        <a class="active" href="@Url.Action("Index", "Shop")">Ukloni Filtere</a>
+                     </h5>
+                 </div><!-- /.widget -->
+                 </div>
+                 </div><!-- /.box-filter -->
+             <div class="shop-search clearfix">
+                 <form role="search" method="get" class="search-form" action="@Url.Action("Index", "Shop")">
+                     <label>
+                         <input type="search" class="search-field" placeholder="Pretraži …" value="@Model.SearchTerm" name="searchTerm">
+                     </label>
+                 </form>
+             </div><!-- /.top-serach -->
+     
+     
+             <div class="product-content product-threecolumn clearfix">
+                 <ul class="product">
+     
+                     @foreach (var product in Model.Products)
+                     {
+                         var imageUrl = defaultImageUrl;
+                         for (var i = 0; i < product.ProductImages.Count; i++)
+                         {
+                             imageUrl = string.IsNullOrEmpty(product.ProductImages[0].ImageURL) ? defaultImageUrl : product.ProductImages[0].ImageURL;
+                         }
+                          <li class="product-item">
+                              <div class="product-thumb clearfix">
+                                  <a href="@Url.Action("Details", "Product", new { Id = product.Id })">
+                                      <img src="@imageUrl" alt="image" style="height: 259px;">
+                                  </a>
+                                  @if (product.PriceUnderline != 0)
+                                  {
+                                      <span class="new sale">- @product.PriceUnderline %</span>
+                                  }
+                              </div>
+                              <div class="product-info clearfix">
+                                  <span class="product-title">@product.Name</span>
+                                  <div class="price">
+                                      @if (product.PriceUnderline != 0)
+                                      {
+                                          var procent = (double.Parse(product.PriceUnderline.ToString()) / 100);
+                                          var salePrice = (product.Price * procent);
+                                          var saleAmount = (product.Price - salePrice);
+                                          <del><b><span class="regular">@product.Price RSD</span></b></del>
+                                          <ins>
+                                              <span class="amount">@saleAmount RSD</span>
+                                          </ins>
+                                      }
+                                      else
+                                      {
+                                        <ins>
+                                            <span class="amount">@product.Price RSD</span>
+                                        </ins>
+                                      }
+                                  </div>
+                              </div>
+                              <div class="add-to-cart text-center" data-id="@product.Id">
+                                  <a href="@Url.Action("Details", "Product", new { Id = product.Id })">IZABERITE OPCIJE</a>
+                              </div>
+                             @*<a href="#" class="like"><i class="fa fa-heart-o"></i></a>*@
+                          </li>
+                     }
+                 </ul><!-- /.product -->
+             </div><!-- /.product-content -->
+     
+             @if (Model.Pager != null && Model.Pager.TotalPages > 1)
+             {
+                  <div class="product-pagination text-center clearfix">
+                      <ul class="flat-pagination">
+                          @if (Model.Pager.CurrentPage > 1)
+                          {
+                             <li class="prev">
+                                 <a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage - 1, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="pageDataLink"><i class="fa fa-angle-left"></i></a>
+                             </li>
+                          }
+                     
+                          @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                          {
+                              string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
 
+                               <li class="@activeClass"><a href="@Url.Action("Index", "Shop", new { pageNo = page, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" title="" class="pageDataLink">@page</a></li>
+                          }
+                          @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                          {
 
-        <div class="product-content product-threecolumn clearfix">
-            <ul class="product">
+                               <li><a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage + 1, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="pageDataLink"><i class="fa fa-angle-right"></i></a></li>
+                          }
+                      </ul><!-- /.flat-pagination -->
+                   </div>
+             }
+     
+             <input type="hidden" id="SearchTerm" value="@Model.SearchTerm" />
+             <input type="hidden" id="SortBy" value="@Model.SortBy" />
+             <input type="hidden" id="CategoryId" value="@Model.CategoryId" />
+             
+         </div><!-- /.col-md-12 -->
+     </div><!-- /.row -->
+}
+else
+{
+    <div class="container">
+          <div class="filter-shop  clearfix">
+                 <p class="showing-product">
+                     Prikazano 0 od 0 rezultata
+                 </p>
+                 <ul class="flat-filter-search">
+                    
+                     <li class="search-product"><a >Pretraži</a></li>
+                 </ul>
+             </div><!-- /.filte-shop -->
+             <div class="shop-search clearfix">
+                 <form role="search" method="get" class="search-form" action="@Url.Action("Index", "Shop")">
+                     <label>
+                         <input type="search" class="search-field" placeholder="Pretraži …" value="@Model.SearchTerm" name="searchTerm">
+                     </label>
+                 </form>
+             </div><!-- /.top-serach -->
+     
+             <div>
+                 <!-- /.row -->
+                 <div class="row">
+                     <div class="col-12">
+                         <div class="container-fluid d-flex align-items-center mt-5 flex-wrap">
+                             <div class="col-md-6 mb-5">
+                                 <p class="text-center font-italic">
+                                     Nema proizvoda koji zadovoljavaju zadati kriterijum. <br />
+                                     Uverite se da ste sve <span class="font-weight-bold active">ključne reči</span> upisali ispravno.
+                                 </p>
+                             </div>
 
-                @foreach (var product in Model.Products)
-                {
-                    var imageUrl = defaultImageUrl;
-                    for (var i = 0; i< product.ProductImages.Count; i++)
-                    {
-                        imageUrl = string.IsNullOrEmpty(product.ProductImages[0].ImageURL) ? defaultImageUrl : product.ProductImages[0].ImageURL;
-                    }
-                     <li class="product-item">
-                         <div class="product-thumb clearfix">
-                             <a href="@Url.Action("Details", "Product", new { Id = product.Id })">
-                                 <img src="@imageUrl" alt="image" style="height: 259px;">
-                             </a>
-                             @if (product.PriceUnderline != 0)
-                             {
-                                 <span class="new sale">- @product.PriceUnderline %</span>
-                             }
-                         </div>
-                         <div class="product-info clearfix">
-                             <span class="product-title">@product.Name</span>
-                             <div class="price">
-                                 @if (product.PriceUnderline != 0)
-                                 {
-                                     var procent = (double.Parse(product.PriceUnderline.ToString()) / 100);
-                                     var salePrice = (product.Price * procent);
-                                     var saleAmount = (product.Price - salePrice);
-                                     <del><b><span class="regular">@product.Price RSD</span></b></del>
-                                     <ins>
-                                         <span class="amount">@saleAmount RSD</span>
-                                     </ins>
-                                 }
-                                 else
-                                 {
-                                   <ins>
-                                       <span class="amount">@product.Price RSD</span>
-                                   </ins>
-                                 }
+                             <div class="col-md-6">
+                                 <img style="width: 100%; height: 100%;" src="~/Content/images/shop/emptyShop.svg" />
                              </div>
                          </div>
-                         <div class="add-to-cart text-center" data-id="@product.Id">
-                             <a href="@Url.Action("Details", "Product", new { Id = product.Id })">IZABERITE OPCIJE</a>
-                         </div>
-                        @*<a href="#" class="like"><i class="fa fa-heart-o"></i></a>*@
-                     </li>
-                    }
-            </ul><!-- /.product -->
-        </div><!-- /.product-content -->
+                     </div>
+                 </div>
+             </div>
+    </div>
 
-        @if (Model.Pager != null && Model.Pager.TotalPages > 1)
-        {
-             <div class="product-pagination text-center clearfix">
-                 <ul class="flat-pagination">
-                     @if (Model.Pager.CurrentPage > 1)
-                     {
-                        <li class="prev">
-                            <a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage - 1, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="pageDataLink"><i class="fa fa-angle-left"></i></a>
-                        </li>
-                      }
-                
-                     @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-                     {
-                         string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
-                
-                          <li class="@activeClass"><a href="@Url.Action("Index", "Shop", new { pageNo = page, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" title="" class="pageDataLink">@page</a></li>
-                      }
-                     @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                     {
-                
-                          <li><a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage + 1, sortBy = Model.SortBy, categoryId = Model.CategoryId, searchTerm = Model.SearchTerm })" class="pageDataLink"><i class="fa fa-angle-right"></i></a></li>
-                      }
-                 </ul><!-- /.flat-pagination -->
-              </div>
-         }
-
-        <input type="hidden" id="SearchTerm" value="@Model.SearchTerm" />
-        <input type="hidden" id="SortBy" value="@Model.SortBy" />
-        <input type="hidden" id="CategoryId" value="@Model.CategoryId" />
-        
-    </div><!-- /.col-md-12 -->
-</div><!-- /.row -->
+}

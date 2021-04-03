@@ -191,11 +191,12 @@
 }
 
 .title-section .title {
-	font-size: 32px;
+	
 	line-height: 66px;
-	font-weight: 500;
+	font-weight: bold;
 	color: #333333;
 	position: relative;
+	text-transform: uppercase;
 }
 
 .title-section .title:before {
