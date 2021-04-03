@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
     <script src="~/Content/javascript/jquery.min.js"></script>
+
+   
     <!--[if lt IE 9]>
         <script src="javascript/html5shiv.js"></script>
         <script src="javascript/respond.min.js"></script>
@@ -126,8 +128,7 @@
                                 {
                     <li class="active">
                         <a href="@Url.Action("Index","Admin")">ADMIN  <i class='bx bx-cog'></i></a>
-                    </li>
-}
+                    </li>}
                             </ul>
                         </nav><!-- /.mainnav -->
                     </div><!-- /.nav-wrap -->
@@ -181,17 +182,14 @@
                         <li><a href="@Url.Action("Index","Shop")" class="footer__link">Proizvodi</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-            <li><a href="#" class="footer__link">Moj nalog</a></li>
- using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
-            {
-<li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li>
- }
-}
-else
-{
-<li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
-                <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>
-}
+            <li><a href="#" class="footer__link">Moj nalog</a></li> using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormFooter" }))
+                            {
+            <li><a href="javascript:submitFormFooter()" title="Logout" class="footer__link">Odjavi se</a></li> }
+                        }
+                        else
+                        {
+            <li><a href="@Url.Action("Login","Account")" class="footer__link">Prijavi se</a></li>
+                            <li><a href="@Url.Action("Register","Account")" class="footer__link">Registruj se</a></li>}
                     </ul>
                 </div>
                 <div class="footer__box">
@@ -293,6 +291,9 @@ else
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+
+  
 
     @Scripts.Render("~/bundles/modernizr")
 </body>

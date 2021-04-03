@@ -10,19 +10,31 @@
     
 }
 
-@if (Model != null && Model.Products != null)
+@if (Model != null && Model.Products != null && Model.Products.Count > 0)
 {
     if (!Model.IsLatestProducts)
     {
-    <ul class="flat-filter style-1 text-center max-width-682 clearfix">
-        <li class="active"><a href="#" data-filter="*">Svi proizvodi</a></li>
+         <div class="title-section margin-bottom-41">
+              <h2 class="title">Najbolja prodaja</h2>
+          </div>
 
-        @foreach (var category in Model.Products.Select(x => x.Category).ToList().Distinct())
-        {
-          <li><a href="#" data-filter=".@category.Name.ToLower()">For @category.Name</a></li>
-        }
-    </ul>
-        <div class="divider h54"></div>
+        <ul class="flat-filter style-1 text-center max-width-682 clearfix">
+            <li class="active"><a href="#" data-filter="*">Svi proizvodi</a></li>
+      
+            @foreach (var category in Model.Products.Select(x => x.Category).ToList().Distinct())
+            {
+              <li><a href="#" data-filter=".@category.Name.ToLower()">@category.Name</a></li>
+            }
+        </ul>
+      <div class="divider h54"></div>
+    }
+    else
+    {
+        <div class="title-section margin-bottom-52">
+             <h2 class="title">
+                 Najnoviji proizvodi
+             </h2>
+        </div>
     }
 
     <div class="product-content product-fourcolumn clearfix">

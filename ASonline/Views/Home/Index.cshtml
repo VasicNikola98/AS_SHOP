@@ -1,7 +1,5 @@
 ﻿@model ASonline.ViewModels.HomeViewModel
-@{
-    ViewData["Title"] = "Home Page";
-}
+@{ ViewData["Title"] = "Home Page"; }
 
 <!-- SLIDER -->
 <div class="rev_slider_wrapper fullwidthbanner-container">
@@ -30,7 +28,7 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                   Novi trend 2021
+                    <span style="color: black;">Novi trend 2021</span>
                 </div>
 
                 <div class="tp-caption tp-resizeme text-white font-weight-500"
@@ -50,7 +48,7 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                   Nova kolekcija
+                    <span style="color: black;"> Nova kolekcija</span>
                 </div>
 
                 <div class="tp-caption tp-resizeme text-white font-weight-400 "
@@ -70,7 +68,7 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                    OSTVARI I DO 30% POPUSTA NA SVE ARTIKLE
+                    <span style="color:black;">OSTVARI I DO <span style="color: red;">30%</span> POPUSTA</span>
                 </div>
 
                 <div class="tp-caption"
@@ -92,107 +90,50 @@
                 </div>
             </li>
             <!-- /End Slide 1 -->
-            
+
         </ul>
     </div>
 </div>
 <!-- END SLIDER -->
-<!-- IMAGE BOX -->
 
-@if (Model.FeaturedCategories != null && Model.FeaturedCategories.Count >= 4)
-{
-    var firstCategory = Model.FeaturedCategories[0];
-    var secondCategory = Model.FeaturedCategories[1];
-    var thirdCategory = Model.FeaturedCategories[2];
-    var fourthCategory = Model.FeaturedCategories[3];
-
-    <section class="flat-row row-image-box">
-        <div class="container" id="FeaturedCategory">
-            <div class="row gutter-10">
-                <div class="col-sm-6 col-md-4">
-                    <div class="flat-image-box style-1 data-effect div-h22 clearfix">
-                        <div class="item data-effect-item">
-                            <div class="inner">
-                                @if (firstCategory != null)
-                                {
-                                    <div class="thumb">
-                                        <img src="@firstCategory.ImageUrl" alt="Image">
-                                        <div class="elm-btn">
-                                            <a href="@Url.Action("Index", "Shop", new { categoryId = firstCategory.Id })" class="themesflat-button bg-white width-150">@firstCategory.Name</a>
+@if (Model.FeaturedCategories != null)
+{<!-- IMAGE BOX -->
+                    <section class="flat-row row-image-box">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wrap-carousel-box">
+                                        <div class="flat-image-box flat-carousel-box style-1 data-effect div-h22 clearfix" data-auto="true" data-column="4" data-column2="2" data-column3="1" data-gap="20">
+                                            <div class="owl-carousel owl-theme">
+                                                @foreach (var featuredCategory in Model.FeaturedCategories)
+                                                {
+                                                     <div class="item data-effect-item">
+                                                         <div class="inner">
+                                                             <div class="thumb">
+                                                                 <img src="@featuredCategory.ImageUrl" alt="Image">
+                                                                 <div class="elm-btn">
+                                                                     <a href="@Url.Action("Index", "Shop", new { categoryId = featuredCategory.Id })" class="themesflat-button bg-white width-150">@featuredCategory.Name</a>
+                                                                 </div>
+                                                                 <div class="overlay-effect bg-color-2"></div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 }
+                                            </div> <!-- /.owl-carousel  -->
                                         </div>
-                                        <div class="overlay-effect bg-color-1"></div>
                                     </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.col-md-4 -->
-                <div class="col-sm-6 col-md-4">
-                    <div class="flat-image-box style-1 row2 data-effect clearfix">
-                        <div class="item data-effect-item">
-                            <div class="inner">
-                                @if (secondCategory != null)
-                                {
-                                    <div class="thumb">
-                                        <img src="@secondCategory.ImageUrl" alt="Image">
-                                        <div class="elm-btn">
-                                            <a href="@Url.Action("Index", "Shop", new { categoryId = secondCategory.Id })" class="themesflat-button bg-white width-150">@secondCategory.Name</a>
-                                        </div>
-                                        <div class="overlay-effect bg-color-1"></div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-
-                        <div class="item data-effect-item">
-                            <div class="inner">
-                                @if (thirdCategory != null)
-                                {
-                                    <div class="thumb">
-                                        <img src="@thirdCategory.ImageUrl" alt="Image">
-                                        <div class="elm-btn">
-                                            <a href="@Url.Action("Index", "Shop", new { categoryId = thirdCategory.Id })" class="themesflat-button bg-white width-150">@thirdCategory.Name</a>
-                                        </div>
-                                        <div class="overlay-effect bg-color-1"></div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.col-md-4 -->
-                <div class="col-sm-6 col-md-4">
-                    <div class="flat-image-box style-1 data-effect div-h20 clearfix">
-                        <div class="item data-effect-item">
-                            <div class="inner">
-                                <div class="thumb">
-                                    @if (fourthCategory != null)
-                                    {
-                                        <img src="@fourthCategory.ImageUrl" alt="Image" >
-                                        <div class="elm-btn">
-                                            <a href="@Url.Action("Index", "Shop", new { categoryId = fourthCategory.Id })" class="themesflat-button bg-white width-150">@fourthCategory.Name</a>
-                                        </div>
-                                        <div class="overlay-effect bg-color-1"></div>
-                                    }
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div><!-- /.col-md-4 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section>
-}
-<!-- END IMAGE BOX -->
+                        </div><!-- /.container -->
+                    </section> <!-- END IMAGE BOX -->}
+
+
+
 <!-- PRODUCT NEW -->
 <section class="flat-row row-product-new" id="rowProductNew">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="title-section margin-bottom-52">
-                    <h2 class="title">
-                       Najnoviji proizvodi
-                    </h2>
-                </div>
 
                 @{Html.RenderAction("Products", "Widgets", new { isLatestProducts = true });}
 
@@ -226,13 +167,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="title-section margin-bottom-41">
-                    <h2 class="title">Najbolja prodaja</h2>
-                </div>
-
 
                 @{Html.RenderAction("Products", "Widgets", new { isLatestProducts = false });}
-
 
             </div>
         </div>
@@ -299,3 +235,8 @@
     </div>
 </section>
 <!-- END ICON BOX -->
+
+<!-- Revolution Slider -->
+<script src="~/Content/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+<script src="~/Content/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+<script src="~/Content/javascript/rev-slider.js"></script>
